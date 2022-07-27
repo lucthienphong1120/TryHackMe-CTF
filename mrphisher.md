@@ -22,9 +22,22 @@ Open macro file in object MrPhisher/Project/Module/
 
 ![image](https://user-images.githubusercontent.com/90561566/181205191-56223c3c-e06a-4752-979b-1853b363c86a.png)
 
-## Solve the code
+## Solve the script
 
 It's VBscript, so we can use http://vb2py.sourceforge.net/online_conversion.html to convert it to python
 
+![image](https://user-images.githubusercontent.com/90561566/181205796-49d63546-0b57-49df-a985-8ababd5e1f8c.png)
 
+It will help us in translate code, but to know it, we still need to understand the code
 
+I can translate again to
+
+![image](https://user-images.githubusercontent.com/90561566/181206220-20712890-9602-4fbd-933b-4dd8607ce335.png)
+
+a var is a string, b var is a list, so after xor a with i in range(a), print b, we have the flag
+
+![image](https://user-images.githubusercontent.com/90561566/181206737-9dba4846-0ce8-4859-9ab1-a5f3ca7d9170.png)
+
+| Flag | Flag |
+| --- | --- |
+| Answer | flag{a39a07a239aacd40c948d852a5c9f8d1} |
