@@ -34,3 +34,22 @@ and /simple page
 
 ![image](https://user-images.githubusercontent.com/90561566/182627264-f181bf7b-db22-462e-8875-e866f6b34307.png)
 
+at the end of page, i see its version
+
+![image](https://user-images.githubusercontent.com/90561566/182627984-c7973e00-78cb-4207-beb5-1a7b89543498.png)
+
+```
+searchsploit cms made simple 2.2.8
+```
+
+![image](https://user-images.githubusercontent.com/90561566/182628708-3a49d796-a2cb-43a8-8f2f-30d0483c055e.png)
+
+We can download the exploit using `searchsploit -m 46635.py`
+
+![image](https://user-images.githubusercontent.com/90561566/182629731-a154a783-6f13-4761-9728-05ca4113bc12.png)
+
+The CVE is CVE-2019-9053 and vulnerability type is SQLi
+
+## Exploitation
+
+
