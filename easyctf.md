@@ -80,7 +80,22 @@ and we found the user.txt flag
 
 ![image](https://user-images.githubusercontent.com/90561566/182776632-dc1958c4-d406-4d1f-8279-b481900253d5.png)
 
+let's see what other is under /home directory
 
+```
+$ ls /home
+mitch  sunbath
+```
+
+## Privilege Escalation
+
+```
+sudo -l -l
+```
+
+![image](https://user-images.githubusercontent.com/90561566/182777513-bfb88323-27e6-4f0f-8c77-89e4701fab1a.png)
+
+Only Vim can be run as root
 
 
 
