@@ -57,6 +57,8 @@ On the script, i see some python library to install with pip and 3 parameters to
 ![image](https://user-images.githubusercontent.com/90561566/182630976-ebbdf050-d62c-4aeb-8365-8d75ffe25159.png)
 
 ```
-python 46635.py -u http://10.10.232.89/simple --crack -w /usr/share/seclists/Passwords/Common-Credentials/best110.txt
+python2.7 46635.py -u http://10.10.232.89/simple --crack -w /usr/share/seclists/Passwords/Common-Credentials/best110.txt
 ```
+
+
 
