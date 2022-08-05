@@ -97,8 +97,10 @@ sudo -l -l
 
 Only Vim can be run as root
 
+```
+sudo vim
+```
 
+In Vim, use the command `:!sh` to play shell on vim
 
-
-
-
+![image](https://user-images.githubusercontent.com/90561566/183078765-3c3cdea7-9467-4795-9ff6-c6db30c00eed.png)
