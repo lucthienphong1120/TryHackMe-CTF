@@ -96,3 +96,10 @@ After going through the pages, again and again, searching endlessly for the pass
 ![image](https://user-images.githubusercontent.com/90561566/184371591-67e9df70-077c-4ec9-a1fa-fab7d95a0307.png)
 
 he hid it with white color right on his blog page.
+
+I think... to the user's defense,it qualifies as a good password but sadly placed at the wrong location.
+
+Seriously, OWoodflint, use a password manager!
+
+finally... thanks to tryhackme for giving such a great room about osint
+
