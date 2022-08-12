@@ -1,7 +1,7 @@
 # [OhSINT](https://tryhackme.com/room/ohsint)
 > Are you able to use open source intelligence to solve this challenge?
 
-## Introduce
+## OSINT, not just Osint
 
 The challenge provides an image to be downloaded. Opening the image in an image viewer does not reveal anything special.
 
