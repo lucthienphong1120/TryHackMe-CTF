@@ -69,7 +69,30 @@ Lucky for us, there are websites for collecting information about the different 
 These hotspots can be identified using SSID, GPS coordinates and BSSID.
 ```
 
+To use [wigle.net](https://wigle.net/), an account should be created.
 
+![image](https://user-images.githubusercontent.com/90561566/184370245-c443c26e-0320-4bdf-b985-3f9036c3ce53.png)
 
+Searching for OWoodflint's BSSID points us to the user's location which is London. Another question solved!
 
+SSID is a customizable name given to a WAP. The SSID of OWoodflint's WiFi as `UnileverWiFi`.
 
+## Further Investigation
+
+It's time to explore the other search results. On his Github repo, we can found his email he left.
+
+![image](https://user-images.githubusercontent.com/90561566/184370722-3af725f9-ef61-4ff8-959c-c88c67051d73.png)
+
+The next task is to find out this user's holiday location. Conveniently, the user has disclosed this in their blog.
+
+![image](https://user-images.githubusercontent.com/90561566/184370814-ed63292d-9a19-46c2-af78-c1768055cb80.png)
+
+I hope they had a great experience in New York.
+
+he final task is to find OWoodflint's password. It is a bit trickier.
+
+After going through the pages, again and again, searching endlessly for the password, it was placed in a basic location.
+
+![image](https://user-images.githubusercontent.com/90561566/184371591-67e9df70-077c-4ec9-a1fa-fab7d95a0307.png)
+
+he hid it with white color right on his blog page.
