@@ -89,13 +89,13 @@ The next task is to find out this user's holiday location. Conveniently, the use
 
 I hope they had a great experience in New York.
 
-he final task is to find OWoodflint's password. It is a bit trickier.
+The final task is to find OWoodflint's password. It is a bit trickier.
 
 After going through the pages, again and again, searching endlessly for the password, it was placed in a basic location.
 
 ![image](https://user-images.githubusercontent.com/90561566/184371591-67e9df70-077c-4ec9-a1fa-fab7d95a0307.png)
 
-he hid it with white color right on his blog page.
+He hid it with white color right on his blog page.
 
 I think... to the user's defense,it qualifies as a good password but sadly placed at the wrong location.
 
