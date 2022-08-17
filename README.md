@@ -6,9 +6,9 @@ In here, i wrote writeups my walkthrough for any challenges i have played on Try
 
 (CTF rooms only and maybe any interesting room)
 
-## Some useful tools
+# Some useful tools
 
-### Nmap
+## Nmap
 
 ```
 nmap -A -T4 <target>
@@ -21,7 +21,7 @@ nmap -A -T4 <target>
 + `-A`: Enable OS detection, version detection, script scanning, and traceroute
 + `--script=vuln`: detect vulnerability script on target
 
-### GoBuster
+## GoBuster
 
 ```
 gobuster dir -u <url> -w /usr/share/wordlists/dirb/common.txt -t 30
@@ -31,7 +31,7 @@ gobuster dir -u <url> -w /usr/share/wordlists/dirb/common.txt -t 30
 + `-u`: Target URL.
 + `-w`: the wordlist we are using to scan
 
-### Netcat
+## Netcat
 
 ```
 nc -lvnp 4444
@@ -42,7 +42,7 @@ nc -lvnp 4444
 + `-n`: Do not use DNS
 + `-p`: What port to listen on
 
-### Searchsploit
+## Searchsploit
 
 ```
 searchsploit <keyword>
@@ -51,7 +51,7 @@ searchsploit <keyword>
 + `-m`: mirror download the exploit
 + `-u`: show url to its CVE
 
-### Privilege Escalation
+## Privilege Escalation
 
 ```
 sudo -l -l
