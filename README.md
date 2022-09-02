@@ -51,6 +51,15 @@ searchsploit <keyword>
 + `-m`: mirror download the exploit
 + `-u`: show url to its CVE
 
+requests lib error for python2
+
+```
+git clone https://github.com/kennethreitz/requests
+cd requests && python setup.py
+pip3 install --force-reinstall requests
+pip3 install --ignore-installed requests
+```
+
 ## Privilege Escalation
 
 ```
