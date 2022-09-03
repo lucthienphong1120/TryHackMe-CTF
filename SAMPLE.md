@@ -21,7 +21,7 @@
 
 .
 
-| Flag | User flag |
+| Flag | user.txt |
 | --- | --- |
 | Answer | <flag> |
 
@@ -29,7 +29,7 @@
 
 .
 
-| Flag | User flag |
+| Flag | root.txt |
 | --- | --- |
 | Answer | <flag> |
 
