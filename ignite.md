@@ -137,9 +137,10 @@ echo os.system('/bin/bash')
 
 ![image](https://user-images.githubusercontent.com/90561566/188259287-2f59492d-31f2-440b-96a1-44d7c0665678.png)
 
+here you are
 
-.
+![image](https://user-images.githubusercontent.com/90561566/188259334-cb02362c-d167-471a-848e-8a9cb86ed442.png)
 
 | Flag | User flag |
 | --- | --- |
-| Answer | <flag> |
+| root.txt | b9bbcb33e11b80be759c4e844862482d |
