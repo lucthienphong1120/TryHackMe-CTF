@@ -97,9 +97,9 @@ search flag on /home
 
 ![image](https://user-images.githubusercontent.com/90561566/188258710-0b59be70-6923-4025-969f-8b4e9fc3e659.png)
 
-| Flag | User flag |
+| Flag | User.txt |
 | --- | --- |
-| User.txt | 6470e394cbf6dab6a91682cc8585059b |
+| Answer | 6470e394cbf6dab6a91682cc8585059b |
 
 ## Privilege Escalation
 
@@ -141,6 +141,6 @@ here you are
 
 ![image](https://user-images.githubusercontent.com/90561566/188259334-cb02362c-d167-471a-848e-8a9cb86ed442.png)
 
-| Flag | User flag |
+| Flag | root.txt |
 | --- | --- |
-| root.txt | b9bbcb33e11b80be759c4e844862482d |
+| Answer | b9bbcb33e11b80be759c4e844862482d |
