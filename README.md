@@ -74,4 +74,3 @@ find / -user root -perm /4000 2>/dev/null
 
 + https://gtfobins.github.io/gtfobins/
 
-
