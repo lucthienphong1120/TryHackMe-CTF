@@ -169,6 +169,73 @@ sudo less /etc/shadow
 
 ![image](https://user-images.githubusercontent.com/90561566/195978060-52d86ab9-2b27-4a2a-b7b7-41a87d96e4a6.png)
 
+## Privilege Escalation: SUID
+
+You will notice these files have an “s” bit set showing their special permission level.
+
+`find / -type f -perm -04000 -ls 2>/dev/null` will list files that have SUID or SGID bits set.
+
+![image](https://user-images.githubusercontent.com/90561566/196024494-dc9e397d-f0cc-4960-a52f-df8a45d9a020.png)
+
+We see that the nano text editor has the SUID bit set by running the find / -type f -perm -04000 -ls 2>/dev/null command.
+
+nano /etc/shadow will print the contents of the /etc/shadow file. We can now use the unshadow tool to create a file crackable by John the Ripper.
+
+To achieve this, unshadow needs both the /etc/shadow and /etc/passwd files.
+
+The unshadow tool’s usage can be seen below
+
+```
+unshadow passwd.txt shadow.txt > passwords.txt
+```
+
+With the correct wordlist and a little luck, John the Ripper can return one or several passwords in cleartext
+
+The other option would be to add a new user that has root privileges. This would help us circumvent the tedious process of password cracking. Below is an easy way to do it:
+
+We will need the hash value of the password we want the new user to have. This can be done quickly using the openssl tool on Kali Linux.
+
+![image](https://user-images.githubusercontent.com/90561566/196024905-d9bff419-1e8f-427d-b6bd-58692a44d4db.png)
+
+We will then add this password with a username to the /etc/passwd file.
+
+![image](https://user-images.githubusercontent.com/90561566/196024918-1ec97ebd-d4d8-4249-9f37-4c240cf8fa17.png)
+
+Once our user is added (please note how root:/bin/bash was used to provide a root shell) we will need to switch to this user and hopefully should have root privileges.
+
+![image](https://user-images.githubusercontent.com/90561566/196024937-2f8a604d-9998-495c-901b-1066760a6e1e.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
