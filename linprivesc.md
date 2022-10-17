@@ -217,9 +217,9 @@ cat /etc/passwd
 
 What is the password of user2?
 
-First we will need to find the password hashes for our passwd.txt file. Run `base64 /etc/passwd | base64 --decode` in your terminal and copy the last bit into your passwd.txt file.
+First we will need to find the password hashes for our passwd.txt file. Run `base64 /etc/passwd | base64 --decode | tail -n4` in your terminal and copy the last bit into your `passwd.txt` file.
 
-Next we will need to find the password hashes for our shadow.txt file. Run `base64 /etc/shadow | base64 --decode` in your terminal and copy the last bit into your shadow.txt file.
+Next we will need to find the password hashes for our shadow.txt file. Run `base64 /etc/shadow | base64 --decode | tail -n4` in your terminal and copy the last bit into your `shadow.txt` file.
 
 ![image](https://user-images.githubusercontent.com/90561566/196068265-ed681f4c-d2a8-44d7-923e-4217db35f654.png)
 
@@ -235,6 +235,7 @@ Finally we can use the John The Ripper tool to crack the password
 john --wordlist=/usr/share/wordlists/rockyou.txt passwords.txt
 ```
 
+![image](https://user-images.githubusercontent.com/90561566/196068630-0227b7d3-bc22-47b9-9da2-84db2dcbeac1.png)
 
 
 
