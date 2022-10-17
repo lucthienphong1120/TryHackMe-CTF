@@ -251,6 +251,7 @@ base64 /home/ubuntu/flag3.txt | base64 --decode
 | --- | --- |
 | Answer | THM-3847834 |
 
+## Privilege Escalation: Capabilities
 
 
 
