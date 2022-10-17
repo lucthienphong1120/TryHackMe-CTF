@@ -205,12 +205,35 @@ Once our user is added (please note how root:/bin/bash was used to provide a roo
 
 ![image](https://user-images.githubusercontent.com/90561566/196024937-2f8a604d-9998-495c-901b-1066760a6e1e.png)
 
+back to task
 
+```
+cat /etc/passwd
+```
 
+![image](https://user-images.githubusercontent.com/90561566/196067656-9bbefee7-973f-42e5-82b2-9588523369da.png)
 
+![image](https://user-images.githubusercontent.com/90561566/196067739-d0e41667-2777-45a0-a210-3b599f35c9ff.png)
 
+What is the password of user2?
 
+First we will need to find the password hashes for our passwd.txt file. Run `base64 /etc/passwd | base64 --decode` in your terminal and copy the last bit into your passwd.txt file.
 
+Next we will need to find the password hashes for our shadow.txt file. Run `base64 /etc/shadow | base64 --decode` in your terminal and copy the last bit into your shadow.txt file.
+
+![image](https://user-images.githubusercontent.com/90561566/196068265-ed681f4c-d2a8-44d7-923e-4217db35f654.png)
+
+Next, we need to unshadow our passwords
+
+```
+unshadow passwd.txt shadow.txt > passwords.txt
+```
+
+Finally we can use the John The Ripper tool to crack the password
+
+```
+john --wordlist=/usr/share/wordlists/rockyou.txt passwords.txt
+```
 
 
 
