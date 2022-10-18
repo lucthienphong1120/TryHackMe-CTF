@@ -315,6 +315,7 @@ ok now we got the reverse shell with root privileges
 | --- | --- |
 | Answer | THM-383000283 |
 
+use the same trick to crack password of matt: `123456`
 
 
 
