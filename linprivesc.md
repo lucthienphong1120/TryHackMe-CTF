@@ -299,7 +299,17 @@ run a listener by netcat
 nc -vlnp 7777
 ```
 
-![image](https://user-images.githubusercontent.com/90561566/196376885-97e356da-b1a6-4239-9d24-df1ccdf0cd46.png)
+I forgot to check if the script file was set to executable or not, and I kept waiting for the reverse shell and it never connected back
+
+I wasted hours googling, modifying my bash shell, trying to figure out why my cron job script isn’t working. I was about to give up until I noticed the permissions…
+
+```
+chmod +x backup.sh
+```
+
+ok now we got the reverse shell with root privileges
+
+
 
 | Flag | flag4.txt |
 | --- | --- |
