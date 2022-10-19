@@ -311,7 +311,7 @@ ok now we got the reverse shell with root privileges
 
 ![image](https://user-images.githubusercontent.com/90561566/196392720-b76682ef-ab69-4b50-91c4-b4380fec41a6.png)
 
-| Flag | flag4.txt |
+| Flag | flag5.txt |
 | --- | --- |
 | Answer | THM-383000283 |
 
