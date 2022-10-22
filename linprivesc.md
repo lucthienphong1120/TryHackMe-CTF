@@ -371,15 +371,26 @@ cat /etc/exports
 
 ![image](https://user-images.githubusercontent.com/90561566/197327716-28a1c444-8766-462c-8491-0f087a65abb3.png)
 
-mount the shared folder to our attack machine
+create a folder to work on our machine
 
 ```
-mkdir /tmp/test
-sudo mount -o rw 10.10.226.120:/home/ubuntu/sharedfolder /tmp/test
-cd /tmp/test
+mkdir /tmp/THM
+cd /tmp/THM
 ```
 
-![image](https://user-images.githubusercontent.com/90561566/197327915-4b534b03-6f3a-49ee-b1bb-ca3a1fc6b906.png)
+![image](https://user-images.githubusercontent.com/90561566/197328594-b0864c09-b4b7-478e-84a1-7c9b0d07e0e4.png)
+
+i will mount with /tmp shared folder
+
+```
+sudo mount -o rw 10.10.226.120:/home/ubuntu/sharedfolder /tmp/THM
+```
+
+![image](https://user-images.githubusercontent.com/90561566/197328667-407c2e21-1060-4942-b4e5-e630ddb56894.png)
+
+now we can see the files are present on both the machines here
+
+![image](https://user-images.githubusercontent.com/90561566/197328684-c0315e23-c37b-4ad9-a6a0-8f23aabdfaec.png)
 
 ```
 vi nfs.c
@@ -403,13 +414,15 @@ chmod +s nfs
 ls -l
 ```
 
-![image](https://user-images.githubusercontent.com/90561566/197328166-6e286be4-4823-449f-85cf-1d44cb6dfa98.png)
+![image](https://user-images.githubusercontent.com/90561566/197328715-c30d9085-43dc-4ce5-901c-80eca5326e34.png)
 
 You have now root access and can run
 
 ```
 ./nfs
 ```
+
+![image](https://user-images.githubusercontent.com/90561566/197328729-c802b7d1-c304-4169-83c9-f653b03ad10e.png)
 
 You will see below that both files (nfs.c and nfs are present on the target system. We have worked on the mounted share so there was no need to transfer them).
 
