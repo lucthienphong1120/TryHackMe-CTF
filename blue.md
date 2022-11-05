@@ -62,14 +62,57 @@ set session 1
 exploit
 ```
 
+it will create a new session 2
 
+```
+sessions -i 2
+```
 
+now we have escalated to NT AUTHORITY\SYSTEM
 
+![image](https://user-images.githubusercontent.com/90561566/200111595-a6ede282-41cf-4a14-bcc2-08e4f6806903.png)
 
+![image](https://user-images.githubusercontent.com/90561566/200111623-264280be-54ae-4768-96db-d10c804d6d94.png)
 
+background this session too
 
+First, let's list all of the processes running on the system. 
 
+Just because we have system level privileges doesn't mean our process does! We'll have to migrate to a new process that does have those permissions
 
+![image](https://user-images.githubusercontent.com/90561566/200111864-c9d79ce8-da34-49ec-8721-09779a558625.png)
+
+Once a process is found, type migrate PROCESSID, where PROCESSID is the id of the process we are migrating to 
+
+This migration process may fail, migrating processes is only successful realistically about 25% of the time.
+
+## Cracking
+
+dump all of the passwords
+
+```
+hashdump
+```
+
+![image](https://user-images.githubusercontent.com/90561566/200111953-f057a115-6e76-402c-89f5-b6f4afc5f380.png)
+
+copy password hash to file
+
+```
+type ffb43f0de35be4d9917ac0cc8ad57f8d > pass.txt
+```
+
+windows pass is using NTLM hashtype (nt) with id=1000
+
+```
+hashcat -a 0 -m 1000 pass.txt /usr/share/wordlists/rockyou.txt --show
+```
+
+![image](https://user-images.githubusercontent.com/90561566/200112436-d0629063-8109-44df-a9fd-0e5354e4b018.png)
+
+password is `alqfna22`
+
+## Find flags
 
 
 
