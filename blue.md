@@ -114,12 +114,34 @@ password is `alqfna22`
 
 ## Find flags
 
+at meterpreter, we can use `search` as very strong command
 
+```
+search -f *flag*
+```
 
+![image](https://user-images.githubusercontent.com/90561566/200159342-b96d8ff8-db83-41d1-a558-01c5ee965280.png)
 
+```
+cat C:/flag1.txt
+```
 
-.
-
-| Flag | root.txt |
+| Flag | flag1.txt |
 | --- | --- |
-| Answer | <flag> |
+| Answer | flag{access_the_machine} |
+
+```
+cat C:/Windows/System32/config/flag2.txt
+```
+
+| Flag | flag2.txt |
+| --- | --- |
+| Answer | flag{sam_database_elevated_access} |
+
+```
+cat C:/Users/Jon/Documents/flag3.txt
+```
+
+| Flag | flag3.txt |
+| --- | --- |
+| Answer | flag{admin_documents_can_be_valuable} |
