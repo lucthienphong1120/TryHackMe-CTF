@@ -127,21 +127,48 @@ cp /incidents/suspicious.pcapng /var/www/html/files/ftp/
 
 ## Cracking
 
+open captured file with wireshark
 
+```
+wireshark -r ./Downloads/suspicious.pcapng 
+```
 
+![image](https://user-images.githubusercontent.com/90561566/202406829-5de606d7-538a-43a4-9617-61d754207602.png)
 
+our concern should be http protocol, i see someone has request a web shell in the past
 
+![image](https://user-images.githubusercontent.com/90561566/202407904-4b2186e3-567b-48fa-bf75-39a635033ebb.png)
 
+let's take a look at tcp traffic 4444 dump it all out to plain text
 
+![image](https://user-images.githubusercontent.com/90561566/202410068-a0519b4a-9b8d-42cf-9460-3c5574d8dd68.png)
 
+after lookup, i can see here is the password for lennie
+
+![image](https://user-images.githubusercontent.com/90561566/202412311-520555ec-70b3-4438-8657-bacbe2c1416d.png)
+
+login with `c4ntg3t3n0ughsp1c3`
+
+![image](https://user-images.githubusercontent.com/90561566/202412520-ce00699b-cca7-4cd4-9f3a-74a7996e6aa5.png)
+
+flag here
+
+![image](https://user-images.githubusercontent.com/90561566/202412792-71e3fea3-c7e4-49ed-91fb-37422a35e690.png)
 
 | Flag | user.txt |
 | --- | --- |
-| Answer | <flag> |
+| Answer | THM{03ce3d619b80ccbfb3b7fc81e46c0e79} |
 
 ## Privilege Escalation
 
-.
+there is a scripts folder
+
+![image](https://user-images.githubusercontent.com/90561566/202413237-9c3ac792-01fe-41c0-9663-10a8a9b6c774.png)
+
+![image](https://user-images.githubusercontent.com/90561566/202413562-ffb230c2-1725-48a0-8eb2-20b79d12204e.png)
+
+
+
 
 | Flag | root.txt |
 | --- | --- |
