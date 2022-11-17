@@ -165,7 +165,13 @@ there is a scripts folder
 
 ![image](https://user-images.githubusercontent.com/90561566/202413237-9c3ac792-01fe-41c0-9663-10a8a9b6c774.png)
 
+this file will run with root permission which is one key of privilege
+
 ![image](https://user-images.githubusercontent.com/90561566/202413562-ffb230c2-1725-48a0-8eb2-20b79d12204e.png)
+
+it also run a file with lennie permission
+
+![image](https://user-images.githubusercontent.com/90561566/202415242-39b20879-3392-446a-a212-7e1e929e9b92.png)
 
 
 
