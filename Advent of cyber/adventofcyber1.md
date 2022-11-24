@@ -36,10 +36,33 @@ Answer
 
 ## Day 2
 
+go to webpage
 
+![image](https://user-images.githubusercontent.com/90561566/203722501-2012b3b8-686b-4370-b19a-800750c79d66.png)
 
+```
+gobuster dir -u http://10.10.89.166:3000 -w /usr/share/wordlists/dirb/common.txt -t 30
+```
 
+i see a hiden page under /SysAdmin
 
+![image](https://user-images.githubusercontent.com/90561566/203722926-52f49d0f-1187-42de-bf4f-1f9e5748e2e6.png)
+
+hmm nothing here
+
+![image](https://user-images.githubusercontent.com/90561566/203723299-1e449612-0c70-4c2b-843b-b3cec294a22a.png)
+
+view page source
+
+![image](https://user-images.githubusercontent.com/90561566/203723408-dcfb0b45-512a-4692-a45f-1aa703350b06.png)
+
+google it and here is the answer
+
+![image](https://user-images.githubusercontent.com/90561566/203723600-93521a3d-9b07-4541-bc2a-09701ca2f673.png)
+
+login with that credential
+
+![image](https://user-images.githubusercontent.com/90561566/203724045-5f66672c-4708-42ae-8e63-b5410cee9eb8.png)
 
 
 
