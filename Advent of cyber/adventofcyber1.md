@@ -2,7 +2,7 @@
 
 > Get started with Cyber Security in 25 Days - Learn the basics by doing a new, beginner friendly security challenge every day leading up to Christmas.
 
-## Day 1
+## Day 1: Inventory Management
 
 go to webpage
 
@@ -34,7 +34,7 @@ Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/203721147-85eef5a0-f731-4f96-9006-5de676e86f13.png)
 
-## Day 2
+## Day 2: Arctic Forum
 
 go to webpage
 
@@ -68,7 +68,7 @@ Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/203724375-6069c244-4cf4-430d-b267-eb1fc821f26b.png)
 
-## Day 3
+## Day 3: Evil Elf
 
 
 
