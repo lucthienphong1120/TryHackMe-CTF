@@ -94,9 +94,11 @@ hashcat -a 0 -m 1800 pass.txt /usr/share/wordlists/rockyou.txt
 
 ![image](https://user-images.githubusercontent.com/90561566/203927701-95099895-ce54-432d-b6c5-f836d97b2f27.png)
 
-Answer:
+Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/203927756-1a7a26e4-e544-40bd-aa7a-84d53c3e22db.png)
+
+## Day 4: Training
 
 
 
