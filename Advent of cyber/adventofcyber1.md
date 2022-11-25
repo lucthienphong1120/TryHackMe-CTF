@@ -70,7 +70,33 @@ Answer
 
 ## Day 3: Evil Elf
 
+we receive a pcap file, open it with wireshark
 
+![image](https://user-images.githubusercontent.com/90561566/203924984-d9fb7196-ae3a-41c7-86c7-1ffa448f98e9.png)
+
+destination ip of packet 998
+
+![image](https://user-images.githubusercontent.com/90561566/203925740-cf894440-8244-4e37-9e71-6174f903a4ee.png)
+
+search christmas and i see a ps4
+
+![image](https://user-images.githubusercontent.com/90561566/203925911-57e2236d-18b5-4545-8304-1e8aab912a2f.png)
+
+right click by that telnet packet and follow tcp stream
+
+![image](https://user-images.githubusercontent.com/90561566/203926218-81c8963e-8416-416c-a3f1-2240d305fcc2.png)
+
+copy its hash and crack the password
+
+```
+hashcat -a 0 -m 1800 pass.txt /usr/share/wordlists/rockyou.txt
+```
+
+![image](https://user-images.githubusercontent.com/90561566/203927701-95099895-ce54-432d-b6c5-f836d97b2f27.png)
+
+Answer:
+
+![image](https://user-images.githubusercontent.com/90561566/203927756-1a7a26e4-e544-40bd-aa7a-84d53c3e22db.png)
 
 
 
