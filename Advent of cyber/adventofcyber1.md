@@ -100,13 +100,90 @@ Answer
 
 ## Day 4: Training
 
+ssh into server
 
+```
+ssh mcsysadmin@10.10.167.35
+```
 
+![image](https://user-images.githubusercontent.com/90561566/204207865-8d0cb396-ac0d-4040-8389-3835f987dc6c.png)
 
+look around
 
+```
+ls
+grep "password" *
+```
 
+![image](https://user-images.githubusercontent.com/90561566/204207179-dd154425-3a5c-4e5e-88df-0de50cd6ccd2.png)
 
+search file contain ip address using regex
 
+```
+grep -E "([0-9]{1,3}[\.]){3}[0-9]{1,3}" *
+```
+
+![image](https://user-images.githubusercontent.com/90561566/204208001-4f5fe63a-c76a-437e-af18-dc6cd7364a1f.png)
+
+user can log into this machine
+
+```
+cat /etc/passwd | grep bash
+```
+
+![image](https://user-images.githubusercontent.com/90561566/204208779-c6bcc775-dfdf-47a4-94e4-d86305ffc85f.png)
+
+sha1 hash of file8
+
+```
+sha1sum file8
+```
+
+![image](https://user-images.githubusercontent.com/90561566/204208865-f6a16486-cba0-419e-b828-b29f1548c8ec.png)
+
+we don't have permission to see /etc/shadow but we can find its backup
+
+```
+locate shadow | grep bak
+```
+
+![image](https://user-images.githubusercontent.com/90561566/204209600-35af51b2-6e26-48fc-90a8-33f1e1e9047a.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/204211018-feb7a9b7-bc00-4a00-acd2-8c53e504efed.png)
+
+## Day 5: Ho-Ho-Hosint
+
+it give me a jpg file
+
+```
+exiftool thegrinch.jpg
+```
+
+![image](https://user-images.githubusercontent.com/90561566/204210699-966a1a27-8a8b-4049-bbf1-e8614886f6d6.png)
+
+search on gg
+
+![image](https://user-images.githubusercontent.com/90561566/204210793-afdea76f-a651-4d4f-8085-5591aa65d114.png)
+
+go to [waybackmachine](https://archive.org/web/) and look back her website
+
+![image](https://user-images.githubusercontent.com/90561566/204212360-bbdb81e6-43a3-41f5-8799-6bf30415389a.png)
+
+23/10/2019 is the first time she start her blog, but it's 5 years after her photography
+
+![image](https://user-images.githubusercontent.com/90561566/204212578-89f55346-11bb-4817-8068-1e97e21c01fd.png)
+
+find the first image on gg, it's Ada Lovelace
+
+![image](https://user-images.githubusercontent.com/90561566/204212975-6035edae-8beb-47c3-a76e-c5b43046c1ce.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/204213191-f26d0748-fe5b-411e-ba37-8e810ecbb41f.png)
+
+## Day 6: Data Elf-iltration
 
 
 
