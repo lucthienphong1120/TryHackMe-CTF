@@ -185,6 +185,57 @@ Answer
 
 ## Day 6: Data Elf-iltration
 
+open pcap file with wireshark, filder by dns, i can see a hex sub domain here
+
+![image](https://user-images.githubusercontent.com/90561566/205005190-4937ebe8-1aa0-4a72-ac4a-e1209b79ff68.png)
+
+```
+echo "43616e64792043616e652053657269616c204e756d6265722038343931" | xxd -r -p
+```
+
+![image](https://user-images.githubusercontent.com/90561566/205005658-0926defd-4888-4bdc-8eed-fe8cb74547e1.png)
+
+export objects, i see 2 files are 1 zip and 1 image
+
+![image](https://user-images.githubusercontent.com/90561566/205006471-d5ee677f-6cee-4d21-8c48-15554c83f1cb.png)
+
+zip file is protected with password, you need to crack it
+
+```
+fcrackzip -b --method 2 -D -p /usr/share/wordlists/rockyou.txt -v christmaslists.zip
+unzip christmaslists.zip
+```
+
+![image](https://user-images.githubusercontent.com/90561566/205007918-ac4cca96-0c3d-415e-a0b3-e0f49005effc.png)
+
+cat timmy wish
+
+![image](https://user-images.githubusercontent.com/90561566/205008256-0256f7d6-dc23-45a4-9b42-554f0a527412.png)
+
+extract hidden info from the image
+
+```
+steghide extract -sf TryHackMe.jpg
+```
+
+luckily, there needn't passphrase
+
+![image](https://user-images.githubusercontent.com/90561566/205009667-3d436e2e-5fa5-4c2c-89bc-45bfce1b5235.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/205010278-227fc891-3a99-4c5e-b7db-5001ad201367.png)
+
+## Day 7: Skilling Up
+
+
+
+
+
+
+
+
+
 
 
 
