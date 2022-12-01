@@ -228,6 +228,29 @@ Answer
 
 ## Day 7: Skilling Up
 
+scan the target
+
+```
+nmap -A -T4 10.10.195.1
+```
+
+![image](https://user-images.githubusercontent.com/90561566/205088147-baba06d9-b1fb-4125-9f9d-da2ffb318255.png)
+
+there are 3 open ports are 22, 111, 999
+
+os name is `linux`
+
+![image](https://user-images.githubusercontent.com/90561566/205089369-6bed4887-50a1-425a-91f2-15e567676aaf.png)
+
+check the web page at port 999
+
+![image](https://user-images.githubusercontent.com/90561566/205089220-57f0cc24-b7a9-40fa-a88b-eda29f304b1d.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/205089713-92693498-0268-406b-a7a3-640cece93c26.png)
+
+## Day 8: SUID Shenanigans
 
 
 
