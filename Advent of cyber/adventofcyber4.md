@@ -26,3 +26,43 @@ ls
 
 ![image](https://user-images.githubusercontent.com/90561566/205416597-d2a1b63d-5e69-4478-a8b8-1b76ab9b6b11.png)
 
+search log about santa
+
+```
+grep santa webserver.log
+```
+
+![image](https://user-images.githubusercontent.com/90561566/205427490-3867393d-72f1-4073-b528-b00f972c5b80.png)
+
+the timestamp is 18/Nov and it's Friday
+
+ip, and list here
+
+![image](https://user-images.githubusercontent.com/90561566/205427623-0ec8d09d-6fb4-4eca-9eb0-34c61c1989c1.png)
+
+```
+grep "THM{" *
+```
+
+![image](https://user-images.githubusercontent.com/90561566/205427736-079208b8-495f-4e1a-af42-406df1d91714.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/205427785-1ef4c4fd-1d8e-4c33-afed-7f8270198dff.png)
+
+## Day 3: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
