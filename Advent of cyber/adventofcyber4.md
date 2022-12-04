@@ -50,7 +50,22 @@ Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/205427785-1ef4c4fd-1d8e-4c33-afed-7f8270198dff.png)
 
-## Day 3: 
+## Day 3: Nothing escapes detective McRed
+
+search for whois information
+
+![image](https://user-images.githubusercontent.com/90561566/205477673-6863c50e-0662-46a8-bd7a-d9ec0a8af0ec.png)
+
+search domain source code in github, open config.php and you 'll see
+
+![image](https://user-images.githubusercontent.com/90561566/205478123-48af054b-f185-494b-a98a-3b920b2a9487.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/205478178-52c055fe-edb7-4c00-bc37-f1d95b962e73.png)
+
+## Day 4: 
+
 
 
 
