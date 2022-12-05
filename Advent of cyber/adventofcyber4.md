@@ -64,13 +64,34 @@ Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/205478178-52c055fe-edb7-4c00-bc37-f1d95b962e73.png)
 
-## Day 4: 
+## Day 4: Scanning through the snow
 
+scan the target
 
+```
+nmap -A -T4 10.10.98.27
+```
 
+![image](https://user-images.githubusercontent.com/90561566/205568647-600bfb5a-0775-4ac5-acc6-3f339c96f700.png)
 
+connect to smb by type `smb://10.10.98.27` on folder
 
++ Username: ubuntu
++ Password: S@nta2022
 
+![image](https://user-images.githubusercontent.com/90561566/205572532-6fd61e4f-12b3-4c8d-9a0f-7ac24eaf93c0.png)
+
+there are 2 files on /admin
+
+![image](https://user-images.githubusercontent.com/90561566/205573043-c151df54-752d-4a11-9a91-2aa5a17d2727.png)
+
+there are a list of username and password here
+
+![image](https://user-images.githubusercontent.com/90561566/205573719-5d3f27ca-eea5-4896-9cc0-28a80ea3ef8b.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/205574145-c77ee6f4-1afa-44d7-b895-c593cb590830.png)
 
 
 
