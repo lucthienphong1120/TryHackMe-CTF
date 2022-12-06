@@ -109,15 +109,33 @@ bruteforce vnc server
 hydra -P /usr/share/wordlists/rockyou.txt vnc://10.10.26.253 -v -f
 ```
 
-
-
-
-
-
+![image](https://user-images.githubusercontent.com/90561566/205797695-6d81ea85-4c26-4742-a09f-898fa3a4a552.png)
 
 open remmina in your linux distro
 
 ![image](https://user-images.githubusercontent.com/90561566/205795132-9531c268-cf0b-4a82-86cf-44efffb7d31d.png)
+
+connect to vnc server
+
+![image](https://user-images.githubusercontent.com/90561566/205798971-e266a51c-0d4a-4bd7-9e9e-a04cea387562.png)
+
+![image](https://user-images.githubusercontent.com/90561566/205799727-05488110-d1cf-4b01-9c11-114db2e9a0ac.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/205800560-70a54fce-4d8b-470c-a6ce-6ddd908759b5.png)
+
+## Day 6:
+
+
+
+
+
+
+
+
+
+
 
 
 
