@@ -182,10 +182,47 @@ Answer
 
 ## Day 7: Maldocs roasting on an open fire
 
+open browser, there is a bookmark of cyberchef here
 
+![image](https://user-images.githubusercontent.com/90561566/206486366-7e5d3db1-d420-47d4-9e36-9c497011f9e8.png)
 
+first, add a strings, all printable character, minlen=258
 
+![image](https://user-images.githubusercontent.com/90561566/206488560-817a2156-d448-4dc1-8b70-b4517095f98b.png)
 
+find/replace regex `[\[_\]\n]`
+
+![image](https://user-images.githubusercontent.com/90561566/206489153-4a9da692-3d67-45ff-a5f2-2e225c1c1a11.png)
+
+next, we drop bytes 124 and decode base64
+
+![image](https://user-images.githubusercontent.com/90561566/206490773-461bbade-8855-4a96-8fa9-2e3acf6c38f3.png)
+
+after that, we decode UTF-16LE
+
+![image](https://user-images.githubusercontent.com/90561566/206490980-a1d710f4-492a-4bc2-afdc-81fc5ee0e868.png)
+
+replace regex too ```['()+'"`]```
+
+![image](https://user-images.githubusercontent.com/90561566/206491340-31b89b2b-6e4d-4d76-9491-9f50829bb0ca.png)
+
+replace `]b2H_` with `http`
+
+![image](https://user-images.githubusercontent.com/90561566/206492584-e80357e6-30d6-410c-80fd-c902ec4a7f06.png)
+
+extract url and split with `@`
+
+![image](https://user-images.githubusercontent.com/90561566/206493048-da83ebad-aec7-47b9-9811-1e1d46248411.png)
+
+lastly, defang url
+
+![image](https://user-images.githubusercontent.com/90561566/206493338-26fe1c86-1f53-40a3-959d-ce86d6fdd257.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/206494799-b50ba3ba-e20f-4919-96a4-01cbea059c17.png)
+
+## Day 8: 
 
 
 
