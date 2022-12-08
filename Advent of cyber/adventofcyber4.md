@@ -125,10 +125,19 @@ Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/205800560-70a54fce-4d8b-470c-a6ce-6ddd908759b5.png)
 
-## Day 6:
+## Day 6: It's beginning to look a lot like phishing
 
+open eml file with sublime text
 
+![image](https://user-images.githubusercontent.com/90561566/206357657-10ecd22f-c0b8-4531-89d6-1101fe065cc1.png)
 
+decode Message-ID
+
+```
+base64 -d message.txt
+```
+
+![image](https://user-images.githubusercontent.com/90561566/206357943-65074ddf-da7c-4c1a-b0a8-3f5c20867b94.png)
 
 
 
