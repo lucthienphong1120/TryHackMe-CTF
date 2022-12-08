@@ -139,6 +139,62 @@ base64 -d message.txt
 
 ![image](https://user-images.githubusercontent.com/90561566/206357943-65074ddf-da7c-4c1a-b0a8-3f5c20867b94.png)
 
+Go to https://emailrep.io/ and check for sender's email
+
+![image](https://user-images.githubusercontent.com/90561566/206410602-d55700e3-f3d1-4f12-a10a-6c687f2255ec.png)
+
+search for attachment
+
+![image](https://user-images.githubusercontent.com/90561566/206410940-862e835d-bb6e-450f-8793-8b516091b276.png)
+
+extract attachments
+
+```
+emlAnalyzer -i Urgent\:.eml --header --html -u --text --extract-all
+```
+
+![image](https://user-images.githubusercontent.com/90561566/206413100-db23ef66-4830-4b51-b42b-4216e9faa329.png)
+
+```
+cd eml_attachments
+sha256sum Division_of....
+```
+
+![image](https://user-images.githubusercontent.com/90561566/206414076-b0267bf4-52e4-4ab0-abcf-f1337e1e75cf.png)
+
+check it on virustotal
+
+![image](https://user-images.githubusercontent.com/90561566/206414347-2907f4c9-4860-412c-80f9-9ee5b1c37057.png)
+
+go to behavior tab, search for 2nd tactic Mitre ATT&CK section
+
+![image](https://user-images.githubusercontent.com/90561566/206414838-8f8cdaa5-723e-4817-b2fe-0e15b219cd8a.png)
+
+go deep analysic in https://labs.inquest.net/
+
+![image](https://user-images.githubusercontent.com/90561566/206415811-8252b4d5-afbd-4bb9-99fe-ec4f3bbe0f81.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/206416200-652a0b4c-0804-4398-b820-9935ef887fef.png)
+
+![image](https://user-images.githubusercontent.com/90561566/206416293-e47b6e2a-eb2e-4026-a8b7-0281381dd658.png)
+
+## Day 7: Maldocs roasting on an open fire
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
