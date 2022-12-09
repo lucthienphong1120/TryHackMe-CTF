@@ -222,12 +222,41 @@ Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/206494799-b50ba3ba-e20f-4919-96a4-01cbea059c17.png)
 
-## Day 8: 
+## Day 8: Last Christmas I gave you my ETH
 
+go to remix IDE and upload 2 files to local workspace
 
+![image](https://user-images.githubusercontent.com/90561566/206726837-bb9d2bce-969a-4fc1-ba52-7b5aae273d44.png)
 
+open 2 files and compile both
 
+![image](https://user-images.githubusercontent.com/90561566/206728718-f59333b8-bc8d-4fc5-a8ce-2b7b37796191.png)
 
+go to deploy tab, deploy etherstore first
+
+![image](https://user-images.githubusercontent.com/90561566/206729040-77ca23d8-2441-42f5-8b1a-16352dd18063.png)
+
+add 1 ether and deposite, you will see the balance is increased
+
+![image](https://user-images.githubusercontent.com/90561566/206729420-064b39e5-3279-48bb-860c-29af7cb5e4d4.png)
+
+switch to another account, deploy attack constract with etherstore address
+
+![image](https://user-images.githubusercontent.com/90561566/206729986-9452ce74-fe05-4eb3-8414-a40592564a4d.png)
+
+if i deposite or withdraw, i can see a pending signal
+
+![image](https://user-images.githubusercontent.com/90561566/206730882-497ef871-e59d-438b-b989-df155e38251e.png)
+
+here is flag
+
+![image](https://user-images.githubusercontent.com/90561566/206731171-8dbeb256-eb76-499d-8fb6-830b6659ea39.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/206731491-21d6c986-323a-4c0c-a7a3-4fe78dbb83c2.png)
+
+## Day 9: 
 
 
 
