@@ -12,15 +12,23 @@ nmap -sV 10.10.249.228
 
 ![image](https://user-images.githubusercontent.com/90561566/206836994-a0fb95a9-acae-4ccf-ba35-ca6528a21ab3.png)
 
-inspect web in network tab, you can see the website is using laravel framework
+go to webpage, you will see it use Laravel framework
 
-![image](https://user-images.githubusercontent.com/90561566/206837414-86460ac0-a647-47a6-b4fd-eff32759c097.png)
+![image](https://user-images.githubusercontent.com/90561566/206840506-be217bdf-43cf-476f-9374-f90124b29f70.png)
+
+search for exploit
+
+![image](https://user-images.githubusercontent.com/90561566/206840698-57f8cc20-b922-498f-ba11-b61d7d792e8f.png)
 
 ```
 msfconsole
 ```
 
 ![image](https://user-images.githubusercontent.com/90561566/206837648-bd28931c-0d84-4f9f-ade3-97692ff1269f.png)
+
+type `info` and you will see cve here
+
+![image](https://user-images.githubusercontent.com/90561566/206840790-4eede273-2564-40a2-b259-e541c3b1e38b.png)
 
 ```
 set HttpClientTimeout 20
@@ -131,6 +139,9 @@ run
 now interact with opened session to grab flag
 
 ![image](https://user-images.githubusercontent.com/90561566/206840056-96f5cd4d-5e12-43f3-a8bf-6053b31c7752.png)
+
+Answer
+
 
 
 
