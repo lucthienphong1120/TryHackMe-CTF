@@ -142,8 +142,11 @@ now interact with opened session to grab flag
 
 Answer
 
+![image](https://user-images.githubusercontent.com/90561566/206840820-1d4b507f-fefa-495d-ae4e-c37dc1053558.png)
 
+![image](https://user-images.githubusercontent.com/90561566/206840829-9634a7c4-c544-4e1a-a526-92f18f2fd401.png)
 
+## Day 10: 
 
 
 
