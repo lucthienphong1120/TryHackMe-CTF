@@ -255,20 +255,3 @@ call attack and you will get the flag
 Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/206731491-21d6c986-323a-4c0c-a7a3-4fe78dbb83c2.png)
-
-## Day 9: 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
