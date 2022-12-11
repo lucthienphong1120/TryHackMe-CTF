@@ -146,7 +146,7 @@ Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/206840829-9634a7c4-c544-4e1a-a526-92f18f2fd401.png)
 
-## Day 10: 
+## Day 10: You're a mean one, Mr. Yeti
 
 
 
