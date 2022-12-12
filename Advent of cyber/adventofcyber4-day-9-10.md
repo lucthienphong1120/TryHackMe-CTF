@@ -204,7 +204,45 @@ Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/206894791-261f36a0-8fff-4bc9-89d5-0efd6d8d1c5d.png)
 
-## Day 11: 
+## Day 11: Not all gifts are nice
+
+firstly, scan the os
+
+```
+python3 vol.py -f workstation.vmem windows.info
+```
+
+![image](https://user-images.githubusercontent.com/90561566/207078031-70e6bcb4-ecc3-434b-95d9-ae67c0709967.png)
+
+scan the processes
+
+```
+python3 vol.py -f workstation.vmem windows.pslist
+```
+
+you will see a gift that santa left for us
+
+```
+python3 vol.py -f workstation.vmem windows.dumpfiles --pid 2040
+```
+
+![image](https://user-images.githubusercontent.com/90561566/207079495-e5641d24-feeb-4836-9964-723ab9bc7c2f.png)
+
+## Day 12: Forensic McBlue to the REVscue!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
