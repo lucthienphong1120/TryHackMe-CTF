@@ -230,11 +230,71 @@ python3 vol.py -f workstation.vmem windows.dumpfiles --pid 2040
 
 ## Day 12: Forensic McBlue to the REVscue!
 
+open the file with DIE
 
+![image](https://user-images.githubusercontent.com/90561566/207519345-c35e03b0-6390-4199-bbb0-25b660bec2bc.png)
 
+open cmd and cd to Desktop/"Malware Sample"
 
+```
+capa mysterygift
+upx -d mysterygift
+```
 
+![image](https://user-images.githubusercontent.com/90561566/207520078-f7872da1-b1b3-40cd-bab4-7fb3f60b10ba.png)
 
+```
+del mysterygift.viv
+capa mysterygift
+```
+
+you will see the result from capa
+
+![image](https://user-images.githubusercontent.com/90561566/207520358-4d9de1c4-c13e-4094-a9f0-66d7e1e7d76a.png)
+
+![image](https://user-images.githubusercontent.com/90561566/207520473-4d97fa2b-19e1-4220-b601-84607cd8d7f6.png)
+
+now move into dynamic analysis
+
+```
+mv mysterygift mysterygift.exe
+```
+
+open process monitor and analysis regkey, then run the mysterygift.exe
+
+![image](https://user-images.githubusercontent.com/90561566/207521517-e7b6a298-cf1f-4b0f-a92e-ea91c58e25be.png)
+
+right click and exclude all operation, left only RegCreateKey and RegSetValue
+
+![image](https://user-images.githubusercontent.com/90561566/207521758-90ab625d-7d54-45a5-95d5-4240a351432e.png)
+
+at RegSetValue, i can see one suspicious path
+
+![image](https://user-images.githubusercontent.com/90561566/207522159-b0e079fd-4f89-41b4-ba27-f9402f091346.png)
+
+go to that path and edit to see the content of wishes.bat
+
+![image](https://user-images.githubusercontent.com/90561566/207522435-d25c67e2-d0e5-4041-8759-38952609d551.png)
+
+next analysis the file operation and include CreateFile
+
+![image](https://user-images.githubusercontent.com/90561566/207523435-2b63e7c5-5a8c-4797-ae0d-7ca94457e415.png)
+
+continue with analysing network operation
+
+![image](https://user-images.githubusercontent.com/90561566/207524682-12561a9c-0f76-44b6-8d31-470f6dd3202b.png)
+
+filter by strings with DIE is the same
+
+![image](https://user-images.githubusercontent.com/90561566/207525118-a0329755-9703-47a4-b8cc-933f974ad4b2.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/207525586-8ff4280f-4886-4147-910f-5cddddcc5e37.png)
+
+![image](https://user-images.githubusercontent.com/90561566/207525655-dcb16d87-9909-4244-81b7-148f74700f4c.png)
+
+## Day 13: Simply having a wonderful pcap time
 
 
 
