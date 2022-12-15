@@ -296,7 +296,45 @@ Answer
 
 ## Day 13: Simply having a wonderful pcap time
 
+first, open the pcap file, view the "Protocol Hierarchy" menu
 
+![image](https://user-images.githubusercontent.com/90561566/207802009-f93123c3-7104-4f26-8ecd-06be50910449.png)
+
+look the Conversations menu, it's suspicious at port 3389 (rdp)
+
+![image](https://user-images.githubusercontent.com/90561566/207802232-1a1f9e57-8085-4e23-8ddd-3b06cf62b913.png)
+
+filter by dns, there are 2 domains found
+
+![image](https://user-images.githubusercontent.com/90561566/207802771-1ba5c3a7-03ff-4e19-b581-b62707ab46e5.png)
+
+filter by http
+
+![image](https://user-images.githubusercontent.com/90561566/207803018-e194dcd7-c56c-4d10-8eb0-a0fdd9f0f6d2.png)
+
+![image](https://user-images.githubusercontent.com/90561566/207803580-d5ff19c4-49d1-45b9-ac93-1ab078a888e5.png)
+
+export object by http
+
+![image](https://user-images.githubusercontent.com/90561566/207803677-e41c3f96-cbbd-4d0d-8c70-71bc29277234.png)
+
+```
+sha256sum mysterygift.exe
+```
+
+search in virustotal
+
+![image](https://user-images.githubusercontent.com/90561566/207804311-72fdc816-21f1-48c8-a39c-044f0209474e.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/207804961-de3ff6af-de4c-4932-9b49-45ab293caf7e.png)
+
+![image](https://user-images.githubusercontent.com/90561566/207805029-a674740f-7231-42ba-aa94-4ba76fa8e962.png)
+
+![image](https://user-images.githubusercontent.com/90561566/207805059-eaa48e02-c8a0-4cf1-987c-691747e57570.png)
+
+## Day 14: I'm dreaming of secure web apps
 
 
 
