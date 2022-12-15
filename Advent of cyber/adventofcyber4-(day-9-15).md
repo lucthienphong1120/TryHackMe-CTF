@@ -322,7 +322,7 @@ export object by http
 sha256sum mysterygift.exe
 ```
 
-search in virustotal
+search in virustotal, switch to behavior tab, navigate to ip address, there are 3 ip with 443 protocol
 
 ![image](https://user-images.githubusercontent.com/90561566/207804311-72fdc816-21f1-48c8-a39c-044f0209474e.png)
 
