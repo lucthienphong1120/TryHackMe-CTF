@@ -336,6 +336,29 @@ Answer
 
 ## Day 14: I'm dreaming of secure web apps
 
+view the webapp, login with given credentials
+
+![image](https://user-images.githubusercontent.com/90561566/208044116-88da0df1-a6a1-4383-82ef-01110e3a73d3.png)
+
+change the url increase gradually to use 105
+
+![image](https://user-images.githubusercontent.com/90561566/208044296-9b240d0c-deb8-4e15-83de-1020f1d6161a.png)
+
+click on the image, new url to find for you
+
+![image](https://user-images.githubusercontent.com/90561566/208044548-d072a533-803c-4ab3-ba92-9d50b812aedb.png)
+
+do the same, you will see the image 100
+
+![image](https://user-images.githubusercontent.com/90561566/208044650-f0b5e8dd-555d-4081-80cd-1bbf71802c78.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/208044827-e3747aee-51dc-499e-afd7-35f9564d33cb.png)
+
+## Day 15: Santa is looking for a Sidekick
+
+
 
 
 
