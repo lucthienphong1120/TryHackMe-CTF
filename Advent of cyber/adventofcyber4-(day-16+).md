@@ -28,12 +28,43 @@ Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/208239946-295dd51b-e96c-4f96-bb25-11587f6b278a.png)
 
-## Day 17: 
+## Day 17: Filtering for Order Amidst Chaos
 
+this is a regex challenge, our job is filtering some words in that file
 
+![image](https://user-images.githubusercontent.com/90561566/208287514-a910bd43-75c5-4ff1-bb0e-5d5f5bf9d422.png)
 
+filter username
 
+```
+egrep '^[a-zA-Z0-9]{6,12}$' strings
+```
 
+![image](https://user-images.githubusercontent.com/90561566/208287658-f54fa92e-b091-48aa-9388-75b977da900c.png)
+
+filter email
+
+```
+egrep '^.+@.+\.com$' strings
+```
+
+![image](https://user-images.githubusercontent.com/90561566/208287976-3bd87580-946a-4c11-b9b5-8be276abdbbf.png)
+
+domain filter
+
+```
+egrep '^https?://(www.)?.+\..+' strings
+```
+
+![image](https://user-images.githubusercontent.com/90561566/208288210-710ff49a-a5f2-4ef2-a014-c3e159c7ea8e.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/208288270-87343200-0de1-4b0b-8cdb-1d0629b75d78.png)
+
+![image](https://user-images.githubusercontent.com/90561566/208288278-4f12f4e7-8a63-426e-adb4-9fe351f885f5.png)
+
+## Day 18: 
 
 
 
