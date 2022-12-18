@@ -61,6 +61,6 @@ nothing at room 14 but there is a flag at room 0
 
 Here you are
 
-| Flag | Answer |
+| Flag | Corridor |
 | --- | --- |
-| flag | flag{2477ef02448ad9156661ac40a6b8862e} |
+| Answer | flag{2477ef02448ad9156661ac40a6b8862e} |
