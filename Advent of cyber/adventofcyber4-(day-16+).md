@@ -64,9 +64,37 @@ Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/208288278-4f12f4e7-8a63-426e-adb4-9fe351f885f5.png)
 
-## Day 18: 
+## Day 18: Lumberjack Lenny Learns New Rules
 
+they give us a website with sigma template and we must writeout the rule for it IOC
 
+![image](https://user-images.githubusercontent.com/90561566/208444236-456d1554-8e71-4658-a7bc-dca135ebcf5b.png)
+
+before starting, you need remember some identifying characteristics below
+
+![image](https://user-images.githubusercontent.com/90561566/208446122-209c33a3-d125-45c0-a462-419d9486a2ff.png)
+
+firstly, edit the local_account_creation.yml
+
+![image](https://user-images.githubusercontent.com/90561566/208445533-85c00bc7-6ad1-42ef-b734-0a50280a6bbb.png)
+
+after finished, click on view log, a detection log has been captured
+
+![image](https://user-images.githubusercontent.com/90561566/208445932-72b74eed-9f0d-413c-9134-27f34a9ee8f8.png)
+
+next, edit the susp_software_discovery.yml
+
+![image](https://user-images.githubusercontent.com/90561566/208448128-64dba09b-735e-4cfd-ac40-9760d5ed359c.png)
+
+finally, edit the schtasks_creation.yml
+
+![image](https://user-images.githubusercontent.com/90561566/208449251-8a99201e-ae45-4633-9559-7514c697dbfe.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/208449447-73528265-2ec1-451f-9911-69ec2c161566.png)
+
+## Day 19: 
 
 
 
