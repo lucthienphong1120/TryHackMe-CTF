@@ -94,7 +94,39 @@ Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/208449447-73528265-2ec1-451f-9911-69ec2c161566.png)
 
-## Day 19: 
+## Day 19: Wiggles go brrr
+
+open the Logic 2.4.2 on Desktop with santa captured file to start analysis, ctrl and wheel your mouse to zoom out the signal
+
+![image](https://user-images.githubusercontent.com/90561566/208622560-8f9e87a1-0289-4436-a21c-7d33ba934332.png)
+
+zoom in at the first think line of D1 channel 1
+
+![Untitled](https://user-images.githubusercontent.com/90561566/208624685-09c77009-0363-4823-9cb2-12a2c0647a91.png)
+
+click on analyzer tab, choose async serial, let's analysis channel 1, Bit rate 4800
+
+![Untitled](https://user-images.githubusercontent.com/90561566/208625727-29366b7f-3ef9-410d-b72c-41111662ebf7.png)
+
+on the terminal icon, you can see the data
+
+![image](https://user-images.githubusercontent.com/90561566/208626026-3762db2d-203b-44d7-9170-efbbfcb07471.png)
+
+click on the plus and add another async serial, do the same with channel 0, Bit rate 4800
+
+![image](https://user-images.githubusercontent.com/90561566/208626493-ccbf324b-9972-4962-9b30-7662bfacd833.png)
+
+add another with channel 0 but Bit rate is 9600
+
+![Untitled](https://user-images.githubusercontent.com/90561566/208627223-611b0760-b03b-4f93-ac8d-9228f8179a59.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/208627725-07e91f41-6bdf-4951-a364-84c71c17227e.png)
+
+![image](https://user-images.githubusercontent.com/90561566/208627752-9cf2c012-ce5a-47eb-abd8-0f6abc4ebbfd.png)
+
+## Day 20: 
 
 
 
