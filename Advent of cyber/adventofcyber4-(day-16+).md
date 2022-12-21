@@ -126,7 +126,9 @@ Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/208627752-9cf2c012-ce5a-47eb-abd8-0f6abc4ebbfd.png)
 
-## Day 20: 
+## Day 20: Binwalkin’ around the Christmas tree
+
+
 
 
 
