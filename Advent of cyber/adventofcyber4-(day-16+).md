@@ -128,6 +128,79 @@ Answer
 
 ## Day 20: Binwalkin’ around the Christmas tree
 
+log into machine, we have some files here
+
+![image](https://user-images.githubusercontent.com/90561566/209087570-e780b3df-da9e-4734-8bcf-2d2a569dc5a5.png)
+
+```
+cd bin
+binwalk -E -N firmwarev2.2-encrypted.gpg
+```
+
+verify the file, it is probably encrypted
+
+![image](https://user-images.githubusercontent.com/90561566/209087811-2f688995-e541-4a02-8f95-0d78c31f1c8c.png)
+
+extracted the firmware from older version
+
+```
+cd ../bin-unsigned
+extract-firmware.sh firmwarev1.0-unsigned
+```
+
+![image](https://user-images.githubusercontent.com/90561566/209088275-60c138b5-ddc9-4ee2-99cc-51d2b5beb052.png)
+
+now find encrypted key and paraphrase
+
+```
+grep -ir key
+grep -ir paraphrase
+```
+
+![image](https://user-images.githubusercontent.com/90561566/209088560-b0c3a28e-8627-4d91-803f-d0615e09a39f.png)
+
+remember paraphrase is `Santa@2022`, it will be used for protecting the key
+
+import these keys to gpg
+
+```
+gpg --import fmk/rootfs/gpg/private.key
+gpg --import fmk/rootfs/gpg/public.key
+gpg --list-secret-keys
+```
+
+![image](https://user-images.githubusercontent.com/90561566/209089102-0fc31d44-fdbf-4e7d-88fd-90ff10e938aa.png)
+
+```
+cd ../bin
+gpg firmwarev2.2-encrypted.gpg
+```
+
+![image](https://user-images.githubusercontent.com/90561566/209089518-5656ff88-cd43-4e82-9c19-778b0a6f6fa0.png)
+
+now, extract the firmware
+
+```
+extract-firmware.sh firmwarev2.2-encrypted
+```
+
+![image](https://user-images.githubusercontent.com/90561566/209090012-06436624-5419-46d7-a076-4dc126ee6ad8.png)
+
+we can find flag here
+
+![image](https://user-images.githubusercontent.com/90561566/209090408-09d46149-3efe-448f-90ca-048691784c49.png)
+
+search for build version
+
+![image](https://user-images.githubusercontent.com/90561566/209091293-345828de-f62d-4373-9443-12bc45934ef8.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/209091379-1321b113-5022-440d-b5e8-d0c748c6297b.png)
+
+## Day 21: Have yourself a merry little webcam
+
+
 
 
 
