@@ -248,8 +248,6 @@ Answer
 
 ## Day 22: Threats are failing all around me
 
-![image](https://user-images.githubusercontent.com/90561566/209272117-ff11d439-d3d8-480a-ab05-b5814defbdd8.png)
-
 match the information
 
 ![image](https://user-images.githubusercontent.com/90561566/209272347-78815c71-63fa-4dc3-b7f2-abe6825a88d3.png)
