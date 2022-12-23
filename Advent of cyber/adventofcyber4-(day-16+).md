@@ -246,10 +246,21 @@ Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/209141975-73f789a1-22e1-4f01-bf46-cbc441d7dcc3.png)
 
-## Day 22: 
+## Day 22: Threats are failing all around me
 
+![image](https://user-images.githubusercontent.com/90561566/209272117-ff11d439-d3d8-480a-ab05-b5814defbdd8.png)
 
+match the information
 
+![image](https://user-images.githubusercontent.com/90561566/209272347-78815c71-63fa-4dc3-b7f2-abe6825a88d3.png)
+
+![image](https://user-images.githubusercontent.com/90561566/209272388-6ca3e5a4-2b31-43cf-8427-92475954ec16.png)
+
+Answer
+
+![Uploading image.png…]()
+
+## Day 23: 
 
 
 
