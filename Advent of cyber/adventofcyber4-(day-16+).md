@@ -258,7 +258,7 @@ match the information
 
 Answer
 
-![Uploading image.png…]()
+![image](https://user-images.githubusercontent.com/90561566/209272496-c33760a8-687c-4bd8-8017-d0a20c005ed4.png)
 
 ## Day 23: 
 
