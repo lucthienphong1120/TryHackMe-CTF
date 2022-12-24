@@ -258,7 +258,85 @@ Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/209272496-c33760a8-687c-4bd8-8017-d0a20c005ed4.png)
 
-## Day 23: 
+## Day 23: Mission ELFPossible: Abominable for a Day
+
+we have a simulator game
+
+![image](https://user-images.githubusercontent.com/90561566/209439444-c07539df-1ec6-4ca1-9556-93cddac5beb6.png)
+
+first, talk to guard that you deliver for santa's EA
+
+![image](https://user-images.githubusercontent.com/90561566/209439548-6f0c5a14-5d9b-49f6-8150-bf5e9652281e.png)
+
+after that, go to santa executive assitant on the first right
+
+![image](https://user-images.githubusercontent.com/90561566/209439693-d2f395a4-8ffc-4d92-bded-f57d26f3d52c.png)
+
+click on the first desk drawer, there's a piece of paper wrote password of santa vault
+
+![image](https://user-images.githubusercontent.com/90561566/209439649-8d5105c2-07bd-45ca-9c13-6296e44263de.png)
+
+go to santa office at the right end of street, enter santa vault password
+
+![image](https://user-images.githubusercontent.com/90561566/209439821-49c06050-2128-4b2b-8ec3-552b545c0b7f.png)
+
+first flag solved
+
+![image](https://user-images.githubusercontent.com/90561566/209439838-44ec46d7-c9ec-48d0-8fe9-e2e1da4fa115.png)
+
+do the same to bypass guard, but now we have time limited
+
+![image](https://user-images.githubusercontent.com/90561566/209439907-3f0b6777-5144-4f3b-b8ec-f7cb8e2df430.png)
+
+this time there's a note in the cup on the right of EA's laptop
+
+![image](https://user-images.githubusercontent.com/90561566/209439921-f5362733-1ca0-4af7-9aa3-1c0559d90151.png)
+
+use it as password hint at santa office laptop
+
+![image](https://user-images.githubusercontent.com/90561566/209439970-d10ba707-af40-476d-91f6-1e1984ff2c66.png)
+
+we have santa vault's password again
+
+![image](https://user-images.githubusercontent.com/90561566/209439975-2739d831-712d-4e13-8dd1-4580371c87ef.png)
+
+next to level 3, now you have only 3 times to try and can acess only EA and deer rooms
+
+![image](https://user-images.githubusercontent.com/90561566/209440109-f57999da-0ea8-4298-a55e-d9a45a8e845e.png)
+
+see post-it note like at level 2
+
+![image](https://user-images.githubusercontent.com/90561566/209440168-3b795186-b648-4ba3-88b0-55014dab7c25.png)
+
+at drawer, we got santa card
+
+![image](https://user-images.githubusercontent.com/90561566/209440577-f667ca20-b88f-494c-a3af-718bf2783304.png)
+
+enter his favorite as password of his laptop, i found 2nd part of santa vault at file and his old password at trash
+
+![image](https://user-images.githubusercontent.com/90561566/209440261-2309fac3-ccf5-42f9-840d-7d832b8aeb02.png)
+
+try to change last digit of santa old password and we bypassed his laptop with `H0tCh0coL@t3_02` password, it constains 1st part of santa vault
+
+![image](https://user-images.githubusercontent.com/90561566/209440846-69302655-1e2e-4464-bced-a9ff0a2b085f.png)
+
+merge 2 parts and open santa vault, we have our flag and one santa code: 2845
+
+![image](https://user-images.githubusercontent.com/90561566/209441013-7d2d4734-8cbf-4529-8dd4-1986c6d7424d.png)
+
+go to santa workshop, enter PIN at the left of the door
+
+![image](https://user-images.githubusercontent.com/90561566/209441111-88a454ab-b728-4ebf-852d-506ce29618d5.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/209441236-2b809aa5-5574-4fe6-a7c1-152974b28d39.png)
+
+![image](https://user-images.githubusercontent.com/90561566/209441249-c978f5de-e87c-467e-a51d-be88a4367e05.png)
+
+![image](https://user-images.githubusercontent.com/90561566/209441255-1c47b3cc-3004-4585-adf3-9baf2a3bb25b.png)
+
+## Day 24: 
 
 
 
