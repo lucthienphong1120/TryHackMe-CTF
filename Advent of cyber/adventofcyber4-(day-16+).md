@@ -336,16 +336,8 @@ Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/209441255-1c47b3cc-3004-4585-adf3-9baf2a3bb25b.png)
 
-## Day 24: 
+## Day 24: Ho, ho, ho, the survey's short
 
+do your feedback and get last flag
 
-
-
-
-
-
-
-
-
-
-
+![image](https://user-images.githubusercontent.com/90561566/209441516-45432121-78a5-44b3-811b-42b6fd16baf5.png)
