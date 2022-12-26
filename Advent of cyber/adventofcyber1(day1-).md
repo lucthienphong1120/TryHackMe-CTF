@@ -300,7 +300,48 @@ Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/209460368-d1488727-ede9-4d69-bf00-984f3f3f37ff.png)
 
-## Day 9: 
+## Day 9: Requests
+
+view web at port 3000
+
+![image](https://user-images.githubusercontent.com/90561566/209495379-0e12b25e-6318-4d58-a614-9ed89a1c6e3e.png)
+
+create a python file
+
+```
+import requests
+host = "http://10.10.169.100:3000"
+path = "/"
+values = []
+while path != "/end":
+  response=requests.get(host+path)
+  json_response = response.json()
+  path = "/" + json_response["next"]
+  if path != "/end":
+    values.append(json_response["value"])
+print("".join(values))
+```
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/209495483-dcf6c360-863c-4716-9b71-9fff8ea6310f.png)
+
+## Day 10: Metasploit-a-ho-ho-ho
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
