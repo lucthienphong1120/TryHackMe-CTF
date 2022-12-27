@@ -451,8 +451,32 @@ Answer
 
 ## Day 12: Elfcryption
 
+there has 3 files
 
+![image](https://user-images.githubusercontent.com/90561566/209637868-4c665955-9897-4503-9c3f-ef14c1e1f68c.png)
 
+```
+md5sum note1.txt.gpg
+```
 
+![image](https://user-images.githubusercontent.com/90561566/209638401-8da68baf-4d7f-40a8-a5b6-01801f53e50f.png)
 
+2 files left, the hint is `gpg key is 25daysofchristmas` and `private password is hello`
 
+```
+gpg -d note1.txt.gpg
+```
+
+![image](https://user-images.githubusercontent.com/90561566/209638431-8444f5f1-c897-4621-b6ac-e0cf7bdf10ca.png)
+
+it’s safe to assume that this file is asymmetrically encrypted, decrypt file with openssl
+
+```
+openssl rsautl -decrypt -inkey private.key -in note2_encrypted.txt -out note2.txt
+```
+
+![image](https://user-images.githubusercontent.com/90561566/209639061-07b121be-3cab-455c-abd0-815d8bab378c.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/209639160-34211816-c63e-4fc3-a2cc-6521ef12da4f.png)
