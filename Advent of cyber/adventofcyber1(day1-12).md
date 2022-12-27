@@ -445,6 +445,10 @@ select * from USERS;
 
 ![image](https://user-images.githubusercontent.com/90561566/209631080-cb73e125-564b-4eaa-afd5-aee551b9db97.png)
 
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/209633480-0a7572c6-a1df-4bc5-9b5d-c5ca6f5fae1d.png)
+
 ## Day 12: Elfcryption
 
 
