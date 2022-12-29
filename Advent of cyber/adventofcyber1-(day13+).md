@@ -87,7 +87,19 @@ Answer
 
 ## Day 14: Unknown Storage
 
+we only know starting point bucket name is `advent-bucket-one`
 
+go to https://advent-bucket-one.s3.amazonaws.com/
+
+![image](https://user-images.githubusercontent.com/90561566/209891417-e5d9fb22-f696-4370-9947-d136b5800ba0.png)
+
+i found a file employee_names.txt, view it
+
+https://advent-bucket-one.s3.amazonaws.com/employee_names.txt
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/209891478-e145748e-522f-4232-8eae-ddae5cd2ed78.png)
 
 
 
