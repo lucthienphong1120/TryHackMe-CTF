@@ -101,16 +101,62 @@ Answer
 
 ![image](https://user-images.githubusercontent.com/90561566/209891478-e145748e-522f-4232-8eae-ddae5cd2ed78.png)
 
+## Day 15: LFI
 
+scan the target
 
+```
+nmap -A -T4 10.10.194.192
+```
 
+![image](https://user-images.githubusercontent.com/90561566/210077072-9d558ebd-79b0-4b2e-88f9-8bde328b8c9e.png)
 
+it has a webpage with node.js and ssh openned
 
+![image](https://user-images.githubusercontent.com/90561566/210077140-af2d6193-7713-4160-825c-1f6b9acf5b34.png)
 
+we can see that charlie is going to go to Hawaii
 
+![image](https://user-images.githubusercontent.com/90561566/210077262-050f2838-2756-4737-b268-f01c2e48358a.png)
 
+view source, i notice that
 
+![image](https://user-images.githubusercontent.com/90561566/210077385-b64c85de-6689-4ae0-806b-74f5e1f8658b.png)
 
+think about LFI, open burpsuite and intercept the requests
+
+after forward, it return a request like that
+
+![image](https://user-images.githubusercontent.com/90561566/210078866-28ae57b2-1982-47a5-b167-0837199dd1bb.png)
+
+this means that we have a potential vector for LFI. Notice the `%2f` inside the get request this decodes to be `/`
+
+send to repeater to test
+
+![image](https://user-images.githubusercontent.com/90561566/210079044-42342576-41e9-4f72-9092-48028e9e672e.png)
+
+success, i got the `/etc/shadow`
+
+![image](https://user-images.githubusercontent.com/90561566/210079321-ab052f35-d16d-4edf-926d-55163e7494fc.png)
+
+copy charlie password hash and crack it
+
+```
+hashcat -a 0 -m 1800 pass.txt /usr/share/wordlists/rockyou.txt --show
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210079914-72278fae-adc1-4aec-809d-c3f63939d1c2.png)
+
+ssh into the server
+
+```
+ssh charlie@10.10.194.192
+password1
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210080045-53ed286e-b9a9-4463-8038-68770611196a.png)
+
+Answer
 
 
 
