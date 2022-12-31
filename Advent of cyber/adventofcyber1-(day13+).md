@@ -158,10 +158,50 @@ password1
 
 Answer
 
+## Day 16: File Confusion
 
+the task give us a zip file and our work is writing script by python to answer the questions
 
+```
+# extract.py
+import os,zipfile,sys
 
+with zipfile.ZipFile(sys.argv[1],'r') as zip:
+    zip.extractall('extracted')
+    for file in os.listdir('extracted'):
+        if file.endswith('.zip'):
+            with zipfile.ZipFile('extracted/'+file,'r') as zip2:
+                zip2.extractall('extracted')
+                os.remove('extracted/'+file)
+os.system('ls extracted | wc -l')
+```
 
+```
+# exif.py
+import os, exiftool
+
+files = os.listdir('extracted')
+
+with exiftool.ExifTool() as et:
+    metadata = et.get_metadata_batch(files)
+
+for d in metadata:
+    if "XMP:Version" in d.keys():
+        print("File Name: {}".format(d["SourceFile"],d["XMP:Version"]))
+```
+
+```
+# password.py 
+import os
+
+os.system('grep -r "password" extracted')
+```
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/210139565-3d8ddb49-8ba9-4f3e-b212-296d8155d214.png)
+
+## Day 17: Hydra-ha-ha-haa
 
 
 
