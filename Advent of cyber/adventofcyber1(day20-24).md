@@ -170,6 +170,50 @@ Answer
 
 ## Day 22: If Santa, Then Christmas
 
+they give us 3 files as follow
+
+![image](https://user-images.githubusercontent.com/90561566/210720238-eeaf8cd3-e72d-4ab3-b8ce-169e4562c04b.png)
+
+start with if2
+
+```
+r2 -d if2
+aaaa
+afl
+```
+
+search for main function
+
+![image](https://user-images.githubusercontent.com/90561566/210721406-10adb969-1ab2-41b9-9fd4-a2340fbc04bd.png)
+
+```
+pdf @main
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210721522-243ffa39-b68c-4d26-9c89-3c16baf44145.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
