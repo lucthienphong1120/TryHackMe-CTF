@@ -192,6 +192,22 @@ pdf @main
 
 ![image](https://user-images.githubusercontent.com/90561566/210721522-243ffa39-b68c-4d26-9c89-3c16baf44145.png)
 
+to see 2 values before the end of function, set breakpoint at the end of the program before it set to 0
+
+```
+db 0x00400b71
+```
+
+`dc` to that breakpoint and check 2 variable now
+
+```
+px @rbp-0x8
+px @rbp-0x4
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210727600-6951992b-dd65-4f3a-b93a-9ef65b47ef29.png)
+
+## Day 23: LapLANd (SQL Injection)
 
 
 
