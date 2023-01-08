@@ -353,32 +353,52 @@ Answer
 
 ## Day 24: Elf Stalk
 
+scan the target
 
+```
+nmap -sS -sV -p- -T4 10.10.208.105
+```
 
+![image](https://user-images.githubusercontent.com/90561566/211184917-c250697e-c1e8-4fe5-b217-673aafa34e54.png)
 
+there are a lot of open ports, some interesting are ports 5601 (Kibana), 8000 (Logstack) and 9200 (Elastic Search)
 
+quick research that Elastic Search is a search engine, and we can search with database by appending `/_search?q=<query>` to the url
 
+```
+curl http://10.10.208.105:9200/_search?q=password
+```
 
+![image](https://user-images.githubusercontent.com/90561566/211185005-b337ad26-a524-40b3-994e-34800f40c5da.png)
 
+view kibana webapp at port 5601
 
+![image](https://user-images.githubusercontent.com/90561566/211185180-6ff36acb-c986-449e-88f3-19301a8ecaae.png)
 
+go to management, i can see kibana version 6.4.2
 
+![image](https://user-images.githubusercontent.com/90561566/211185259-01d8e0f9-160e-4104-bdf7-2dab4a6ba11c.png)
 
+i can find CVE-2018-17246
 
+![image](https://user-images.githubusercontent.com/90561566/211185394-edf9f273-e6a3-458f-b204-3b2b9e0da3ba.png)
 
+there open a LFI vector for us, try this to retrieve the root.txt
 
+```
+http://10.10.208.105:5601/api/console/api_server?sense_version=@@SENSE_VERSION&apis=../../../../../../../root.txt
+```
 
+unfortunately, the website is hang on loading, the mean they are handling the js
 
+quick look at port 8000, logstack has a log file of client request, that where we can see our result
 
+![image](https://user-images.githubusercontent.com/90561566/211185507-3fb1c283-e443-443b-8021-672fae6c9a17.png)
 
+the log file looks pretty messed up, let's use Ctrl+F
 
+![image](https://user-images.githubusercontent.com/90561566/211185977-207d5276-34f4-43ad-8521-a0fee5a34506.png)
 
+Answer
 
-
-
-
-
-
-
-
-
+![image](https://user-images.githubusercontent.com/90561566/211185981-7bb4c5a2-074f-4826-98ac-5563a403d66a.png)
