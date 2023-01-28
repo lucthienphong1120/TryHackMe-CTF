@@ -81,6 +81,35 @@ Answer
 
 ## Day 3: Christmas Chaos
 
+go to the webpage
+
+![image](https://user-images.githubusercontent.com/90561566/215256268-28311024-39f1-4fd6-b9f6-f5c86ca99c9e.png)
+
+catch request login and send to intruder
+
+![image](https://user-images.githubusercontent.com/90561566/215256346-6f66563e-619c-48a0-8833-2b0a7dc23220.png)
+
+set auto positions and attack type is cluster bomd, then go to Payload tab
+
+![image](https://user-images.githubusercontent.com/90561566/215256470-661c823d-9513-4425-9ad5-5893e9cbf5bc.png)
+
+add 3 each, total is 9, start attack
+
+![image](https://user-images.githubusercontent.com/90561566/215256538-4fe503e4-c21f-4270-9b2f-36982d4b6e72.png)
+
+all status is 302, but you can filter by length, it's one return with 255 value
+
+login and here we go, our flag
+
+![image](https://user-images.githubusercontent.com/90561566/215256651-61b5a009-da0c-41ec-b75c-b371372409ac.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/215256681-c7f6353a-c319-4040-a63a-a13b65c41cc0.png)
+
+## Day 4: Santa's watching
+
+
 
 
 
