@@ -109,8 +109,38 @@ Answer
 
 ## Day 4: Santa's watching
 
+view the webpage
 
+![image](https://user-images.githubusercontent.com/90561566/215312098-a4632e49-5224-4118-b5e6-7cff6ddb43f4.png)
 
+```
+gobuster dir -w /usr/share/wordlists/dirb/big.txt -u http://10.10.134.163
+```
+
+you will found the /api directory
+
+![image](https://user-images.githubusercontent.com/90561566/215312405-123a2d07-da4e-4159-a41c-687ca750e3b4.png)
+
+i found a site-log.php on /api
+
+![image](https://user-images.githubusercontent.com/90561566/215312595-123c04b0-8e44-4b3d-a0ce-0825eb908351.png)
+
+download the provided wordlists
+
+```
+wget https://assets.tryhackme.com/additional/cmn-aoc2020/day-4/wordlist -o wordlist.txt
+```
+
+```
+wfuzz -c -z file,wordlist.txt http://10.10.134.163/api/site-log.php?date=FUZZ
+curl http://10.10.134.163/api/site-log.php?date=20201125
+```
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/215312928-50c93887-8f5d-4af6-9908-66078b1f2d0d.png)
+
+## Day 5: Someone stole Santa's gift list!
 
 
 
