@@ -218,6 +218,29 @@ Answer
 
 ## Day 6: Be careful with what you wish on a Christmas night
 
+view the webpage at port 5000
+
+![image](https://user-images.githubusercontent.com/90561566/216258882-a6379ea8-93a1-487a-ba50-e1443cd5903b.png)
+
+try post a comment
+
+![image](https://user-images.githubusercontent.com/90561566/216260805-f334cae7-da79-4d59-b40c-bbcbed425056.png)
+
+Because you can post comments that allow you to save a script and have it execute everytime the page is loaded this is Store XSS
+
+open owasp zap
+
+![image](https://user-images.githubusercontent.com/90561566/216259658-9b892f21-4f1a-41f8-8296-29d7979db1e1.png)
+
+run a automatic scan
+
+![image](https://user-images.githubusercontent.com/90561566/216260362-bed62e49-af40-4d9f-a022-1970a40925b1.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/216261088-8dd9db6c-9cb8-4391-8fce-ab6a6b76db82.png)
+
+## Day 7: The Grinch Really Did Steal Christmas
 
 
 
