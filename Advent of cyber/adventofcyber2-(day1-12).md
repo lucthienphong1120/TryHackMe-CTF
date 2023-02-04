@@ -242,12 +242,39 @@ Answer
 
 ## Day 7: The Grinch Really Did Steal Christmas
 
+first open file pcap1.pcap, filter by icmp
 
+![image](https://user-images.githubusercontent.com/90561566/216743505-d2b8fe5e-6d67-42a0-a0f6-129545dee310.png)
 
+filter by http.request.method == GET, you will find an article
 
+![image](https://user-images.githubusercontent.com/90561566/216743808-1ea3b6c6-ac01-45eb-b3b7-82d6025421db.png)
 
+filter ftp with pcap2.pcap, i found a user elfmcskidy
 
+![image](https://user-images.githubusercontent.com/90561566/216744021-61aeed8e-ff0a-4347-9d24-367e0c3d2d34.png)
 
+right click and follow TCP stream
+
+![image](https://user-images.githubusercontent.com/90561566/216744039-ab85b6e0-0615-48bd-9afc-5b322e602b74.png)
+
+sort by protocols, you will see a encrypted protocol is sshv2
+
+![image](https://user-images.githubusercontent.com/90561566/216744253-01f2149f-18c5-418e-a415-ffbde26d6f23.png)
+
+open pcap3.pcap, export http
+
+![image](https://user-images.githubusercontent.com/90561566/216744658-98709ced-9f99-4d2a-8c87-36845af473be.png)
+
+there you go
+
+![image](https://user-images.githubusercontent.com/90561566/216744887-09a71405-5a56-4aae-a4a7-b0e445a3d720.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/216745182-9ead446d-9ea7-4148-a9a1-75cfd395a827.png)
+
+## Day 8: What's Under the Christmas Tree?
 
 
 
