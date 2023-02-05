@@ -276,6 +276,46 @@ Answer
 
 ## Day 8: What's Under the Christmas Tree?
 
+scan the target
+
+```
+nmap -A -T4 10.10.137.74
+```
+
+![image](https://user-images.githubusercontent.com/90561566/216816507-dc3b6506-f5a8-4784-a284-070acfe20843.png)
+
+it's very easy today
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/216816839-7bfcc329-6db9-414c-ac1d-2f271a6f89a6.png)
+
+## Day 9: Anyone can be Santa!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
