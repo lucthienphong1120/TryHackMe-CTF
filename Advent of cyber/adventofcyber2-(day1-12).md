@@ -363,8 +363,35 @@ Answer
 
 ## Day 10: Don't be sElfish!
 
+scan the target
 
+```
+nmap -A -T4 10.10.129.145
+```
 
+![image](https://user-images.githubusercontent.com/90561566/217503224-e4cb9536-8bac-435d-b478-bf20a63ff1be.png)
+
+![image](https://user-images.githubusercontent.com/90561566/217503307-5c1fd064-a753-419e-940b-6e4159261296.png)
+
+it shows that there is a vulnerable about smb on that machine
+
+```
+enum4linux -U -S 10.10.129.145
+```
+
+![image](https://user-images.githubusercontent.com/90561566/217503980-43ee71c1-3fb9-4fa7-a0ef-4e81b2651541.png)
+
+```
+smbclient //10.10.129.145/tbfc-santa
+```
+
+![image](https://user-images.githubusercontent.com/90561566/217504578-c8681665-2ad4-4589-9526-a2cd8ad7e08f.png)
+
+Answer
+
+![image](https://user-images.githubusercontent.com/90561566/217504636-2b58a52a-8b66-4f90-a80e-9a274bb348b0.png)
+
+## Day 11: The Rogue Gnome
 
 
 
