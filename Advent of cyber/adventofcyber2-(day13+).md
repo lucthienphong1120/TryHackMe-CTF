@@ -107,6 +107,67 @@ Answer:
 
 ## Day 15: There's a Python in my stocking!
 
+Answer:
+
+![image](https://user-images.githubusercontent.com/90561566/223003711-6e051157-8dfa-47dd-ab5a-a547fd42c981.png)
+
+## Day 16: Help! Where is Santa?
+
+scan the target
+
+```
+nmap -sS -sV -Pn -T4 10.10.167.235
+```
+
+![image](https://user-images.githubusercontent.com/90561566/223004718-fcee83a5-9a6d-424c-a998-9a8e7588b336.png)
+
+view the webpage
+
+![image](https://user-images.githubusercontent.com/90561566/223004863-4f0cc154-9714-444c-8906-a70ab04d1dfd.png)
+
+just guessing, the api is in /api/
+
+![image](https://user-images.githubusercontent.com/90561566/223005034-3bd10fd8-8ce4-4053-b861-45d56dee6061.png)
+
+now, create a script python to solve the question
+
+```
+#! /usr/bin/env python
+import requests
+url = 'http://10.10.167.235/api/'
+
+for i in range(1, 100, 2):
+    r = requests.get(url + str(i))
+    print(r.text)
+```
+
+![image](https://user-images.githubusercontent.com/90561566/223005618-965677ff-7860-46d0-827c-c3f6a0388116.png)
+
+```
+python3 script.py
+```
+
+![image](https://user-images.githubusercontent.com/90561566/223005728-f1f7cada-2165-4f1e-8e2e-4f1d0984547a.png)
+
+Answer:
+
+![image](https://user-images.githubusercontent.com/90561566/223005807-ae7a22f6-cba8-49f6-9564-795658b9f01f.png)
+
+## Day 17: ReverseELFneering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
