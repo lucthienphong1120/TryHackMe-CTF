@@ -155,15 +155,93 @@ Answer:
 
 ## Day 17: ReverseELFneering
 
+ssh to the machine with given credentials
 
+![image](https://user-images.githubusercontent.com/90561566/223635537-33646fca-8c03-416b-a3fe-5827da75ca26.png)
 
++ `db`: set a breakpoint
++ `dc`: move to next breakpoint
++ `ds`: move 1 line
++ `pdf @main`: again to see current point
 
+analyst the program
 
+```
+r2 -d ./file1
+aa
+afl | grep main
+```
 
+![image](https://user-images.githubusercontent.com/90561566/223636831-f88f0eeb-68e5-4693-9431-bfeaf1de2614.png)
 
+print the main function
 
+```
+pdf @main
+```
 
+![image](https://user-images.githubusercontent.com/90561566/223636991-87add459-e698-4f73-8e3c-a9fe3f583dac.png)
 
+set a breakpoint and debug
+
+```
+db 0x00400b55
+dc
+px @rbp-0xc
+```
+
+![image](https://user-images.githubusercontent.com/90561566/223638692-7b0d1605-fb33-40d9-a139-982c14a90c51.png)
+
+next and view again
+
+```
+ds
+px @rbp-0xc
+```
+
+![image](https://user-images.githubusercontent.com/90561566/223638899-7516b65d-a0d2-453c-8cf2-86df538345e3.png)
+
+next 4 lines and view other variable
+
+```
+ds
+ds
+ds
+ds
+px @rbp-0xb
+```
+
+back to our challenge
+
+![image](https://user-images.githubusercontent.com/90561566/223647767-4791f146-2444-4bf4-8da8-490d1eb51aa2.png)
+
+quick view, i can know that
+
++ `mov dword [local_ch], 1`: move local_ch to 1 (local_ch=1)
++ `mov dword [local_8h], 6`: move local_8h to 6 (local_8h=1)
++ `mov eax, dword [local_ch]`: move eax to local_ch (eax=1)
++ `imul eax, dword [local_8h]`: multiple eax with local_8h (eax=6)
++ `mov dword [local_4h], eax`: move local_4h to eax (local_4h=6)
+
+To do that, you can read the instruction
+
+```
+leaq source, destination: this instruction sets destination to the address denoted by the expression in source
+addq source, destination: destination = destination + source
+subq source, destination: destination = destination - source
+imulq source, destination: destination = destination * source
+salq source, destination: destination = destination << source where << is the left bit shifting operator
+sarq source, destination: destination = destination >> source where >> is the right bit shifting operator
+xorq source, destination: destination = destination XOR source
+andq source, destination: destination = destination & source
+orq source, destination: destination = destination | source
+```
+
+Answer:
+
+![image](https://user-images.githubusercontent.com/90561566/223648903-72a5d26d-2509-466f-a6f6-5535c967b3ed.png)
+
+## Day 18: The Bits of Christmas
 
 
 
