@@ -240,15 +240,3 @@ orq source, destination: destination = destination | source
 Answer:
 
 ![image](https://user-images.githubusercontent.com/90561566/223648903-72a5d26d-2509-466f-a6f6-5535c967b3ed.png)
-
-## Day 18: The Bits of Christmas
-
-
-
-
-
-
-
-
-
-
