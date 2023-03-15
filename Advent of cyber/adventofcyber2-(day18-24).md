@@ -74,11 +74,33 @@ Answer:
 
 ## Day 19: The Naughty or Nice List
 
+open the webserver, we be able to see a website to search name and santa's login panel
 
+![image](https://user-images.githubusercontent.com/90561566/225262034-d1fb0404-9b28-4040-962c-0e660188eeb5.png)
 
+try to search for 'test', i see the url is processed with a parameter `proxy`
 
+![image](https://user-images.githubusercontent.com/90561566/225262561-4532e0c4-82da-446a-9e6a-ff280cf0e047.png)
 
+as the instruction, i will provide with `proxy=http%3A%2F%2Flist.hohoho.localtest.me` to see what is going on localhost
 
+![image](https://user-images.githubusercontent.com/90561566/225263270-fafb94fa-4847-4e8c-b285-f57222151f61.png)
+
+so, we have santa's password, it's too long wow
+
+login with `Santa` and `Be good for goodness sake!`
+
+![image](https://user-images.githubusercontent.com/90561566/225264802-10a469e9-d5ab-4fc5-a65e-052aaa533353.png)
+
+here is our flag
+
+![image](https://user-images.githubusercontent.com/90561566/225265002-66afa2c3-2b13-4b19-8c6d-52b25fe01926.png)
+
+Answer:
+
+![image](https://user-images.githubusercontent.com/90561566/225265093-7b2f758d-0030-4e7e-a9b9-b337946869a5.png)
+
+## Day 20: PowershELlF to the rescue
 
 
 
