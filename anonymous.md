@@ -15,9 +15,15 @@ nmap -sS -sV -sC -Pn 10.10.185.190
 interesting, a huge information here
 
 + we have a ftp server allowed anonymous login, even writable permission
-+ a samba server on windows 6.1
++ a samba server on windows 6.1 with empty password
 
 ## Enumeration
+
+view remote share on smbclient with empty password
+
+![image](https://user-images.githubusercontent.com/90561566/230729451-7bf785e1-2bd7-460a-951f-00b4cb6fa7ff.png)
+
+there is a `pics` shared folder here
 
 connect to ftp server
 
