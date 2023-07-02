@@ -102,6 +102,108 @@ Answer:
 
 ## Day 20: PowershELlF to the rescue
 
+ssh to the machine
+
+```
+ssh mceager@10.10.73.111
+r0ckStar!
+```
+
+enter powershell mode
+
+```
+powershell
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/58af1623-9848-41cb-a85b-446fc70a08d1)
+
+you can using PS or linux cmdlet are both okay
+
+```
+ls # or Get-ChildItem
+cd Documents # or Set-Location Documents
+ls -h # or Get-ChildItem -File -Hidden
+cat elfone.txt # or Get-Content elfone.txt
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/0d3b6e29-f479-426f-bca6-fa54d8265cb1)
+
+```
+Set-Location ../Desktop
+Get-ChildItem -Directory -Hidden
+Set-Location elf2wo
+Get-ChildItem -File
+Get-Content e70smsW10Y4k.txt
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/0bce3566-9e1d-4dc7-bc58-ce67d9e1193b)
+
+```
+Get-ChildItem -Path C:\Windows -Directory -Recurse -Hidden -Filter '*3*' -ErrorAction SilentlyContinue
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/366be101-8099-4a5f-a65d-9e84c490809d)
+
+```
+Set-Location C:\Windows\System32\3lfthr3e
+Get-ChildItem -File -Hidden
+```
+
+there are 2 files here
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/8161d9cb-8f2c-442b-900e-f437a55528e8)
+
+count the words in first file and get 2 words
+
+```
+Get-Content 1.txt | Measure-Object -Word
+(Get-Content 1.txt)[551]
+(Get-Content 1.txt)[6991]
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/9628cef8-fd9b-4f7f-b165-7da37a89769c)
+
+find Elf 3 want
+
+```
+Select-String -Path 2.txt -Pattern "redryder"
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/3e43f6aa-ccc3-4261-b003-a654e63b0fd7)
+
+Answer:
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/09a9744e-48d8-439e-8741-2432999bd6dd)
+
+## Day 21: Time for some ELForensics
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
