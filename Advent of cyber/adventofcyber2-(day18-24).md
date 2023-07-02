@@ -177,11 +177,43 @@ Answer:
 
 ## Day 21: Time for some ELForensics
 
+connect to the machine using Remmina
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/ab6932b3-96b8-4d53-96cf-b2d3b83242da)
 
+```
+Get-ChildItem
+Set-Location Documents
+Get-ChildItem -File
+Get-Content 'db file hash.txt'
+Get-FileHash -Algorithm MD5 deebee.exe
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/5a090cae-37d4-4e03-8436-490436bf3225)
 
+find the hidden flag on exe file
 
+```
+C:\Tools\strings64.exe -accepteula .\deebee.exe | Select-String -Pattern "THM"
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/28a0b985-fc61-4746-a3f0-e4ea750a984b)
+
+run the database connector file and capture the alternate data stream
+
+```
+.\deebee.exe
+Get-Item -Path deebee.exe -Stream *
+wmic process call create $(Resolve-Path ./deebee.exe:hidedb)
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/a3236ea0-c330-408a-b32c-c518d702d274)
+
+Answer:
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/ee8000b6-d754-4a91-bab6-11669b6e22ed)
+
+## Day 22: Elf McEager becomes CyberElf
 
 
 
