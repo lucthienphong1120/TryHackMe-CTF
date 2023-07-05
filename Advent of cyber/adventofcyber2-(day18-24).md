@@ -267,7 +267,51 @@ Answer:
 
 ## Day 23: The Grinch strikes again!
 
+log into the machine using Remmina
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/c30be665-b713-4550-94d4-fe9a81b709f7)
+
+decypt the bitcoin address at ransomenote.txt, it's `nomorebestfestivalcompany` in base64
+
+you can see a lot of files are encrypted by .grinch
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/dfbf2a11-3852-47b3-8978-097d692a6b5e)
+
+open task scheduler, you will see a suspicious task
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/286b3254-32ea-4062-ade7-39da1498bb3c)
+
+click on its task to see the location of program
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/85e2c8cc-4af5-4b60-a8fe-4cc39159ff3a)
+
+do the same to see properties of Shadow Copy Volumn
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/54ea1a84-b400-42a5-a134-2b168402b433)
+
+open disk management, assign a drive letter for backup disk
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/1509ce96-6ce5-4e1f-b768-8e5688c12df8)
+
+on that backup disk, turn on show hidden files, and see a confidential folder 
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/fe85b459-1bbc-4d5d-93ee-6db59de55b3c)
+
+right click and restore it by VSS
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/49fada09-fc70-44e3-ac1c-3e5702a12271)
+
+okay, here you go, master-password before it encrypted
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/28565533-58c7-4f00-9f98-f6956f239e6e)
+
+Answer:
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/3c1c2ce7-1c19-4898-87a6-8daf037cf8a9)
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/ca4ec894-5f1d-4a7f-9dac-97e5e477f1a1)
+
+## Day 24: The Trial Before Christmas
 
 
 
