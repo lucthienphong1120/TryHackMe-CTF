@@ -1,4 +1,4 @@
-![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/f4b5ea55-0e18-4b7f-9f84-d2b4e8979ec9)# [Cat Pictures 2](https://tryhackme.com/room/catpictures2)
+# [Cat Pictures 2](https://tryhackme.com/room/catpictures2)
 
 > Now with more Cat Pictures!
 
