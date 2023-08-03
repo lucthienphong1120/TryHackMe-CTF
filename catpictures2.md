@@ -10,7 +10,7 @@ scan the target
 nmap -A -T4 10.10.242.208
 ```
 
-we have a huge of information here (22,80,222,3000,8080
+we have a huge of information here (22,80,222,3000,8080)
 
 ![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/feb2bd3a-4dda-47ab-a7de-475dd8cf7fb6)
 
