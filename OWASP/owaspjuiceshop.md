@@ -188,59 +188,111 @@ This hints towards a page called `/#/administration`, but going there while not 
 
 As this is an Administrator page, it makes sense that we need to be in the Admin account in order to view it.
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/86865f0f-3ecd-46cc-9a7c-3ab8bf752928)
 
+you now can see all user email here
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/59916405-c8d0-4041-949f-0634bae9c010)
 
+Login to the Admin account and click on Your Basket, intercept the request
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/474903d2-e35a-45bb-9990-c48522b20e14)
 
+Now, we are going to change the basket number to `GET /rest/basket/2`
 
+it will now show you the basket of UserID 2. You can do this for other UserIDs as well, provided that they have one!
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/38a25d07-cc5e-4fc4-8fcf-6b5df6a4f6ad)
 
+return back to /administration and remove all 5-star reviews!
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/9f30a927-9903-4707-aedf-684b7a78e5b4)
 
+## Where did that come from?
 
+XSS or Cross-site scripting is a vulnerability that allows attackers to run javascript in web applications. 
 
+These are one of the most found bugs in web applications. 
 
+Their complexity ranges from easy to extremely hard, as each web application parses the queries in a different way. 
 
+There are three major types of XSS attacks:
++ DOM XSS (Special)
++ Persistent XSS (Server-side)
++ Reflected XSS (Client-side)
 
+Inputting xss into the search bar will trigger the alert.
 
+```
+<iframe src="javascript:alert(`xss`)"> 
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/1c92c737-016d-4920-91eb-8748b6ec79c6)
 
+now, we are going to navigate to the "Last Login IP" page to perform a persistent XSS
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/87242836-cf07-4abc-ab79-8fd33546b9a2)
 
-## Exploitation
+logout and catch the `GET /rest/saveLoginIp` request, check Headers tab where we will add a new header
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/dec99233-769f-4efa-b238-fd2966fbee63)
 
+we performed a persisted XSS attack with HTTP-Header XSS
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/b9d64a0c-9333-4f51-bf19-945576604da7)
 
+navigate to the "Order History" page to perform the reflected XSS!
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/a09134fc-d04d-426b-aa8f-29f72c396d18)
 
+clicking on Track Order will bring you to the track result page
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/9c8d949b-dcd9-4682-b9de-dda2e1a823b3)
 
+We will use the iframe XSS to the id ```/track-result?id=<iframe src="javascript:alert(`xss`)">```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/660fdbc8-c538-4fe4-9189-0695abe99bce)
 
+The server will have a lookup table or database (depending on the type of server) for each tracking ID. 
 
+As the 'id' parameter is not sanitised before it is sent to the server, we are able to perform an XSS attack.  
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/ca33547c-6dcc-443f-b1b9-5e88cccd6d33)
 
+## Exploration!
 
+If you wish to tackle some of the harder challenges that were not covered within this room, check out the /#/score-board/
 
+Here you can see your completed tasks as well as other tasks in varying difficulty.
 
-## Privilege Escalation
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/3bfd524b-8671-4f3d-9fc2-2c3e2dad5899)
 
+1 star level
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/9d12c7de-82d6-462f-843a-d9692e596112)
 
+2 star level
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/6167ee05-a888-4222-9b27-ffe3691cb80d)
 
+3 star level
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/2ab5e0dd-8e6d-4de1-915b-de4cbaa6775a)
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/6c90a304-4617-4efb-84fd-466e21d4cee7)
 
+4 star level
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/b813881e-17ad-407f-b63e-de5bba5ed4df)
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/feb88b4a-caf3-486f-9df1-652d60d4e659)
 
+5 star level
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/daf9364c-6ef0-4fb3-ab30-1518495dac19)
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/97cda03e-dc35-4089-8d8f-c4510b09377c)
 
+6 star level
 
-
-
-
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/bf79fc9e-72ca-4c4e-bf29-c314bbb5f54e)
