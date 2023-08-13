@@ -135,26 +135,28 @@ but it's not work because the password is salted, you must crack by hand
 
 ```
 #!/usr/bin/env python3
-
 import bcrypt
 import base64
 
+wordlist = []
+with open('list.txt','rt') as file:
+    f = file.readlines()
+    wordlist = [ x.strip() for x in f ]
+
 salt = b'$2b$12$SVInH5XmuS3C7eQkmqa6UO'
-bcrypt_hash = b'$2b$12$SVInH5XmuS3C7eQkmqa6UOM6sDIuumJPrvuiTr.Lbz3GCcUqdf.z6'
+passwd = b'$2b$12$SVInH5XmuS3C7eQkmqa6UOM6sDIuumJPrvuiTr.Lbz3GCcUqdf.z6'
 
-with open('/usr/share/wordlists/rockyou.txt', 'r', encoding='latin-1') as f:
-	for word in f.readlines():
-		passw = word.strip().encode('ascii', 'ignore')
-		b64str = base64.b64encode(passw)
-		hashAndSalt = bcrypt.hashpw(b64str, salt)
-		print('\r', end='') # Clear previous line
-		print(f'[*] Cracking hash: {hashAndSalt}', end='')
-
-		if bcrypt_hash == hashAndSalt:
-			print('\n[+] Cracked!')
-			print(f'[+] Before hashed: {passw}')
-			print(f'[+] After hashed: {hashAndSalt}')
-			exit()
+for word in wordlist:
+    password = word
+    bpass = password.encode('ascii')
+    passed= str(base64.b64encode(bpass))
+    hashAndSalt = bcrypt.hashpw(passed.encode(), salt)
+    print('\r', end='') # Clear previous line
+    print(f'[*] Cracking hash: {hashAndSalt}', end='')
+    
+    if hashAndSalt == passwd:
+        print(f'Found: {word}')
+        break
 ```
 
 i said it will take you too long to get actual password...
@@ -165,14 +167,16 @@ Spoiler alert: the password is `isolsa_tabefX100pre`. Where does this occur in r
 import bcrypt
 import base64
 
+salt = b'$2b$12$SVInH5XmuS3C7eQkmqa6UO'
+passwd = b'$2b$12$SVInH5XmuS3C7eQkmqa6UOM6sDIuumJPrvuiTr.Lbz3GCcUqdf.z6'
+
 password = 'isolsa_tabefX100pre'
 bpass = password.encode('ascii')
 passed= str(base64.b64encode(bpass))
-hash = bcrypt.hashpw(passed.encode(), b'$2b$12$SVInH5XmuS3C7eQkmqa6UO')
-stored_hash = b'$2b$12$SVInH5XmuS3C7eQkmqa6UOM6sDIuumJPrvuiTr.Lbz3GCcUqdf.z6'
+hashAndSalt = bcrypt.hashpw(passed.encode(), salt)
 
-if hash == stored_hash:
-  print("match: ", password)
+if hashAndSalt == passwd:
+    print("Match: ", password)
 ```
 
 Ok. Let's say we use our python script and run through rockyou; how long would that take? 
