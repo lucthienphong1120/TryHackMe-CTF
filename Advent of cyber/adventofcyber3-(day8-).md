@@ -1,4 +1,4 @@
-![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/1d59ad51-5827-47ed-8f29-00b6182d0555)# [Advent of Cyber 2021](https://tryhackme.com/room/adventofcyber3)
+# [Advent of Cyber 2021](https://tryhackme.com/room/adventofcyber3)
 
 > Get started with Cyber Security in 25 Days - Learn the basics by doing a new, beginner friendly security challenge every day leading up to Christmas.
 
