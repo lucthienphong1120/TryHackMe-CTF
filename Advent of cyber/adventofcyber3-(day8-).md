@@ -74,13 +74,41 @@ Answer:
 
 ## Day 9: Where Is All This Data Going
 
+open the pcap file with wireshark
 
+filter by `http.request.method == GET`, you will see /login
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/37c8fcbe-b442-4bf6-a770-6eb90c8e3c54)
 
+try to find username, password on POST form `http.request.method == POST`
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/51090aeb-3b2a-405d-93b5-ef51b5c163a3)
 
+on User-Agent, you can see the flag
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/03ae418f-f44d-40d4-9cf4-834da1dd9449)
 
+filter by dns method and search for "txt"
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/6808c11b-7fdc-4e59-8d16-6b5196a7c7b5)
+
+right click and follow udp stream
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/c268e96e-1706-4d5d-b2d8-bab07caca737)
+
+filter by ftp method and search for "pass"
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/fd3a4b46-81cc-416d-a365-cc045d7a3939)
+
+filter by ftp-data
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/a44c8ece-f3b4-4bd9-882a-b831ffe1c476)
+
+Answer:
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/26067bc2-3074-4523-95c1-34c3cff66eb9)
+
+## Day 10: Offensive Is The Best Defence
 
 
 
