@@ -93,17 +93,47 @@ Answer:
 
 ## Day 20: What's the Worst That Could Happen?
 
+print all readable content on testfile
 
+```
+strings testfile
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/123625c6-a89e-4717-be17-e3f7edb86d3d)
 
+check file type
 
+```
+file testfile
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/88923ec7-043e-401d-a659-c956e4b720e9)
 
+caculate hash and check with virustotal
 
+```
+md5sum testfile
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/79e8d450-6e1a-42c5-950e-2fb07f92c10a)
 
+on details tab, we can see the timestamp
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/d61ea083-2b59-4766-b0ca-0f7dc6293b06)
 
+on author description, i see 2 other name of that file
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/550a71dd-87c1-46dd-bcb5-24ea52362ebc)
+
+and the maximum number of total characters that can be in the file
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/13baf09d-ea7a-4b60-a7fc-633d200a7ad2)
+
+Answer:
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/6cb9cfa1-1892-4e4e-b25d-2a89bd50dc60)
+
+## Day 21: Needles In Computer Stacks
 
 
 
