@@ -135,24 +135,64 @@ Answer:
 
 ## Day 21: Needles In Computer Stacks
 
+this challenge is all about yara document
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/ad6f658a-db0a-44c5-8cdc-f8b938735214)
 
+run the command with the -c option with return 0 or 1 as false or true
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/7ccfda05-4e95-46e7-9ef5-b8365a710eae)
 
+Answer:
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/ef8b3eee-ec97-47e3-98f5-5cf1e9843d6f)
 
+## Day 22: How It Happened
 
+let's check the doc file with oledump
 
+```
+cd C:\Users\Administrator\Desktop\Santa_Claus_Naughty_List_2021
+oledump.py Santa_Claus_Naughty_List_2021.doc
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/5512a4cf-d568-4477-92d0-3b11f27d0bae)
 
+this shows us the data streams of doc file and we can use it to reference stream index
 
+```
+oledump.py -s 8 -d Santa_Claus_Naughty_List_2021.doc
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/71edcd4b-5510-410a-a98f-37344e4b4a65)
 
+copy the base64 and decode with cyberchef
 
+you can use the given recipe from guide
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/d834c494-685d-435d-a84d-9dc4963f348f)
 
+we can check another stream, stream 7 seem interesting
 
+```
+oledump.py -s 7 -d Santa_Claus_Naughty_List_2021.doc
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/e127e2c1-07a9-4ba9-9e46-97e6de6454cc)
+
+now, we are looking for a path the script that we decoded
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/f22a9d90-798b-4e26-b351-068d87c04a84)
+
+navigate to `%USERPROFILE%\Pictures\Grinch2021\`
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/2813206b-47d9-4ed6-a471-1cf6e0570535)
+
+Answer:
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/dff37723-cd0f-41f1-9b69-d36ffd4ed53c)
+
+## Day 23: PowershELlF Magic
 
 
 
