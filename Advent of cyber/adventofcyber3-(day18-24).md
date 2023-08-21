@@ -194,12 +194,67 @@ Answer:
 
 ## Day 23: PowershELlF Magic
 
+open FullEventLogView, click on Advanced Options, filter as the guide
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/11938f7a-14d2-4a06-a918-68d42ef147f7)
 
+the result we have 7 records, first one is someone has download CVE-2021-1675 and save it as grab.ps1
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/1ccc6793-b35d-4a22-af23-88a77b619350)
 
+and we alse can see the user execute it at the end
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/c55c0a10-1340-4fe0-bb6f-03a0059f62f9)
 
+on elfmcnealy folder, check his Document folder, i see a folder 20211111 that have 2 log files
+
+open first one, he exploit CVE-2021-1675 to create a new user with administrator privilege
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/947ead8a-5ef0-4aca-bc91-a7e9d5932edd)
+
+on adm1n folder, check his Document folder, i see same folder 20211111 that contain 2 log files
+
+i see it related to retrieve administrator's password using a file on elfmcnealy's Desktop
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/6e8c4d06-be13-42d7-8f45-229fc069053e)
+
+check the powershell script on elfmcnealy's Desktop, it encrypt password with a key then post to a remote server
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/938fca28-c178-416f-a56f-67929f018e3c)
+
+the script then downloads a sdelete.zip, extract it then run the sdelete.exe the password file
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/a65073d6-a7e9-43bb-97a4-f1cbd3837784)
+
+now, back to the FullEventLogView Advanced Options, filter with sdelete.exe
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/fcedd8d5-650e-44e0-b470-1ff37c573667)
+
+on last record, we has timestamp of the command we need in the log file
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/9755b421-0644-4244-964b-432767fed0c0)
+
+now we need to retrive actual password file, direct to decryptor.ps1 on the Desktop of the VM
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/d8859b57-6466-44f3-a7c6-bd48de343740)
+
+refer to sendit.ps1 on elfmcnealy's Desktop, i think it relevant to the $encryptedData
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/e343d32c-58d7-4806-a13f-12d794aa3765)
+
+filter encryptedData by all event id
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/67eea118-2126-43b7-aa04-6b80d859d4db)
+
+on last record, we have details about body of the post form
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/e4d9625d-1bc5-4acf-992c-43fc03d11fa9)
+
+copy encrypted data and key in above step into the decryptor.ps1 script to obtain flag
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/a56a7426-518c-44a5-a108-46fae58c9799)
+
+## Day 24: Learning From The Grinch
 
 
 
