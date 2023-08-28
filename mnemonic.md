@@ -199,6 +199,12 @@ cat /root/root.txt
 
 ![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/d10bc4cc-236d-4319-9c39-8fb9385d1c44)
 
+md5 hash to get answer flag
+
+```
+echo -n "congratulationsyoumadeithashme" | md5sum
+```
+
 | Flag | root.txt |
 | --- | --- |
-| Answer | THM{congratulationsyoumadeithashme} |
+| Answer | THM{2a4825f50b0c16636984b448669b0586} |
