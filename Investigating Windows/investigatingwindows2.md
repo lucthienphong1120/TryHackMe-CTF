@@ -1,4 +1,4 @@
-![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/42649d45-0df8-4668-bbbc-3b57e4dd1c7a)# [Investigating Windows 2.0](https://tryhackme.com/room/investigatingwindows2)
+# [Investigating Windows 2.0](https://tryhackme.com/room/investigatingwindows2)
 
 > In the previous challenge you performed a brief analysis. Within this challenge, you will take a deeper dive into the attack.
 
@@ -73,15 +73,58 @@ find `Init` module from lokiscan output, i get `WMIScan` and 2nd, 4th warning na
 
 ![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/699dc524-43de-4350-8ca9-0f73d73a6574)
 
+from loki output FIRST_BYTES section find 4d5a90000300000004000000ffff0000b8000000
 
+from DESC section
 
+from FILE section
 
+from MATCHES section
 
+from FILE/INFO section
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/f4185fd9-910d-4816-bf20-3c0b591dee04)
 
+loki found a xor-encrypted binary (Derusbi trojan) on xCmd.exe
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/0f336ada-8e8a-4a65-8fce-33aa2e8a66eb)
 
+remember pid 916 under name svchost, that masquerade itself as a legitimate core Windows process/image
 
+loki raised an alert of it at C:\Users\Public\ instead of C:\Windows\System32
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/0026c655-e475-4781-afe0-073d976f788a)
 
+from DESC section
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/081be7ca-2b19-4ea5-bdd9-ef41289bca8f)
+
+at same location, i see en-US.js also tagged as hacktool
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/4e6f76f3-5ee5-4c0f-b318-390fc5aacc01)
+
+loki seem very very useful, but the problem is it didn't detect our malicious mim.exe
+
+now, we need to complete the regex of the provided yara rule
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/0fd93063-e69f-4d4e-a39f-f400212114ca)
+
+we can help ourselves with strings.exe from SysInternals suite to test our regexps through findstr:
+
+```
+strings.exe C\TMP\mim.exe | findstr "??.?x?"
+strings.exe C\TMP\mim.exe | findstr "...exe"
+strings.exe C\TMP\mim.exe | findstr "mk.exe"
+```
+
+Answer:
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/27867d20-035e-437e-a5da-f9a2c109a265)
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/67c8b600-e846-4e91-9098-bb2d19ec7a7c)
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/9a5a0975-cb20-4b29-b2fd-1c6254d6d884)
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/0a909bc2-09f9-4907-9db6-be8beaccd42d)
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/05393daf-10bb-4b1a-a23c-18221c400520)
