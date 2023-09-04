@@ -288,12 +288,98 @@ su mission25
 mission25{61b93637881c87c71f220033b22a921b}
 ```
 
+we don't have actual means of anything (even can't `su`)
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/1859a7ae-79de-480b-8fb8-7a2759668649)
 
+so i just exit back to mission24 to get normal user path
 
+```
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+```
 
+now, we can
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/957584ea-024f-48e3-a7bd-6ab59edbbc06)
+
+```
+su mission26
+mission26{cb6ce977c16c57f509e9f8462a120f00}
+```
+
+we get an image, but can't open, get strings
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/114083e4-0bbd-4ed8-86b2-16d13f9ad213)
+
+```
+su mission27
+mission27{444d29b932124a48e7dddc0595788f4d}
+```
+
+something too long
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/915b65d3-d0a0-4675-bbc2-5bfbfab1ce90)
+
+```
+su mission28
+mission28{03556f8ca983ef4dc26d2055aef9770f}
+```
+
+this time, we are in ruby shell, spawn a bash `exec '/bin/bash'`
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/ac2a847b-3196-40c2-930e-a23ba619724b)
+
+looks like that are in reverse
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/eaab06e1-cbd7-46f9-8b47-26875beacb6c)
+
+```
+su mission29
+mission29{8192b05d8b12632586e25be74da2fff1}
+```
+
+do a bit grep
+
+```
+grep -r mission30 . 2>/dev/null
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/ac7aa179-2858-4c16-88b3-940b8846dc09)
+
+```
+su mission30
+mission30{d25b4c9fac38411d2fcb4796171bda6e}
+```
+
+read the `git log`
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/e1f7428a-3647-4624-b85c-acc27e489beb)
 
 ## Privilege Escalation
+
+now, login to viktor and ready for some escalation
+
+```
+su viktor
+viktor{b52c60124c0f8f85fe647021122b3d9a}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 | Flag | root.txt |
