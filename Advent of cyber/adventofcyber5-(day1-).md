@@ -171,18 +171,49 @@ Answer:
 
 ## Day 6: Memories of Christmas Past
 
+if the coins variable had the in-memory value in the image below, how many coins would you have in the game?
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/52235c3f-ae87-4b24-a79d-b0f1f2db1c45)
 
+reverse the hex values and convert it to decimal
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/c70ee8c4-a62b-4f01-a28e-a60f4e821a73)
 
+go to the game
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/ad028d43-b7b8-43ad-b12f-053862feaaa3)
 
+you will need to go out and in the pc to get coin more then 12
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/a47eaeeb-1ad4-4f64-99f8-0057d7b504ee)
 
+go to the goblin and change a long name
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/b0e98797-bd0b-44b5-aaae-e5d7d1616c62)
 
+we have lots of money, go to van frosty and buy the star
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/be7736e5-6de1-45f0-8532-1b5ea3f07ea6)
 
+but we can buy the star, the game make it unwinable
+
+so, change our name to buffer overflow all the game memory (total 60 characters) and fill all shop item values for int_item
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/9e17a843-e7da-438e-83e7-0c0d398c6274)
+
+after that, we have all values from 1-d in our iventory (remember it's lowercase)
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/58952b83-5de7-4e9e-b234-7acf6eb1b9b2)
+
+and go to the chrismas tree to get our flag
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/2613b0bd-3966-4ad2-a1c9-a276f6146f19)
+
+Answer:
+
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/293c141f-60d0-413d-9b67-f80da293e6a1)
+
+## Day 7: Tis the season for log chopping!
 
 
 
