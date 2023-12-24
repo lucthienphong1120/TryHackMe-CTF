@@ -315,26 +315,26 @@ Answer:
 
 ## Day 8: Have a Holly, Jolly Byte!
 
+open FTK Imager on the Desktop, go to File/Add envidence item, choose PhysicalDrive2
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/62f89140-e7f5-49f0-82e9-3a0ddd811dea)
 
+Explore the DO_NOT_OPEN directory, we can see secretchat.txt was deleted
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/511a3a08-59cb-4f8a-9f17-3892cd17df06)
 
+on deleted zip archive, i see an exe file
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/685707b2-8836-4180-bc39-5d4e50441b64)
 
+on root directory, you see a deleted portrait.png, find `THM{`
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/9a1ef2c0-321c-4824-b63c-acd45ee76248)
 
+right click PHYSICALDRIVE2 from the Evidence Tree, Verify Drive/Image
 
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/5fee2478-4f2c-4656-a44e-fa416bddf700)
 
+Answer:
 
-
-
-
-
-
-
-
-
-
-
-
-
+![image](https://github.com/lucthienphong1120/TryHackMe-CTF/assets/90561566/d5e854e5-3089-4fb7-afa0-f5bccca4b082)
